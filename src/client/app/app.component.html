@@ -11,10 +11,12 @@
     Angular Material2 Example App
 
     <span class="app-toolbar-filler"></span>
+    <button><a [routerLink]="['/']">Form</a></button>
+    <button><a [routerLink]="['/about']">ABOUT</a></button>
   </md-toolbar>
 
   <div class="app-content">
-
+    <router-outlet></router-outlet>
     <md-card>
       <button md-button>FLAT</button>
       <button md-raised-button>RAISED</button>

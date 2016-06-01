@@ -9,6 +9,6 @@
 </form>
 
 
-<ul>
-  <li *ngFor="let name of nameListService.get() | async">{{name}}</li>
-</ul>
+<md-list>
+  <md-list-item *ngFor="let name of nameListService.get() | async">{{name}}</md-list-item>
+</md-list>

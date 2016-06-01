@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES, Routes } from '@angular/router';
 import { HTTP_PROVIDERS} from '@angular/http';
 import { AboutComponent } from './+about/index';
 import { HomeComponent } from './+home/index';
-import { NameListService, NavbarComponent, ToolbarComponent } from './shared/index';
+import { NameListService, ToolbarComponent } from './shared/index';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
@@ -26,7 +26,7 @@ import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
   providers: [MdRadioDispatcher, MdIconRegistry, NameListService, HTTP_PROVIDERS],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent, MD_SIDENAV_DIRECTIVES,
+  directives: [ROUTER_DIRECTIVES, ToolbarComponent, MD_SIDENAV_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     MdToolbar,
     MdButton,
