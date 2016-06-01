@@ -1,9 +1,9 @@
 {
-  "name": "angular2-seed",
+  "name": "angular2-material-seed",
   "version": "0.0.0",
-  "description": "Modular seed project for Angular 2 apps with fast, statically typed build",
+  "description": "Modular seed project for Angular 2 apps with Material",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "url": "https://github.com/liuy97/angular2-material-seed.git"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color",
@@ -32,7 +32,7 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
-  "author": "Minko Gechev <mgechev>",
+  "author": "liuy97",
   "license": "MIT",
   "devDependencies": {
     "async": "^1.4.2",
@@ -97,7 +97,7 @@
     "stream-series": "^0.1.1",
     "stylelint": "^6.3.3",
     "stylelint-config-standard": "^6.0.0",
-    "systemjs-builder": "^0.15.14",
+    "systemjs-builder": "0.15.16",
     "tildify": "^1.2.0",
     "tiny-lr": "^0.2.1",
     "traceur": "^0.0.91",
@@ -119,6 +119,18 @@
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "@angular/router": "2.0.0-rc.1",
+    "@angular2-material/button": "^2.0.0-alpha.5",
+    "@angular2-material/card": "^2.0.0-alpha.5",
+    "@angular2-material/checkbox": "^2.0.0-alpha.5",
+    "@angular2-material/core": "^2.0.0-alpha.5",
+    "@angular2-material/input": "^2.0.0-alpha.5",
+    "@angular2-material/icon": "^2.0.0-alpha.5",
+    "@angular2-material/list": "^2.0.0-alpha.5",
+    "@angular2-material/progress-bar": "^2.0.0-alpha.5",
+    "@angular2-material/progress-circle": "^2.0.0-alpha.5",
+    "@angular2-material/radio": "^2.0.0-alpha.5",
+    "@angular2-material/sidenav": "^2.0.0-alpha.5",
+    "@angular2-material/toolbar": "^2.0.0-alpha.5",
     "es6-module-loader": "^0.17.8",
     "core-js": "^2.4.0",
     "reflect-metadata": "0.1.2",
