@@ -50,6 +50,18 @@
       <md-radio-button name="symbol" disabled>Gamma</md-radio-button>
     </md-card>
 
+    <md-card>
+      <md-slide-toggle [(ngModel)]="slideToggleModel">
+        Default Slide Toggle
+      </md-slide-toggle>
+      <md-slide-toggle disabled>
+        Disabled Slide Toggle
+      </md-slide-toggle>
+      <md-slide-toggle [checked]="isChecked">
+        Input Binding
+      </md-slide-toggle>
+    </md-card>
+
     <md-card class="app-input-section">
       <md-input placeholder="First name"></md-input>
 

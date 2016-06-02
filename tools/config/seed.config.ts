@@ -366,6 +366,21 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'icon.js'
       },
+      '@angular2-material/tabs': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'tabs.js'
+      },
+      '@angular2-material/grid-list': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'grid-list.js'
+      },
+      '@angular2-material/slide-toggle ': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'slide-toggle.js'
+      },
       rxjs: { defaultExtension: false }
     }
   };
@@ -479,6 +494,21 @@ export class SeedConfig {
         format: 'cjs',
         defaultExtension: 'js',
         main: 'icon.js'
+      },
+      '@angular2-material/tabs': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'tabs.js'
+      },
+      '@angular2-material/grid-list': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'grid-list.js'
+      },
+      '@angular2-material/slide-toggle ': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'slide-toggle.js'
       },
       'rxjs': {
         defaultExtension: 'js'

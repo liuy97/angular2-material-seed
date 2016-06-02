@@ -18,6 +18,7 @@ import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 import {MD_GRID_LIST_DIRECTIVES} from '@angular2-material/grid-list';
 import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
 import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
+import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
  * applications routes, configuring the paths for the lazy loaded components (HomeComponent, AboutComponent).
@@ -40,7 +41,7 @@ import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
     MD_INPUT_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     MdProgressBar,
-    MdIcon,HomeComponent,AboutComponent]
+    MdIcon, HomeComponent, AboutComponent, MD_SLIDE_TOGGLE_DIRECTIVES,]
 })
 
 @Routes([
@@ -57,7 +58,7 @@ import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
 export class AppComponent {
 
   progress: number = 0;
-  version: string = "2.0.0-alpha.5-2";
+  version: string = '2.0.0-alpha.5-2';
   constructor() {
 
     // Update the value for the progress-bar on an interval.
