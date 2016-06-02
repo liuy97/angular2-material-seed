@@ -1,10 +1,9 @@
 # Introduction
-Angular2 + Material + Seed
+Angular2 + Material(2.0.0-alpha.5-2) + Seed
 
 based on
 
 - https://github.com/mgechev/angular2-seed
-- https://github.com/jelbourn/material2-app
 
 # How to start
 

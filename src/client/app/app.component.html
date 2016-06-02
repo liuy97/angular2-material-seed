@@ -1,6 +1,6 @@
 <md-sidenav-layout>
   <md-sidenav #sidenav mode="side" class="app-sidenav">
-    sidenav
+    sidenav test
   </md-sidenav>
 
   <md-toolbar color="primary">
@@ -8,15 +8,28 @@
       <i class="material-icons app-toolbar-menu">menu</i>
     </button>
 
-    Angular Material2 Example App
+    Angular2 + Material({{version}}) Seed Module
 
     <span class="app-toolbar-filler"></span>
-    <button md-raised-button color="primary"><a [routerLink]="['/']">Form</a></button>
-    <button md-raised-button color="primary"><a [routerLink]="['/about']">ABOUT</a></button>
+    <button md-raised-button color="primary">Test</button>
   </md-toolbar>
 
   <div class="app-content">
-    <router-outlet></router-outlet>
+    <md-tab-group>
+      <md-tab>
+         <template md-tab-label>Form</template>
+          <template md-tab-content>
+            <sd-home></sd-home>
+        </template>
+      </md-tab>
+      <md-tab>
+        <template md-tab-label>about</template>
+          <template md-tab-content>
+            <sd-about></sd-about>
+        </template>
+      </md-tab>
+    </md-tab-group>
+
     <md-card>
       <button md-button>FLAT</button>
       <button md-raised-button>RAISED</button>
@@ -61,15 +74,6 @@
     </md-card>
 
     <md-card>
-      <md-list class="app-list">
-        <md-list-item *ngFor="let food of foods">
-          <h3 md-line>{{food.name}}</h3>
-          <p md-line class="demo-secondary-text">{{food.rating}}</p>
-        </md-list-item>
-      </md-list>
-    </md-card>
-
-    <md-card>
       <md-spinner class="app-spinner"></md-spinner>
       <md-spinner color="accent" class="app-spinner"></md-spinner>
     </md-card>
@@ -94,10 +98,16 @@
       </label>
     </md-card>
 
-
     <md-card>
       <md-icon>build</md-icon>
     </md-card>
+
+    <md-grid-list cols="4" [style.background]="'lightblue'">
+      <md-grid-tile>One</md-grid-tile>
+      <md-grid-tile>Two</md-grid-tile>
+      <md-grid-tile>Three</md-grid-tile>
+      <md-grid-tile>Four</md-grid-tile>
+    </md-grid-list>
 
   </div>
 

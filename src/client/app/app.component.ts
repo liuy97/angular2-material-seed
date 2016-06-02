@@ -15,7 +15,9 @@ import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
+import {MD_GRID_LIST_DIRECTIVES} from '@angular2-material/grid-list';
 import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
+import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
  * applications routes, configuring the paths for the lazy loaded components (HomeComponent, AboutComponent).
@@ -28,6 +30,8 @@ import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
   styleUrls: ['app.component.css'],
   directives: [ROUTER_DIRECTIVES, ToolbarComponent, MD_SIDENAV_DIRECTIVES,
     MD_CARD_DIRECTIVES,
+    MD_GRID_LIST_DIRECTIVES,
+    MD_TABS_DIRECTIVES,
     MdToolbar,
     MdButton,
     MdCheckbox,
@@ -36,8 +40,9 @@ import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
     MD_INPUT_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     MdProgressBar,
-    MdIcon,]
+    MdIcon,HomeComponent,AboutComponent]
 })
+
 @Routes([
   {
     path: '/',
@@ -48,14 +53,11 @@ import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
     component: AboutComponent
   }
 ])
+
 export class AppComponent {
-  foods: any[] = [
-    {name: 'Pizza', rating: 'Excellent'},
-    {name: 'Burritos', rating: 'Great'},
-    {name: 'French fries', rating: 'Pretty good'},
-  ];
-  
+
   progress: number = 0;
+  version: string = "2.0.0-alpha.5-2";
   constructor() {
 
     // Update the value for the progress-bar on an interval.
