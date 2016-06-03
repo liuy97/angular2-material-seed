@@ -40,6 +40,7 @@ module.exports = function(config) {
       // paths loaded via module imports
       // Angular itself
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
+      { pattern: 'node_modules/@angular2-material/**/*.js', included: false, watched: true },
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it

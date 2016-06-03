@@ -1,5 +1,6 @@
 import { Component, provide } from '@angular/core';
 import { TestComponentBuilder } from '@angular/compiler/testing';
+import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {
   describe,
   expect,
@@ -59,6 +60,6 @@ export function main() {
   ],
   selector: 'test-cmp',
   template: '<sd-home></sd-home>',
-  directives: [HomeComponent]
+  directives: [HomeComponent, MD_LIST_DIRECTIVES]
 })
 class TestComponent {}

@@ -9,7 +9,7 @@ describe('Home', () => {
   });
 
   it('should have a list of computer scientists', () => {
-    expect(element(by.css('sd-home ul')).getText())
+    expect(element(by.css('sd-home md-list')).getText())
       .toEqual('Edsger Dijkstra\nDonald Knuth\nAlan Turing\nGrace Hopper');
   });
 
@@ -17,7 +17,7 @@ describe('Home', () => {
     element(by.css('sd-home form input')).sendKeys('Tim Berners-Lee');
     element(by.css('sd-home form button')).click();
 
-    expect(element(by.css('sd-home ul')).getText())
+    expect(element(by.css('sd-home md-list')).getText())
       .toEqual('Edsger Dijkstra\nDonald Knuth\nAlan Turing\nGrace Hopper\nTim Berners-Lee');
   });
 
