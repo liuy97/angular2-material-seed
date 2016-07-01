@@ -294,18 +294,19 @@ export class SeedConfig {
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
-      '@angular/core': `${this.APP_BASE}node_modules/@angular/core/core.umd.js`,
-      '@angular/common': `${this.APP_BASE}node_modules/@angular/common/common.umd.js`,
-      '@angular/compiler': `${this.APP_BASE}node_modules/@angular/compiler/compiler.umd.js`,
-      '@angular/http': `${this.APP_BASE}node_modules/@angular/http/http.umd.js`,
-      '@angular/router': `${this.APP_BASE}node_modules/@angular/router/router.umd.js`,
-      '@angular/platform-browser': `${this.APP_BASE}node_modules/@angular/platform-browser/platform-browser.umd.js`,
-      '@angular/platform-browser-dynamic': `${this.APP_BASE}node_modules/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js`,
       'rxjs/*': `${this.APP_BASE}node_modules/rxjs/*`,
       'app/*': `/app/*`,
       '*': `${this.APP_BASE}node_modules/*`
     },
     packages: {
+      '@angular/router': {
+        defaultExtension: 'js',
+        main: 'index.js'
+      },
+      '@angular/forms': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
       '@angular2-material/core': {
         format: 'cjs',
         defaultExtension: 'js',
@@ -400,6 +401,7 @@ export class SeedConfig {
     defaultJSExtensions: true,
     packageConfigPaths: [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
+      join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '**', 'package.json'),
       join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
     ],
     paths: {
@@ -407,6 +409,14 @@ export class SeedConfig {
       '*': 'node_modules/*'
     },
     packages: {
+      '@angular/router': {
+        defaultExtension: 'js',
+        main: 'index.js'
+      },
+      '@angular/forms': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
       '@angular/core': {
         main: 'index.js',
         defaultExtension: 'js'
@@ -428,10 +438,6 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/platform-browser-dynamic': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/router': {
         main: 'index.js',
         defaultExtension: 'js'
       },
@@ -576,7 +582,7 @@ export class SeedConfig {
    * @param {any} pluginKey The object key to look up in PLUGIN_CONFIGS.
    */
   getPluginConfig(pluginKey: string): any {
-    if (this.PLUGIN_CONFIGS[ pluginKey ]) {
+    if (this.PLUGIN_CONFIGS[pluginKey]) {
       return this.PLUGIN_CONFIGS[pluginKey];
     }
     return null;
