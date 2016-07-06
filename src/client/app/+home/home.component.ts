@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import { NameListService } from '../shared/index';
-//import { NgForm }    from '@angular/common';
+import { NgForm }    from '@angular/common';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
 import {MdCheckbox} from '@angular2-material/checkbox';
@@ -10,7 +10,7 @@ import {MdSpinner} from '@angular2-material/progress-circle';
 import {MdProgressBar} from '@angular2-material/progress-bar';
 import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
-import {MdIcon} from '@angular2-material/icon';
+import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 import {MD_GRID_LIST_DIRECTIVES} from '@angular2-material/grid-list';
 //import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
 import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
@@ -23,7 +23,7 @@ import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
   selector: 'sd-home',
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.css'],
-  providers: [NameListService],
+  providers: [NameListService, MdIconRegistry],
   directives: [MD_LIST_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     MD_GRID_LIST_DIRECTIVES,
@@ -36,6 +36,7 @@ import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
     MD_INPUT_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     MdProgressBar,
+    NgForm,
     MdIcon, MD_SLIDE_TOGGLE_DIRECTIVES,]
 })
 export class HomeComponent {

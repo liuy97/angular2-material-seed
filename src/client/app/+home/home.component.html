@@ -3,7 +3,7 @@
     Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.
   </p>
 
-  <form (ngSubmit)="addName()">
+  <form (ngSubmit)="addName()" #scientistForm="ngForm">
     <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist" name="name">
     <button type="submit">Add</button>
   </form>
