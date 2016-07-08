@@ -26,14 +26,15 @@ export function main() {
 
     beforeEach(inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
       builder = tcb;
-      builder.overrideProviders(TestComponent, [disableDeprecatedForms(), provideForms()]);
     }));
 
     it('should work',
       (done: () => void) => {
-        return builder.createAsync(TestComponent)
+        return builder
+          .overrideProviders(TestComponent, [disableDeprecatedForms(), provideForms()])
+          .createAsync(TestComponent)
           .then((rootTC: any) => {
-            //rootTC.detectChanges();
+            rootTC.detectChanges();
 
             let homeInstance = rootTC.debugElement.children[0].componentInstance;
             let homeDOMEl = rootTC.debugElement.children[0].nativeElement;
@@ -41,17 +42,16 @@ export function main() {
             expect(homeInstance.nameListService).toEqual(jasmine.any(NameListService));
             expect(getDOM().querySelectorAll(homeDOMEl, 'md-list-item').length).toEqual(0);
 
-            /*homeInstance.newName = 'Minko';
+            homeInstance.newName = 'Minko';
             homeInstance.addName();
             rootTC.detectChanges();
 
             expect(getDOM().querySelectorAll(homeDOMEl, 'md-list-item').length).toEqual(1);
 
             expect(getDOM().querySelectorAll(homeDOMEl, 'md-list-item')[0].textContent).toEqual('Minko');
-            */
             done();
           })
-          .catch(function (err) { console.log('err'); });
+          .catch(function (err) { console.log('err'); done();});
       });
   });
 }
