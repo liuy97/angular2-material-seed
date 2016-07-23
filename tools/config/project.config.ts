@@ -15,28 +15,7 @@ export class ProjectConfig extends SeedConfig {
     super();
     // this.APP_TITLE = 'Put name of your app here';
     let additional_deps: InjectableDependency[] = [
-      // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
-      /*{ src: '@angular2-material/button/button.js', inject: 'libs' },
-      { src: '@angular2-material/button/button.css', inject: true },
-      { src: '@angular2-material/card/card.js', inject: 'libs' },
-      { src: '@angular2-material/card/card.css', inject: true },
-      { src: '@angular2-material/checkbox/checkbox.js', inject: 'libs' },
-      { src: '@angular2-material/checkbox/checkbox.css', inject: true },
-      { src: '@angular2-material/input/input.js', inject: 'libs' },
-      { src: '@angular2-material/input/input.css', inject: true },
-      { src: '@angular2-material/list/list.js', inject: 'libs' },
-      { src: '@angular2-material/list/list.css', inject: true },
-      { src: '@angular2-material/progress-circle/progress-circle.js', inject: 'libs' },
-      { src: '@angular2-material/progress-circle/progress-circle.css', inject: true },
-      { src: '@angular2-material/progress-bar/progress-bar.js', inject: 'libs' },
-      { src: '@angular2-material/progress-bar/progress-bar.css', inject: true },
-      { src: '@angular2-material/radio/radio.js', inject: 'libs' },
-      { src: '@angular2-material/radio/radio.css', inject: true },
-      { src: '@angular2-material/sidenav/sidenav.js', inject: 'libs' },
-      { src: '@angular2-material/sidenav/sidenav.css', inject: true },
-      { src: '@angular2-material/toolbar/toolbar.js', inject: 'libs' },
-      { src: '@angular2-material/toolbar/toolbar.css', inject: true }*/
     ];
 
     const seedDependencies = this.NPM_DEPENDENCIES;
