@@ -21,10 +21,7 @@ module.exports = function(config) {
       // Polyfills.
       'node_modules/core-js/client/shim.min.js',
 
-      'node_modules/reflect-metadata/Reflect.js',
-
       // System.js for module loading
-      'node_modules/systemjs/dist/system-polyfills.js',
       'node_modules/systemjs/dist/system.src.js',
 
       // Zone.js dependencies
@@ -43,6 +40,8 @@ module.exports = function(config) {
       { pattern: 'node_modules/@angular2-material/**/*.js', included: false, watched: true },
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
+      { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },
+      { pattern: 'dist/dev/**/*.css', included: false, watched: true, served: true },
       { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
 
       // suppress annoying 404 warnings for resources, images, etc.
@@ -94,7 +93,6 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
-      'PhantomJS',
       'Chrome'
     ],
 
@@ -109,9 +107,7 @@ module.exports = function(config) {
     coverageReporter: {
       dir: 'coverage/',
       reporters: [
-        { type: 'text-summary' },
-        { type: 'json', subdir: '.', file: 'coverage-final.json' },
-        { type: 'html' }
+        { type: 'json', subdir: '.', file: 'coverage-final.json' }
       ]
     },
 

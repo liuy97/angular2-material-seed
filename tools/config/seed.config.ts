@@ -40,7 +40,7 @@ export class SeedConfig {
 
   /**
    * The current environment.
-   * The default environment is `dev`, which can be overriden by the `--env` flag when running `npm start`.
+   * The default environment is `dev`, which can be overriden by the `--config-env ENV_NAME` flag when running `npm start`.
    */
   ENV = getEnvironment();
 
@@ -66,19 +66,24 @@ export class SeedConfig {
   COVERAGE_PORT = argv['coverage-port'] || 4004;
 
   /**
+  * The path to the coverage output
+  * NB: this must match what is configured in ./karma.conf.js
+  */
+  COVERAGE_DIR = 'coverage';
+
+  /**
    * The path for the base of the application at runtime.
-   * The default path is `/`, which can be overriden by the `--base` flag when running `npm start`.
+   * The default path is based on the environment '/',
+   * which can be overriden by the `--base` flag when running `npm start`.
    * @type {string}
    */
   APP_BASE = argv['base'] || '/';
 
   /**
-   * The flag to include templates into JS app prod file.
-   * Per default the option is `true`, but can it can be set to false using `--inline-template false`
-   * flag when running `npm run build.prod`.
-   * @type {boolean}
+   * The base path of node modules.
+   * @type {string}
    */
-  INLINE_TEMPLATES = argv['inline-template'] !== 'false';
+  NPM_BASE = join(this.APP_BASE, 'node_modules/');
 
   /**
    * The flag for the hot-loader option of the application.
@@ -93,6 +98,17 @@ export class SeedConfig {
    * @type {number}
    */
   HOT_LOADER_PORT = 5578;
+
+  /**
+   * The build interval which will force the TypeScript compiler to perform a typed compile run.
+   * Between the typed runs, a typeless compile is run, which is typically much faster.
+   * For example, if set to 5, the initial compile will be typed, followed by 5 typeless runs,
+   * then another typed run, and so on.
+   * If a compile error is encountered, the build will use typed compilation until the error is resolved.
+   * The default value is `0`, meaning typed compilation will always be performed.
+   * @type {number}
+   */
+  TYPED_COMPILE_INTERVAL = 0;
 
   /**
    * The directory where the bootstrap file is located.
@@ -210,7 +226,7 @@ export class SeedConfig {
    * The name of the bundle file to includes all CSS files.
    * @type {string}
    */
-  CSS_PROD_BUNDLE = 'all.css';
+  CSS_PROD_BUNDLE = 'main.css';
 
   /**
    * The name of the bundle file to include all JavaScript shims.
@@ -242,13 +258,18 @@ export class SeedConfig {
   CODELYZER_RULES = customRules();
 
   /**
+   * The flag to enable handling of SCSS files
+   * The default value is false. Override with the '--scss' flag.
+   * @type {boolean}
+   */
+  ENABLE_SCSS = argv['scss'] || false;
+
+  /**
    * The list of NPM dependcies to be injected in the `index.html`.
    * @type {InjectableDependency[]}
    */
   NPM_DEPENDENCIES: InjectableDependency[] = [
-    { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'zone.js/dist/zone.js', inject: 'libs' },
-    { src: 'reflect-metadata/Reflect.js', inject: 'shims' },
     { src: 'core-js/client/shim.min.js', inject: 'shims' },
     { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'rxjs/bundles/Rx.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
@@ -259,7 +280,7 @@ export class SeedConfig {
    * @type {InjectableDependency[]}
    */
   APP_ASSETS: InjectableDependency[] = [
-    { src: `${this.CSS_SRC}/main.css`, inject: true, vendor: false }
+    { src: `${this.CSS_SRC}/main.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
   ];
 
   /**
@@ -287,26 +308,26 @@ export class SeedConfig {
   protected SYSTEM_CONFIG_DEV: any = {
     defaultJSExtensions: true,
     packageConfigPaths: [
-      `${this.APP_BASE}node_modules/*/package.json`,
-      `${this.APP_BASE}node_modules/**/package.json`,
-      `${this.APP_BASE}node_modules/@angular2-material/**/package.json`,
-      `${this.APP_BASE}node_modules/@angular/*/package.json`
+      `/node_modules/*/package.json`,
+      `/node_modules/**/package.json`,
+      `/node_modules/@angular2-material/**/package.json`,
+      `/node_modules/@angular/*/package.json`
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
-      'rxjs/*': `${this.APP_BASE}node_modules/rxjs/*`,
+      '@angular/common': `node_modules/@angular/common/bundles/common.umd.js`,
+      '@angular/compiler': `node_modules/@angular/compiler/bundles/compiler.umd.js`,
+      '@angular/core': `node_modules/@angular/core/bundles/core.umd.js`,
+      '@angular/forms': `node_modules/@angular/forms/bundles/forms.umd.js`,
+      '@angular/http': `node_modules/@angular/http/bundles/http.umd.js`,
+      '@angular/platform-browser': `node_modules/@angular/platform-browser/bundles/platform-browser.umd.js`,
+      '@angular/platform-browser-dynamic': `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
+      '@angular/router': `node_modules/@angular/router/index.js`,
+      'rxjs/*': `node_modules/rxjs/*`,
       'app/*': `/app/*`,
-      '*': `${this.APP_BASE}node_modules/*`
+      '*': `node_modules/*`
     },
     packages: {
-      '@angular/router': {
-        defaultExtension: 'js',
-        main: 'index.js'
-      },
-      '@angular/forms': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
       '@angular2-material/core': {
         format: 'cjs',
         defaultExtension: 'js',
@@ -382,7 +403,7 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'slide-toggle.js'
       },
-      rxjs: { defaultExtension: false }
+      rxjs: { defaultExtension: 'js' }
     }
   };
 
@@ -409,15 +430,7 @@ export class SeedConfig {
       '*': 'node_modules/*'
     },
     packages: {
-      '@angular/router': {
-        defaultExtension: 'js',
-        main: 'index.js'
-      },
-      '@angular/forms': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
-      '@angular/core': {
+      '@angular/common': {
         main: 'index.js',
         defaultExtension: 'js'
       },
@@ -425,7 +438,11 @@ export class SeedConfig {
         main: 'index.js',
         defaultExtension: 'js'
       },
-      '@angular/common': {
+      '@angular/core': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/forms': {
         main: 'index.js',
         defaultExtension: 'js'
       },
@@ -438,6 +455,10 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/platform-browser-dynamic': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/router': {
         main: 'index.js',
         defaultExtension: 'js'
       },
@@ -539,6 +560,13 @@ export class SeedConfig {
   ];
 
   /**
+   * White list for CSS color guard
+   * @type {[string, string][]}
+   */
+  COLOR_GUARD_WHITE_LIST: [string, string][] = [
+  ];
+
+  /**
    * Configurations for NPM module configurations. Add to or override in project.config.ts.
    * If you like, use the mergeObject() method to assist with this.
    */
@@ -564,6 +592,30 @@ export class SeedConfig {
           [`${this.APP_BASE.replace(/\/$/, '')}`]: this.APP_DEST
         }
       }
+    },
+
+    // Note: you can customize the location of the file
+    'environment-config': join(this.PROJECT_ROOT, this.TOOLS_DIR, 'env'),
+
+    /**
+     * The options to pass to gulp-sass (and then to node-sass).
+     * Reference: https://github.com/sass/node-sass#options
+     * @type {object}
+     */
+    'gulp-sass': {
+      includePaths: ['./node_modules/']
+    },
+
+    /**
+     * The options to pass to gulp-concat-css
+     * Reference: https://github.com/mariocasciaro/gulp-concat-css
+     * @type {object}
+     */
+    'gulp-concat-css': {
+      targetFile: this.CSS_PROD_BUNDLE,
+      options: {
+        rebaseUrls: false
+      }
     }
   };
 
@@ -582,10 +634,14 @@ export class SeedConfig {
    * @param {any} pluginKey The object key to look up in PLUGIN_CONFIGS.
    */
   getPluginConfig(pluginKey: string): any {
-    if (this.PLUGIN_CONFIGS[pluginKey]) {
+    if (this.PLUGIN_CONFIGS[ pluginKey ]) {
       return this.PLUGIN_CONFIGS[pluginKey];
     }
     return null;
+  }
+
+  getInjectableStyleExtension() {
+    return this.ENV === ENVIRONMENTS.PRODUCTION && this.ENABLE_SCSS ? 'scss' : 'css';
   }
 
 }

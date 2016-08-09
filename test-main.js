@@ -31,7 +31,7 @@ System.config({
     '@angular': 'node_modules/@angular'
   },
   packages: {
-    '@angular/core': {
+    '@angular/common': {
       main: 'index.js',
       defaultExtension: 'js'
     },
@@ -39,7 +39,11 @@ System.config({
       main: 'index.js',
       defaultExtension: 'js'
     },
-    '@angular/common': {
+    '@angular/core': {
+      main: 'index.js',
+      defaultExtension: 'js'
+    },
+    '@angular/forms': {
       main: 'index.js',
       defaultExtension: 'js'
     },
@@ -59,10 +63,6 @@ System.config({
       main: 'index.js',
       defaultExtension: 'js'
     },
-    '@angular/forms': {
-        main: 'index.js',
-        defaultExtension: 'js'
-      },
     '@angular2-material/core': {
         format: 'cjs',
         defaultExtension: 'js',
