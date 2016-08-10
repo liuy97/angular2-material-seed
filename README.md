@@ -1,5 +1,5 @@
 # Introduction
-Angular2 (RC4) + Material(2.0.0-alpha.6) + Seed
+Angular2 (RC5) + Material(2.0.0-alpha.7) + Seed
 
 based on
 

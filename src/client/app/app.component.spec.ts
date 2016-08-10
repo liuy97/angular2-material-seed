@@ -1,15 +1,16 @@
 import { Component, ComponentResolver, Injector } from '@angular/core';
 import { Location, LocationStrategy, PlatformLocation} from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+//import { TestComponentBuilder } from '@angular/compiler/testing';
 import { SpyLocation } from '@angular/common/testing';
 import {
-  beforeEachProviders,
+  //beforeEachProviders,
   async,
-  describe,
-  expect,
+  //describe,
+  //expect,
   inject,
-  it
+  TestComponentBuilder
+  //it
 } from '@angular/core/testing';
 import {
   UrlSerializer,
@@ -27,7 +28,7 @@ import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
 import {MdIcon} from '@angular2-material/icon';
-import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
+//import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
 
 export function main() {
 

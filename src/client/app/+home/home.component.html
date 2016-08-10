@@ -4,8 +4,10 @@
   </p>
 
   <form (ngSubmit)="addName()" #scientistForm="ngForm">
-    <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist" name="name">
-    <button type="submit">Add</button>
+    <div class="form-group">
+      <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist" name="name">
+      <button type="submit">Add</button>
+    </div>
   </form>
 
 
@@ -14,10 +16,17 @@
   </md-list>
 
   <md-card>
-    <button md-button>FLAT</button>
-    <button md-raised-button>RAISED</button>
-    <button md-raised-button color="primary">PRIMARY RAISED</button>
-    <button md-raised-button color="accent">ACCENT RAISED</button>
+    <button md-button [disableRipple]="true">FLAT</button>
+    <button md-raised-button [disableRipple]="true">RAISED</button>
+    <button md-icon-button [disableRipple]="true">
+   <md-icon class="md-24">favorite</md-icon>
+</button>
+    <button md-fab [disableRipple]="true">
+   <md-icon class="md-24">add</md-icon>
+</button>
+    <button md-mini-fab [disableRipple]="true">
+   <md-icon class="md-24">add</md-icon>
+</button>
   </md-card>
 
   <md-card>

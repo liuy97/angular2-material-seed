@@ -353,6 +353,11 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'button.js'
       },
+      '@angular2-material/button-toggle': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'button-toggle.js'
+      },
       '@angular2-material/checkbox': {
         format: 'cjs',
         defaultExtension: 'js',
@@ -398,10 +403,20 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'grid-list.js'
       },
-      '@angular2-material/slide-toggle ': {
+      '@angular2-material/slider': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'slide.js'
+      },
+      '@angular2-material/slide-toggle': {
         format: 'cjs',
         defaultExtension: 'js',
         main: 'slide-toggle.js'
+      },
+      '@angular2-material/tooltip': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'tooltip.js'
       },
       rxjs: { defaultExtension: 'js' }
     }
@@ -487,6 +502,11 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'button.js'
       },
+      '@angular2-material/button-toggle': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'button-toggle.js'
+      },
       '@angular2-material/checkbox': {
         format: 'cjs',
         defaultExtension: 'js',
@@ -532,10 +552,20 @@ export class SeedConfig {
         defaultExtension: 'js',
         main: 'grid-list.js'
       },
-      '@angular2-material/slide-toggle ': {
+      '@angular2-material/slider': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'slide.js'
+      },
+      '@angular2-material/slide-toggle': {
         format: 'cjs',
         defaultExtension: 'js',
         main: 'slide-toggle.js'
+      },
+      '@angular2-material/tooltip': {
+        format: 'cjs',
+        defaultExtension: 'js',
+        main: 'tooltip.js'
       },
       'rxjs': {
         defaultExtension: 'js'

@@ -3,7 +3,8 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import { NameListService } from '../shared/index';
 import { NgForm }    from '@angular/common';
 import {MdToolbar} from '@angular2-material/toolbar';
-import {MdButton} from '@angular2-material/button';
+import {MdButton, MdAnchor} from '@angular2-material/button';
+import {MD_BUTTON_TOGGLE_DIRECTIVES} from '@angular2-material/button-toggle';
 import {MdCheckbox} from '@angular2-material/checkbox';
 import {MdRadioButton} from '@angular2-material/radio';
 import {MdSpinner} from '@angular2-material/progress-circle';
@@ -13,8 +14,8 @@ import {MD_INPUT_DIRECTIVES} from '@angular2-material/input';
 import {MdIcon, MdIconRegistry} from '@angular2-material/icon';
 import {MD_GRID_LIST_DIRECTIVES} from '@angular2-material/grid-list';
 //import {MdRadioDispatcher} from '@angular2-material/radio/radio_dispatcher';
-import {MD_TABS_DIRECTIVES} from '@angular2-material/tabs';
-import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
+import {MdTabGroup, MdTab} from '@angular2-material/tabs';
+//import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
 /**
  * This class represents the lazy loaded HomeComponent.
  */
@@ -27,17 +28,18 @@ import {MD_SLIDE_TOGGLE_DIRECTIVES} from '@angular2-material/slide-toggle';
   directives: [MD_LIST_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     MD_GRID_LIST_DIRECTIVES,
-    MD_TABS_DIRECTIVES,
+    MdTabGroup, MdTab,
     MdToolbar,
-    MdButton,
+    MdButton, MdAnchor,
+    MD_BUTTON_TOGGLE_DIRECTIVES,
     MdCheckbox,
     MdRadioButton,
     MdSpinner,
     MD_INPUT_DIRECTIVES,
     MD_LIST_DIRECTIVES,
     MdProgressBar,
-    NgForm,
-    MdIcon, MD_SLIDE_TOGGLE_DIRECTIVES,]
+    MdIcon,// MD_SLIDE_TOGGLE_DIRECTIVES,
+    ]
 })
 export class HomeComponent {
 

@@ -1,11 +1,12 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
+//import { TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import {
-  describe,
-  expect,
+  //describe,
+  //expect,
   inject,
-  it
+  TestComponentBuilder
+  //it
 } from '@angular/core/testing';
 import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 
