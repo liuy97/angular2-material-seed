@@ -1,22 +1,13 @@
-import { APP_BASE_HREF } from '@angular/common';
 import { enableProdMode, provide } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { APP_ROUTER_PROVIDERS } from './app.routers';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app.module';
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
-/**
- * Bootstraps the application and makes the ROUTER_PROVIDERS and the APP_BASE_HREF available to it.
- * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
- */
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms(),
-  APP_ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);
 
 // In order to start the Service Worker located at "./worker.js"
 // uncomment this line. More about Service Workers here

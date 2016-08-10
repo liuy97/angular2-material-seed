@@ -36,17 +36,19 @@
     <md-checkbox [disabled]="true">Disabled</md-checkbox>
   </md-card>
 
-  <md-card>
-    <md-slide-toggle [(ngModel)]="slideToggleModel">
+  <!--md-card>
+    <form #slideForm="ngForm">
+    <md-slide-toggle [(ngModel)]="slideToggleModel" name="name">
       Default Slide Toggle
     </md-slide-toggle>
     <md-slide-toggle disabled>
       Disabled Slide Toggle
     </md-slide-toggle>
-    <md-slide-toggle [checked]="isChecked">
+    <md-slide-toggle>
       Input Binding
     </md-slide-toggle>
-  </md-card>
+    </form>
+  </md-card-->
 
   <md-card class="app-input-section">
     <md-input placeholder="First name"></md-input>
