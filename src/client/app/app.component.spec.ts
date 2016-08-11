@@ -22,7 +22,7 @@ import {
 } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './+home/home.component';
+import { MaterialComponent } from './material/material.component';
 import { AboutComponent } from './+about/about.component';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MdToolbar} from '@angular2-material/toolbar';
@@ -41,7 +41,7 @@ export function main() {
     // Support for testing component that uses Router
     beforeEachProviders(() => {
       let config: RouterConfig = [
-        { path: '', component: HomeComponent },
+        { path: '', component: MaterialComponent },
         { path: 'about', component: AboutComponent }
       ];
 
@@ -85,7 +85,7 @@ export function main() {
   directives: [AppComponent, MD_SIDENAV_DIRECTIVES,
     MdToolbar,
     MdButton,
-    MdIcon, MD_SLIDE_TOGGLE_DIRECTIVES]
+    MdIcon]
 })
 class TestComponent {
 }

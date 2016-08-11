@@ -1,10 +1,10 @@
 import { Routes, RouterModule }   from '@angular/router';
-import { HomeRoutes } from './+home/home.router';
+import { MaterialRoutes } from './material/material.router';
 import { AboutRoutes } from './+about/about.router';
 
 export const routes: Routes = [
   ...AboutRoutes,
-  ...HomeRoutes,
+  ...MaterialRoutes,
 ];
 
 export const routing = RouterModule.forRoot(routes);

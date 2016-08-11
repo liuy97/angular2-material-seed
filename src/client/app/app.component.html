@@ -1,7 +1,6 @@
 <md-sidenav-layout>
   <md-sidenav #sidenav mode="side" class="app-sidenav">
-    sidenav test
-<button md-raised-button color="primary">PRIMARY RAISED</button>
+    <button md-raised-button color="primary">PRIMARY RAISED</button>
   </md-sidenav>
 
   <md-toolbar color="primary">
@@ -9,15 +8,15 @@
       <i class="material-icons app-toolbar-menu">menu</i>
     </button> Angular2 + Material({{version}}) Seed Module
 
-    <nav>
-      <span><a [routerLink]="['/']">Home</a></span>
-      <span><a [routerLink]="['/about']">About</a></span>
-    </nav>
     <span class="app-toolbar-filler"></span>
     <button md-raised-button color="primary">Test</button>
   </md-toolbar>
 
   <div class="app-content">
+    <nav>
+      <span><a [routerLink]="['/']">Material</a></span>
+      <span><a [routerLink]="['/about']">About</a></span>
+    </nav>
     <router-outlet></router-outlet>
   </div>
 

@@ -10,9 +10,8 @@
     </div>
   </form>
 
-
   <md-list>
-    <md-list-item *ngFor="let name of nameListService.get() | async">{{name}}</md-list-item>
+    <md-list-item *ngFor="let name of nameListService.getNames() | async">{{name}}</md-list-item>
   </md-list>
 
   <md-card>
@@ -36,11 +35,8 @@
     <md-checkbox [disabled]="true">Disabled</md-checkbox>
   </md-card>
 
-  <!--md-card>
+  <md-card>
     <form #slideForm="ngForm">
-    <md-slide-toggle [(ngModel)]="slideToggleModel" name="name">
-      Default Slide Toggle
-    </md-slide-toggle>
     <md-slide-toggle disabled>
       Disabled Slide Toggle
     </md-slide-toggle>
@@ -48,7 +44,7 @@
       Input Binding
     </md-slide-toggle>
     </form>
-  </md-card-->
+  </md-card>
 
   <md-card class="app-input-section">
     <md-input placeholder="First name"></md-input>

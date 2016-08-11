@@ -1,11 +1,6 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { routing } from './app.routers';
-import { AppComponent }  from './app.component';
+import { NgModule }       from '@angular/core';
+import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-import { HttpModule} from '@angular/http';
-import { AboutComponent }  from './+about/index';
-import { MaterialComponent }  from './material/index';
 import { MdToolbarModule}    from '@angular2-material/toolbar';
 import {MdButtonModule} from '@angular2-material/button';
 import {MdButtonToggleModule} from '@angular2-material/button-toggle';
@@ -16,16 +11,17 @@ import {MdProgressBarModule} from '@angular2-material/progress-bar';
 import {MdCardModule} from '@angular2-material/card';
 import {MdInputModule} from '@angular2-material/input';
 import {MdIconModule, MdIconRegistry} from '@angular2-material/icon';
-import {MdSidenavModule} from'@angular2-material/sidenav';
 import {MdGridListModule} from '@angular2-material/grid-list';
 import {MdTabsModule} from '@angular2-material/tabs';
 import {MdListModule} from '@angular2-material/list';
+import { MaterialComponent } from './material.component';
+import { materialRouting } from './material.router';
+import { NameListService } from '../names/index';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
-    HttpModule,
     MdToolbarModule,
     MdButtonModule,
     MdButtonToggleModule,
@@ -37,18 +33,14 @@ import {MdListModule} from '@angular2-material/list';
     MdInputModule,
     MdIconModule,
     MdGridListModule,
-    MdSidenavModule,
     MdTabsModule,
     MdListModule,
-    routing
+    materialRouting
   ],
   declarations: [
-    AppComponent, AboutComponent, MaterialComponent
+    MaterialComponent,
   ],
-  providers: [
-    MdIconRegistry//service
-  ],
-  bootstrap: [AppComponent]
+  providers: [ NameListService, MdIconRegistry ]
 })
 
-export class AppModule { }
+export class MaterialModule {}

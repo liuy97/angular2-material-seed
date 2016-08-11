@@ -1,9 +1,5 @@
 # Introduction
-Angular2 (RC5) + Material(2.0.0-alpha.7) + Seed
-
-based on
-
-- https://github.com/mgechev/angular2-seed
+Angular2 (RC5) + Material(2.0.0-alpha.7-2) + Seed
 
 # How to start
 
