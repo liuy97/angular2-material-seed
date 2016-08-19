@@ -1,22 +1,46 @@
 <md-sidenav-layout>
-  <md-sidenav #sidenav mode="side" class="app-sidenav">
-    <button md-raised-button color="primary">PRIMARY RAISED</button>
+   <md-sidenav #start>
+    <md-nav-list>
+      <a md-list-item [routerLink]="['demo/button']">Button</a>
+      <a md-list-item [routerLink]="['demo/button-toggle']">Button Toggle</a>
+      <a md-list-item [routerLink]="['demo/card']">Card</a>
+      <a md-list-item [routerLink]="['demo/checkbox']">Checkbox</a>
+      <a md-list-item [routerLink]="['demo/dialog']">Dialog</a>
+      <a md-list-item [routerLink]="['demo/gestures']">Gestures</a>
+      <a md-list-item [routerLink]="['demo/grid-list']">Grid List</a>
+      <a md-list-item [routerLink]="['demo/icon']">Icon</a>
+      <a md-list-item [routerLink]="['demo/input']">Input</a>
+      <a md-list-item [routerLink]="['demo/list']">List</a>
+      <a md-list-item [routerLink]="['demo/menu']">Menu</a>
+      <a md-list-item [routerLink]="['demo/live-announcer']">Live Announcer</a>
+      <a md-list-item [routerLink]="['demo/overlay']">Overlay</a>
+      <a md-list-item [routerLink]="['demo/portal']">Portal</a>
+      <a md-list-item [routerLink]="['demo/progress-bar']">Progress Bar</a>
+      <a md-list-item [routerLink]="['demo/progress-circle']">Progress Circle</a>
+      <a md-list-item [routerLink]="['demo/radio']">Radio</a>
+      <a md-list-item [routerLink]="['demo/ripple']">Ripple</a>
+      <a md-list-item [routerLink]="['demo/sidenav']">Sidenav</a>
+      <a md-list-item [routerLink]="['demo/slider']">Slider</a>
+      <a md-list-item [routerLink]="['demo/slide-toggle']">Slide Toggle</a>
+      <a md-list-item [routerLink]="['demo/tabs']">Tabs</a>
+      <a md-list-item [routerLink]="['demo/toolbar']">Toolbar</a>
+      <a md-list-item [routerLink]="['demo/tooltip']">Tooltip</a>
+      <hr>
+      <a md-list-item [routerLink]="['baseline']">Baseline</a>
+    </md-nav-list>
+    <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>
 
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button> Angular2 + Material({{version}}) Seed Module
+    <button md-icon-button (click)="start.open()">
+        <md-icon class="md-24" >menu</md-icon>
+      </button> Angular2 + Material({{version}}) Seed Module
 
     <span class="app-toolbar-filler"></span>
     <button md-raised-button color="primary">Test</button>
   </md-toolbar>
 
   <div class="app-content">
-    <nav>
-      <span><a [routerLink]="['/']">Material</a></span>
-      <span><a [routerLink]="['/about']">About</a></span>
-    </nav>
     <router-outlet></router-outlet>
   </div>
 

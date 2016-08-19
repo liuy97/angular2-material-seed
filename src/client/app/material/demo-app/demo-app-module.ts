@@ -3,8 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoApp, Home} from './demo-app/demo-app';
-import {DEMO_APP_ROUTE_PROVIDER} from './demo-app/routes';
-import {RouterModule} from '@angular/router';
+import {routes} from './demo-app/routes';
+//import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../../all/all';
 import {ProgressBarDemo} from './progress-bar/progress-bar-demo';
 import {JazzDialog, DialogDemo} from './dialog/dialog-demo';
@@ -39,10 +39,11 @@ import {TabsDemo} from './tabs/tab-group-demo';
     FormsModule,
     HttpModule,
     MaterialModule,
-    RouterModule,
+    //RouterModule,
+    routes,
   ],
   providers: [
-    DEMO_APP_ROUTE_PROVIDER,
+    //DEMO_APP_ROUTE_PROVIDER,
   ],
   declarations: [
     BaselineDemo,
@@ -87,9 +88,9 @@ import {TabsDemo} from './tabs/tab-group-demo';
   ],
 })
 export class DemoAppModule {
-  constructor(private _appRef: ApplicationRef) { }
+  /*constructor(private _appRef: ApplicationRef) { }
 
   ngDoBootstrap() {
     this._appRef.bootstrap(DemoApp);
-  }
+  }*/
 }

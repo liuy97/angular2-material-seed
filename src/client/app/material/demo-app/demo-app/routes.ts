@@ -1,4 +1,4 @@
-import {provideRouter, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {Home} from './demo-app';
 import {ButtonDemo} from '../button/button-demo';
 import {BaselineDemo} from '../baseline/baseline-demo';
@@ -27,33 +27,34 @@ import {DialogDemo} from '../dialog/dialog-demo';
 import {TooltipDemo} from '../tooltip/tooltip-demo';
 
 
-export const routes: Routes = [
-  {path: '', component: Home},
-  {path: 'button', component: ButtonDemo},
-  {path: 'card', component: CardDemo},
-  {path: 'radio', component: RadioDemo},
-  {path: 'sidenav', component: SidenavDemo},
-  {path: 'slide-toggle', component: SlideToggleDemo},
-  {path: 'slider', component: SliderDemo},
-  {path: 'progress-circle', component: ProgressCircleDemo},
-  {path: 'progress-bar', component: ProgressBarDemo},
-  {path: 'portal', component: PortalDemo},
-  {path: 'overlay', component: OverlayDemo},
-  {path: 'checkbox', component: CheckboxDemo},
-  {path: 'input', component: InputDemo},
-  {path: 'toolbar', component: ToolbarDemo},
-  {path: 'icon', component: IconDemo},
-  {path: 'list', component: ListDemo},
-  {path: 'menu', component: MenuDemo},
-  {path: 'live-announcer', component: LiveAnnouncerDemo},
-  {path: 'gestures', component: GesturesDemo},
-  {path: 'grid-list', component: GridListDemo},
-  {path: 'tabs', component: TabsDemo},
-  {path: 'button-toggle', component: ButtonToggleDemo},
-  {path: 'baseline', component: BaselineDemo},
-  {path: 'ripple', component: RippleDemo},
-  {path: 'dialog', component: DialogDemo},
-  {path: 'tooltip', component: TooltipDemo},
-];
+export const routes = RouterModule.forChild([
+  //{path: '', component: Home},
+   { path: 'demo', redirectTo: 'demo/button', pathMatch: 'full'},
+  {path: 'demo/button', component: ButtonDemo},
+  {path: 'demo/card', component: CardDemo},
+  {path: 'demo/radio', component: RadioDemo},
+  {path: 'demo/sidenav', component: SidenavDemo},
+  {path: 'demo/slide-toggle', component: SlideToggleDemo},
+  {path: 'demo/slider', component: SliderDemo},
+  {path: 'demo/progress-circle', component: ProgressCircleDemo},
+  {path: 'demo/progress-bar', component: ProgressBarDemo},
+  {path: 'demo/portal', component: PortalDemo},
+  {path: 'demo/overlay', component: OverlayDemo},
+  {path: 'demo/checkbox', component: CheckboxDemo},
+  {path: 'demo/input', component: InputDemo},
+  {path: 'demo/toolbar', component: ToolbarDemo},
+  {path: 'demo/icon', component: IconDemo},
+  {path: 'demo/list', component: ListDemo},
+  {path: 'demo/menu', component: MenuDemo},
+  {path: 'demo/live-announcer', component: LiveAnnouncerDemo},
+  {path: 'demo/gestures', component: GesturesDemo},
+  {path: 'demo/grid-list', component: GridListDemo},
+  {path: 'demo/tabs', component: TabsDemo},
+  {path: 'demo/button-toggle', component: ButtonToggleDemo},
+  {path: 'demo/baseline', component: BaselineDemo},
+  {path: 'demo/ripple', component: RippleDemo},
+  {path: 'demo/dialog', component: DialogDemo},
+  {path: 'demo/tooltip', component: TooltipDemo},
+]);
 
-export const DEMO_APP_ROUTE_PROVIDER = provideRouter(routes);
+//export const DEMO_APP_ROUTE_PROVIDER = provideRouter(routes);
