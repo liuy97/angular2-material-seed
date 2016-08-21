@@ -26,7 +26,7 @@
       <a md-list-item [routerLink]="['demo/toolbar']">Toolbar</a>
       <a md-list-item [routerLink]="['demo/tooltip']">Tooltip</a>
       <hr>
-      <a md-list-item [routerLink]="['baseline']">Baseline</a>
+      <a md-list-item [routerLink]="['demo/baseline']">Baseline</a>
     </md-nav-list>
     <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>
@@ -34,7 +34,8 @@
   <md-toolbar color="primary">
     <button md-icon-button (click)="start.open()">
         <md-icon class="md-24" >menu</md-icon>
-      </button> Angular2 + Material({{version}}) Seed Module
+      </button>
+      <span>Angular2 RC5 + Material 2</span>
 
     <span class="app-toolbar-filler"></span>
     <button md-raised-button color="primary">Test</button>
