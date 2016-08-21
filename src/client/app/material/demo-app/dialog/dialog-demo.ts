@@ -1,6 +1,6 @@
 import {Component, ViewContainerRef} from '@angular/core';
 //import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular2-material/dialog/dialog';
-import {OVERLAY_PROVIDERS} from '@angular2-material/core/overlay/overlay';
+//import {OVERLAY_PROVIDERS} from '@angular2-material/core/overlay/overlay';
 
 @Component({
   moduleId: module.id,
