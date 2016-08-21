@@ -4,7 +4,6 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoAppComponent} from './demo-app/demo-app';
 import {routing} from './demo-app/routes';
-//import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../../all/all';
 import {ProgressBarDemoComponent} from './progress-bar/progress-bar-demo';
 import {JazzDialogComponent, DialogDemoComponent} from './dialog/dialog-demo';
@@ -38,11 +37,9 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     FormsModule,
     HttpModule,
     MaterialModule,
-    //RouterModule,
     routing,
   ],
   providers: [
-    //DEMO_APP_ROUTE_PROVIDER,
   ],
   declarations: [
     BaselineDemoComponent,
@@ -54,7 +51,6 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     DialogDemoComponent,
     GesturesDemoComponent,
     GridListDemoComponent,
-    //HomeComponent,
     IconDemoComponent,
     InputDemoComponent,
     JazzDialogComponent,
@@ -78,13 +74,6 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     ToolbarDemoComponent,
     TooltipDemoComponent,
   ],
-  /*entryComponents: [
-    DemoApp,
-    JazzDialog,
-    RotiniPanel,
-    ScienceJoke,
-    SpagettiPanel,
-  ],*/
 })
 
 export default class DemoAppModule { }

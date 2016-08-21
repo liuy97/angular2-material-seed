@@ -1,7 +1,11 @@
 .demo-sidenav-layout {
-  border: 3px solid black; }
-  .demo-sidenav-layout md-sidenav {
-    padding: 10px; }
+  border: 3px solid black;
+}
+
+.demo-sidenav-layout md-sidenav {
+  padding: 10px;
+}
 
 .demo-sidenav-content {
-  padding: 15px; }
+  padding: 15px;
+}

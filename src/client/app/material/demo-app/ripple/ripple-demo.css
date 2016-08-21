@@ -1,6 +1,8 @@
-.demo-ripple button, .demo-ripple a {
+.demo-ripple button,
+.demo-ripple a {
   margin: 8px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .demo-ripple .demo-ripple-container {
   box-shadow: rgba(0, 0, 0, 0.118) 0 10px 15px, rgba(0, 0, 0, 0.239) 0 5px 10px;
@@ -14,15 +16,21 @@
   transition: all 200ms linear;
   width: 200px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-  .demo-ripple .demo-ripple-container.demo-ripple-disabled {
-    color: rgba(32, 32, 32, 0.4); }
-  .demo-ripple .demo-ripple-container.demo-ripple-rounded {
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 1; }
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.demo-ripple .demo-ripple-container.demo-ripple-disabled {
+  color: rgba(32, 32, 32, 0.4);
+}
+
+.demo-ripple .demo-ripple-container.demo-ripple-rounded {
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
 
 .demo-ripple .demo-ripple-checkbox-option {
-  margin: 10px 0; }
+  margin: 10px 0;
+}
