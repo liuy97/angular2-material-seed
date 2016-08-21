@@ -135,6 +135,7 @@
     "@angular2-material/radio": "^2.0.0-alpha.7-4",
     "@angular2-material/sidenav": "^2.0.0-alpha.7-4",
     "@angular2-material/slider": "^v2.0.0-alpha.7-4",
+    "@angular2-material/slide-toggle": "^v2.0.0-alpha.7-4",
     "@angular2-material/toolbar": "^2.0.0-alpha.7-4",
     "@angular2-material/tabs": "^2.0.0-alpha.7-4",
     "@angular2-material/tooltip": "^2.0.0-alpha.7-4",

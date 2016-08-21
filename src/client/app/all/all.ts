@@ -3,7 +3,7 @@ import {MdButtonToggleModule} from '@angular2-material/button-toggle/button-togg
 import {MdButtonModule} from '@angular2-material/button/button';
 import {MdCheckboxModule} from '@angular2-material/checkbox/checkbox';
 import {MdRadioModule} from '@angular2-material/radio/radio';
-//import {MdSlideToggleModule} from '@angular2-material/slide-toggle/slide-toggle';
+import {MdSlideToggleModule} from '@angular2-material/slide-toggle/slide-toggle';
 import {MdSliderModule} from '@angular2-material/slider/slider';
 import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
 import {MdListModule} from '@angular2-material/list/list';
@@ -42,7 +42,7 @@ const MATERIAL_MODULES = [
   MdRippleModule,
   MdSidenavModule,
   MdSliderModule,
-  //MdSlideToggleModule,
+  MdSlideToggleModule,
   MdTabsModule,
   MdToolbarModule,
   MdTooltipModule,
