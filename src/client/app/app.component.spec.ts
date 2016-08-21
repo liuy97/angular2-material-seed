@@ -18,12 +18,12 @@ import {
   RouterOutletMap,
   Router,
   ActivatedRoute,
-  RouterConfig
+  //RouterConfig
 } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MaterialComponent } from './material/material.component';
-import { AboutComponent } from './+about/about.component';
+//import { MaterialComponent } from './material/material.component';
+//import { AboutComponent } from './about/about.component';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {MdToolbar} from '@angular2-material/toolbar';
 import {MdButton} from '@angular2-material/button';
@@ -39,11 +39,11 @@ export function main() {
     beforeEach(() => { providerArr = [disableDeprecatedForms(), provideForms()]; });
 
     // Support for testing component that uses Router
-    beforeEachProviders(() => {
-      let config: RouterConfig = [
-        { path: '', component: MaterialComponent },
-        { path: 'about', component: AboutComponent }
-      ];
+    //beforeEachProviders(() => {
+      //let config: RouterConfig = [
+        //{ path: '', component: MaterialComponent },
+        //{ path: 'about', component: AboutComponent }
+      //];
 
       return [
         RouterOutletMap,

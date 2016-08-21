@@ -12,8 +12,8 @@ import {MdIconRegistry} from '@angular2-material/icon/icon';
 export class IconDemoComponent {
   constructor(mdIconRegistry: MdIconRegistry) {
     mdIconRegistry
-        .addSvgIcon('thumb-up', '/icon/assets/thumbup-icon.svg')
-        .addSvgIconSetInNamespace('core', '/icon/assets/core-icon-set.svg')
+        .addSvgIcon('thumb-up', '/assets/svg/thumbup-icon.svg')
+        .addSvgIconSetInNamespace('core', '/assets/svg/core-icon-set.svg')
         .registerFontClassAlias('fontawesome', 'fa');
   }
 }
