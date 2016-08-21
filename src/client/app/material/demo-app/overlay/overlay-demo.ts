@@ -25,7 +25,7 @@ import {
   providers: [OVERLAY_PROVIDERS],
   encapsulation: ViewEncapsulation.None,
 })
-export class OverlayDemo {
+export class OverlayDemoComponent {
   nextPosition: number = 0;
   isMenuOpen: boolean = false;
 
@@ -45,7 +45,7 @@ export class OverlayDemo {
     this.nextPosition += 30;
 
     this.overlay.create(config).then(ref => {
-      ref.attach(new ComponentPortal(RotiniPanel, this.viewContainerRef));
+      ref.attach(new ComponentPortal(RotiniPanelComponent, this.viewContainerRef));
     });
   }
 
@@ -76,7 +76,7 @@ export class OverlayDemo {
     config.positionStrategy = strategy;
 
     this.overlay.create(config).then(ref => {
-      ref.attach(new ComponentPortal(SpagettiPanel, this.viewContainerRef));
+      ref.attach(new ComponentPortal(SpagettiPanelComponent, this.viewContainerRef));
     });
   }
 }
@@ -87,7 +87,7 @@ export class OverlayDemo {
   selector: 'rotini-panel',
   template: '<p class="demo-rotini">Rotini {{value}}</p>'
 })
-export class RotiniPanel {
+export class RotiniPanelComponent {
   value: number = 9000;
 }
 
@@ -96,6 +96,6 @@ export class RotiniPanel {
   selector: 'spagetti-panel',
   template: '<div class="demo-spagetti">Spagetti {{value}}</div>'
 })
-export class SpagettiPanel {
+export class SpagettiPanelComponent {
   value: string = 'Omega';
 }

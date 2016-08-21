@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
   templateUrl: 'list-demo.html',
   styleUrls: ['list-demo.css'],
 })
-export class ListDemo {
+export class ListDemoComponent {
   items: string[] = [
     'Pepper',
     'Salt',

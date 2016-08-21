@@ -1,60 +1,59 @@
-import {RouterModule} from '@angular/router';
-import {Home} from './demo-app';
-import {ButtonDemo} from '../button/button-demo';
-import {BaselineDemo} from '../baseline/baseline-demo';
-import {ButtonToggleDemo} from '../button-toggle/button-toggle-demo';
-import {TabsDemo} from '../tabs/tab-group-demo';
-import {GridListDemo} from '../grid-list/grid-list-demo';
-import {GesturesDemo} from '../gestures/gestures-demo';
-import {LiveAnnouncerDemo} from '../live-announcer/live-announcer-demo';
-import {ListDemo} from '../list/list-demo';
-import {IconDemo} from '../icon/icon-demo';
-import {ToolbarDemo} from '../toolbar/toolbar-demo';
-import {InputDemo} from '../input/input-demo';
-import {CheckboxDemo} from '../checkbox/checkbox-demo';
-import {OverlayDemo} from '../overlay/overlay-demo';
-import {PortalDemo} from '../portal/portal-demo';
-import {ProgressBarDemo} from '../progress-bar/progress-bar-demo';
-import {ProgressCircleDemo} from '../progress-circle/progress-circle-demo';
-import {SlideToggleDemo} from '../slide-toggle/slide-toggle-demo';
-import {SliderDemo} from '../slider/slider-demo';
-import {SidenavDemo} from '../sidenav/sidenav-demo';
-import {RadioDemo} from '../radio/radio-demo';
-import {CardDemo} from '../card/card-demo';
-import {MenuDemo} from '../menu/menu-demo';
-import {RippleDemo} from '../ripple/ripple-demo';
-import {DialogDemo} from '../dialog/dialog-demo';
-import {TooltipDemo} from '../tooltip/tooltip-demo';
+import {Routes, RouterModule} from '@angular/router';
+//import {Home} from './demo-app';
+import {ButtonDemoComponent} from '../button/button-demo';
+import {BaselineDemoComponent} from '../baseline/baseline-demo';
+import {ButtonToggleDemoComponent} from '../button-toggle/button-toggle-demo';
+import {TabsDemoComponent} from '../tabs/tab-group-demo';
+import {GridListDemoComponent} from '../grid-list/grid-list-demo';
+import {GesturesDemoComponent} from '../gestures/gestures-demo';
+import {LiveAnnouncerDemoComponent} from '../live-announcer/live-announcer-demo';
+import {ListDemoComponent} from '../list/list-demo';
+import {IconDemoComponent} from '../icon/icon-demo';
+import {ToolbarDemoComponent} from '../toolbar/toolbar-demo';
+import {InputDemoComponent} from '../input/input-demo';
+import {CheckboxDemoComponent} from '../checkbox/checkbox-demo';
+import {OverlayDemoComponent} from '../overlay/overlay-demo';
+import {PortalDemoComponent} from '../portal/portal-demo';
+import {ProgressBarDemoComponent} from '../progress-bar/progress-bar-demo';
+import {ProgressCircleDemoComponent} from '../progress-circle/progress-circle-demo';
+import {SlideToggleDemoComponent} from '../slide-toggle/slide-toggle-demo';
+import {SliderDemoComponent} from '../slider/slider-demo';
+import {SidenavDemoComponent} from '../sidenav/sidenav-demo';
+import {RadioDemoComponent} from '../radio/radio-demo';
+import {CardDemoComponent} from '../card/card-demo';
+import {MenuDemoComponent} from '../menu/menu-demo';
+import {RippleDemoComponent} from '../ripple/ripple-demo';
+import {DialogDemoComponent} from '../dialog/dialog-demo';
+import {TooltipDemoComponent} from '../tooltip/tooltip-demo';
 
-
-export const routes = RouterModule.forChild([
+const routes: Routes = [
   //{path: '', component: Home},
-   { path: 'demo', redirectTo: 'demo/button', pathMatch: 'full'},
-  {path: 'demo/button', component: ButtonDemo},
-  {path: 'demo/card', component: CardDemo},
-  {path: 'demo/radio', component: RadioDemo},
-  {path: 'demo/sidenav', component: SidenavDemo},
-  {path: 'demo/slide-toggle', component: SlideToggleDemo},
-  {path: 'demo/slider', component: SliderDemo},
-  {path: 'demo/progress-circle', component: ProgressCircleDemo},
-  {path: 'demo/progress-bar', component: ProgressBarDemo},
-  {path: 'demo/portal', component: PortalDemo},
-  {path: 'demo/overlay', component: OverlayDemo},
-  {path: 'demo/checkbox', component: CheckboxDemo},
-  {path: 'demo/input', component: InputDemo},
-  {path: 'demo/toolbar', component: ToolbarDemo},
-  {path: 'demo/icon', component: IconDemo},
-  {path: 'demo/list', component: ListDemo},
-  {path: 'demo/menu', component: MenuDemo},
-  {path: 'demo/live-announcer', component: LiveAnnouncerDemo},
-  {path: 'demo/gestures', component: GesturesDemo},
-  {path: 'demo/grid-list', component: GridListDemo},
-  {path: 'demo/tabs', component: TabsDemo},
-  {path: 'demo/button-toggle', component: ButtonToggleDemo},
-  {path: 'demo/baseline', component: BaselineDemo},
-  {path: 'demo/ripple', component: RippleDemo},
-  {path: 'demo/dialog', component: DialogDemo},
-  {path: 'demo/tooltip', component: TooltipDemo},
-]);
+   { path: '', redirectTo: 'button', pathMatch: 'full'},
+  {path: 'button', component: ButtonDemoComponent},
+  {path: 'card', component: CardDemoComponent},
+  {path: 'radio', component: RadioDemoComponent},
+  {path: 'sidenav', component: SidenavDemoComponent},
+  {path: 'slide-toggle', component: SlideToggleDemoComponent},
+  {path: 'slider', component: SliderDemoComponent},
+  {path: 'progress-circle', component: ProgressCircleDemoComponent},
+  {path: 'progress-bar', component: ProgressBarDemoComponent},
+  {path: 'portal', component: PortalDemoComponent},
+  {path: 'overlay', component: OverlayDemoComponent},
+  {path: 'checkbox', component: CheckboxDemoComponent},
+  {path: 'input', component: InputDemoComponent},
+  {path: 'toolbar', component: ToolbarDemoComponent},
+  {path: 'icon', component: IconDemoComponent},
+  {path: 'list', component: ListDemoComponent},
+  {path: 'menu', component: MenuDemoComponent},
+  {path: 'live-announcer', component: LiveAnnouncerDemoComponent},
+  {path: 'gestures', component: GesturesDemoComponent},
+  {path: 'grid-list', component: GridListDemoComponent},
+  {path: 'tabs', component: TabsDemoComponent},
+  {path: 'button-toggle', component: ButtonToggleDemoComponent},
+  {path: 'baseline', component: BaselineDemoComponent},
+  {path: 'ripple', component: RippleDemoComponent},
+  {path: 'dialog', component: DialogDemoComponent},
+  {path: 'tooltip', component: TooltipDemoComponent},
+];
 
-//export const DEMO_APP_ROUTE_PROVIDER = provideRouter(routes);
+export const routing = RouterModule.forChild(routes);

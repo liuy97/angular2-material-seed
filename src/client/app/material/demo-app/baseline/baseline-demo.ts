@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
   templateUrl: 'baseline-demo.html',
   styleUrls: ['baseline-demo.css'],
 })
-export class BaselineDemo {
+export class BaselineDemoComponent {
   name: string;
 }

@@ -9,7 +9,7 @@ import {MdIconRegistry} from '@angular2-material/icon/icon';
   viewProviders: [MdIconRegistry],
   encapsulation: ViewEncapsulation.None,
 })
-export class IconDemo {
+export class IconDemoComponent {
   constructor(mdIconRegistry: MdIconRegistry) {
     mdIconRegistry
         .addSvgIcon('thumb-up', '/icon/assets/thumbup-icon.svg')

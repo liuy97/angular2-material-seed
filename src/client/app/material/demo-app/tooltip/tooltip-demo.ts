@@ -8,6 +8,6 @@ import {TooltipPosition} from '@angular2-material/tooltip/tooltip';
   templateUrl: 'tooltip-demo.html',
   styleUrls: ['tooltip-demo.css'],
 })
-export class TooltipDemo {
+export class TooltipDemoComponent {
   position: TooltipPosition = 'below';
 }

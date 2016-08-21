@@ -9,7 +9,7 @@ import {
   templateUrl: 'button-toggle-demo.html',
   providers: [MdUniqueSelectionDispatcher],
 })
-export class ButtonToggleDemo {
+export class ButtonToggleDemoComponent {
   favoritePie = 'Apple';
   pieOptions = [
     'Apple',

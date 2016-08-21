@@ -1,15 +1,15 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 
-@Component({
+/*@Component({
   selector: 'home',
   template: `
     <p>Welcome to the development demos for Angular Material 2!</p>
     <p>Open the sidenav to select a demo. </p>
   `
 })
-export class Home {}
-
+export class HomeComponent {}
+*/
 @Component({
   moduleId: module.id,
   selector: 'demo-app',
@@ -18,4 +18,4 @@ export class Home {}
   styleUrls: ['demo-app.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class DemoApp { }
+export class DemoAppComponent { }

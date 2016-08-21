@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
   templateUrl: 'radio-demo.html',
   styleUrls: ['radio-demo.css'],
 })
-export class RadioDemo {
+export class RadioDemoComponent {
   isDisabled: boolean = false;
   isAlignEnd: boolean = false;
   favoriteSeason: string = 'Autumn';

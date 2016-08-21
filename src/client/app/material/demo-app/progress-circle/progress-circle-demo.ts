@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
   templateUrl: 'progress-circle-demo.html',
   styleUrls: ['progress-circle-demo.css'],
 })
-export class ProgressCircleDemo {
+export class ProgressCircleDemoComponent {
   progressValue: number = 40;
 
   step(val: number) {

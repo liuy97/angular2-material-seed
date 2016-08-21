@@ -6,7 +6,7 @@ import {MdLiveAnnouncer} from '@angular2-material/core/a11y/live-announcer';
   selector: 'toolbar-demo',
   templateUrl: 'live-announcer-demo.html',
 })
-export class LiveAnnouncerDemo {
+export class LiveAnnouncerDemoComponent {
 
   constructor(private live: MdLiveAnnouncer) {}
 

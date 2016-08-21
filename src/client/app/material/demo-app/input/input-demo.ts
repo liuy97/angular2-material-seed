@@ -9,7 +9,7 @@ let max = 5;
   templateUrl: 'input-demo.html',
   styleUrls: ['input-demo.css'],
 })
-export class InputDemo {
+export class InputDemoComponent {
   dividerColor: boolean;
   requiredField: boolean;
   floatingLabel: boolean;

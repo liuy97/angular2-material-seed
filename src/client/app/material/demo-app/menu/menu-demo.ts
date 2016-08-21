@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
   templateUrl: 'menu-demo.html',
   styleUrls: ['menu-demo.css'],
 })
-export class MenuDemo {
+export class MenuDemoComponent {
   selected = '';
   items = [
     {text: 'Refresh'},

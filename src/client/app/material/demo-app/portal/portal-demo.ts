@@ -12,7 +12,7 @@ import {
   templateUrl: 'portal-demo.html',
   styleUrls: ['portal-demo.css'],
 })
-export class PortalDemo {
+export class PortalDemoComponent {
   @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
 
   selectedPortal: Portal<any>;
@@ -26,7 +26,7 @@ export class PortalDemo {
   }
 
   get scienceJoke() {
-    return new ComponentPortal(ScienceJoke);
+    return new ComponentPortal(ScienceJokeComponent);
   }
 }
 
@@ -36,4 +36,4 @@ export class PortalDemo {
   selector: 'science-joke',
   template: `<p> 100 kilopascals go into a bar. </p>`
 })
-export class ScienceJoke { }
+export class ScienceJokeComponent { }

@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
   templateUrl: 'button-demo.html',
   styleUrls: ['button-demo.css'],
 })
-export class ButtonDemo {
+export class ButtonDemoComponent {
   isDisabled: boolean = false;
   clickCounter: number = 0;
 }

@@ -9,7 +9,7 @@ import {MdIconRegistry} from '@angular2-material/icon/icon';
   styleUrls: ['grid-list-demo.css'],
   providers: [MdIconRegistry]
 })
-export class GridListDemo {
+export class GridListDemoComponent {
   tiles: any[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},

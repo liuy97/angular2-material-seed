@@ -17,7 +17,7 @@ export interface Task {
   `],
   templateUrl: 'nested-checklist.html',
 })
-export class MdCheckboxDemoNestedChecklist {
+export class MdCheckboxDemoNestedChecklistComponent {
   tasks: Task[] = [
     {
       name: 'Reminders',
@@ -62,7 +62,7 @@ export class MdCheckboxDemoNestedChecklist {
   templateUrl: 'checkbox-demo.html',
   styleUrls: ['checkbox-demo.css'],
 })
-export class CheckboxDemo {
+export class CheckboxDemoComponent {
   isIndeterminate: boolean = false;
   isChecked: boolean = false;
   isDisabled: boolean = false;

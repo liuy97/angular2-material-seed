@@ -9,7 +9,7 @@ import {Component} from '@angular/core';
   templateUrl: 'progress-bar-demo.html',
   styleUrls: ['progress-bar-demo.css'],
 })
-export class ProgressBarDemo {
+export class ProgressBarDemoComponent {
   determinateProgressValue: number = 30;
   bufferProgressValue: number = 30;
   bufferBufferValue: number = 40;

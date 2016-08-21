@@ -6,4 +6,4 @@ import {Component} from '@angular/core';
   selector: 'slider-demo',
   templateUrl: 'slider-demo.html',
 })
-export class SliderDemo { }
+export class SliderDemoComponent { }

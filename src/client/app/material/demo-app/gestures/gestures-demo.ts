@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
   templateUrl: 'gestures-demo.html',
   styleUrls: ['gestures-demo.css'],
 })
-export class GesturesDemo {
+export class GesturesDemoComponent {
   dragCount: number = 0;
   panCount: number = 0;
   pressCount: number = 0;

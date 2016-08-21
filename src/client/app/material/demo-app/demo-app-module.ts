@@ -1,37 +1,36 @@
-import {NgModule, ApplicationRef} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-import {DemoApp, Home} from './demo-app/demo-app';
-import {routes} from './demo-app/routes';
+import {DemoAppComponent} from './demo-app/demo-app';
+import {routing} from './demo-app/routes';
 //import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../../all/all';
-import {ProgressBarDemo} from './progress-bar/progress-bar-demo';
-import {JazzDialog, DialogDemo} from './dialog/dialog-demo';
-import {RippleDemo} from './ripple/ripple-demo';
-import {IconDemo} from './icon/icon-demo';
-import {GesturesDemo} from './gestures/gestures-demo';
-import {InputDemo} from './input/input-demo';
-import {CardDemo} from './card/card-demo';
-import {RadioDemo} from './radio/radio-demo';
-import {ButtonToggleDemo} from './button-toggle/button-toggle-demo';
-import {ProgressCircleDemo} from './progress-circle/progress-circle-demo';
-import {TooltipDemo} from './tooltip/tooltip-demo';
-import {ListDemo} from './list/list-demo';
-import {BaselineDemo} from './baseline/baseline-demo';
-import {GridListDemo} from './grid-list/grid-list-demo';
-import {LiveAnnouncerDemo} from './live-announcer/live-announcer-demo';
-import {OverlayDemo, SpagettiPanel, RotiniPanel} from './overlay/overlay-demo';
-import {SlideToggleDemo} from './slide-toggle/slide-toggle-demo';
-import {ToolbarDemo} from './toolbar/toolbar-demo';
-import {ButtonDemo} from './button/button-demo';
-import {MdCheckboxDemoNestedChecklist, CheckboxDemo} from './checkbox/checkbox-demo';
-import {SliderDemo} from './slider/slider-demo';
-import {SidenavDemo} from './sidenav/sidenav-demo';
-import {PortalDemo, ScienceJoke} from './portal/portal-demo';
-import {MenuDemo} from './menu/menu-demo';
-import {TabsDemo} from './tabs/tab-group-demo';
-
+import {ProgressBarDemoComponent} from './progress-bar/progress-bar-demo';
+import {JazzDialogComponent, DialogDemoComponent} from './dialog/dialog-demo';
+import {RippleDemoComponent} from './ripple/ripple-demo';
+import {IconDemoComponent} from './icon/icon-demo';
+import {GesturesDemoComponent} from './gestures/gestures-demo';
+import {InputDemoComponent} from './input/input-demo';
+import {CardDemoComponent} from './card/card-demo';
+import {RadioDemoComponent} from './radio/radio-demo';
+import {ButtonToggleDemoComponent} from './button-toggle/button-toggle-demo';
+import {ProgressCircleDemoComponent} from './progress-circle/progress-circle-demo';
+import {TooltipDemoComponent} from './tooltip/tooltip-demo';
+import {ListDemoComponent} from './list/list-demo';
+import {BaselineDemoComponent} from './baseline/baseline-demo';
+import {GridListDemoComponent} from './grid-list/grid-list-demo';
+import {LiveAnnouncerDemoComponent} from './live-announcer/live-announcer-demo';
+import {OverlayDemoComponent, SpagettiPanelComponent, RotiniPanelComponent} from './overlay/overlay-demo';
+import {SlideToggleDemoComponent} from './slide-toggle/slide-toggle-demo';
+import {ToolbarDemoComponent} from './toolbar/toolbar-demo';
+import {ButtonDemoComponent} from './button/button-demo';
+import {MdCheckboxDemoNestedChecklistComponent, CheckboxDemoComponent} from './checkbox/checkbox-demo';
+import {SliderDemoComponent} from './slider/slider-demo';
+import {SidenavDemoComponent} from './sidenav/sidenav-demo';
+import {PortalDemoComponent, ScienceJokeComponent} from './portal/portal-demo';
+import {MenuDemoComponent} from './menu/menu-demo';
+import {TabsDemoComponent} from './tabs/tab-group-demo';
 
 @NgModule({
   imports: [
@@ -40,57 +39,52 @@ import {TabsDemo} from './tabs/tab-group-demo';
     HttpModule,
     MaterialModule,
     //RouterModule,
-    routes,
+    routing,
   ],
   providers: [
     //DEMO_APP_ROUTE_PROVIDER,
   ],
   declarations: [
-    BaselineDemo,
-    ButtonDemo,
-    ButtonToggleDemo,
-    CardDemo,
-    CheckboxDemo,
+    BaselineDemoComponent,
+    ButtonDemoComponent,
+    ButtonToggleDemoComponent,
+    CardDemoComponent,
+    CheckboxDemoComponent,
+    DemoAppComponent,
+    DialogDemoComponent,
+    GesturesDemoComponent,
+    GridListDemoComponent,
+    //HomeComponent,
+    IconDemoComponent,
+    InputDemoComponent,
+    JazzDialogComponent,
+    ListDemoComponent,
+    LiveAnnouncerDemoComponent,
+    MdCheckboxDemoNestedChecklistComponent,
+    MenuDemoComponent,
+    OverlayDemoComponent,
+    PortalDemoComponent,
+    ProgressBarDemoComponent,
+    ProgressCircleDemoComponent,
+    RadioDemoComponent,
+    RippleDemoComponent,
+    RotiniPanelComponent,
+    ScienceJokeComponent,
+    SidenavDemoComponent,
+    SliderDemoComponent,
+    SlideToggleDemoComponent,
+    SpagettiPanelComponent,
+    TabsDemoComponent,
+    ToolbarDemoComponent,
+    TooltipDemoComponent,
+  ],
+  /*entryComponents: [
     DemoApp,
-    DialogDemo,
-    GesturesDemo,
-    GridListDemo,
-    Home,
-    IconDemo,
-    InputDemo,
     JazzDialog,
-    ListDemo,
-    LiveAnnouncerDemo,
-    MdCheckboxDemoNestedChecklist,
-    MenuDemo,
-    OverlayDemo,
-    PortalDemo,
-    ProgressBarDemo,
-    ProgressCircleDemo,
-    RadioDemo,
-    RippleDemo,
     RotiniPanel,
     ScienceJoke,
-    SidenavDemo,
-    SliderDemo,
-    SlideToggleDemo,
     SpagettiPanel,
-    TabsDemo,
-    ToolbarDemo,
-    TooltipDemo,
-  ],
-  entryComponents: [
-    DemoApp,
-    JazzDialog,
-    RotiniPanel,
-    ScienceJoke,
-    SpagettiPanel,
-  ],
+  ],*/
 })
-export class DemoAppModule {
-  /*constructor(private _appRef: ApplicationRef) { }
 
-  ngDoBootstrap() {
-    this._appRef.bootstrap(DemoApp);
-  }*/
-}
+export default class DemoAppModule { }

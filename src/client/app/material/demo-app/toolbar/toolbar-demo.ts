@@ -7,6 +7,6 @@ import {Component} from '@angular/core';
   templateUrl: 'toolbar-demo.html',
   styleUrls: ['toolbar-demo.css'],
 })
-export class ToolbarDemo {
+export class ToolbarDemoComponent {
 
 }

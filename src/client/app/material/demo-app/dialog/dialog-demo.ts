@@ -9,7 +9,7 @@ import {OVERLAY_PROVIDERS} from '@angular2-material/core/overlay/overlay';
   styleUrls: ['dialog-demo.css'],
   //providers: [MdDialog, OVERLAY_PROVIDERS]
 })
-export class DialogDemo {
+export class DialogDemoComponent {
   //dialogRef: MdDialogRef<JazzDialog>;
   lastCloseResult: string;
 
@@ -40,6 +40,6 @@ export class DialogDemo {
   <p><label>How much? <input #howMuch></label></p>
   <button type="button" (click)="dialogRef.close(howMuch.value)">Close dialog</button>`
 })
-export class JazzDialog {
+export class JazzDialogComponent {
   //constructor(public dialogRef: MdDialogRef<JazzDialog>) { }
 }

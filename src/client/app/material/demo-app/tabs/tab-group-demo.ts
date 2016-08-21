@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/Observable';
   pipes: [AsyncPipe],
   encapsulation: ViewEncapsulation.None,
 })
-export class TabsDemo {
+export class TabsDemoComponent {
   tabs = [
     { label: 'Tab One', content: 'This is the body of the first tab' },
     { label: 'Tab Two', content: 'This is the body of the second tab' },

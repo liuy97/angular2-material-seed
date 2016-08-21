@@ -8,7 +8,7 @@ import {MdRipple} from '@angular2-material/core/core';
   templateUrl: 'ripple-demo.html',
   styleUrls: ['ripple-demo.css'],
 })
-export class RippleDemo {
+export class RippleDemoComponent {
   @ViewChild(MdRipple) manualRipple: MdRipple;
 
   centered = false;
