@@ -10,6 +10,4 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.css'],
 })
 
-export class AppComponent {
-  version: string = '2.0.0-alpha.7';
-}
+export class AppComponent { }

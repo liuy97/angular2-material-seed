@@ -1,5 +1,5 @@
 import {Routes, RouterModule} from '@angular/router';
-//import {Home} from './demo-app';
+import {HomeComponent} from './demo-app';
 import {ButtonDemoComponent} from '../button/button-demo';
 import {BaselineDemoComponent} from '../baseline/baseline-demo';
 import {ButtonToggleDemoComponent} from '../button-toggle/button-toggle-demo';
@@ -27,8 +27,8 @@ import {DialogDemoComponent} from '../dialog/dialog-demo';
 import {TooltipDemoComponent} from '../tooltip/tooltip-demo';
 
 const routes: Routes = [
-  //{path: '', component: Home},
-   { path: '', redirectTo: 'button', pathMatch: 'full'},
+  {path: '', component: HomeComponent},
+  // { path: '', redirectTo: 'button', pathMatch: 'full'},
   {path: 'button', component: ButtonDemoComponent},
   {path: 'card', component: CardDemoComponent},
   {path: 'radio', component: RadioDemoComponent},
