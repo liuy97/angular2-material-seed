@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-import {DemoAppComponent} from './demo-app/demo-app';
+import {DemoAppComponent, HomeComponent} from './demo-app/demo-app';
 import {routing} from './demo-app/routes';
 import {MaterialModule} from '../../all/all';
 import {ProgressBarDemoComponent} from './progress-bar/progress-bar-demo';
@@ -48,6 +48,7 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     CardDemoComponent,
     CheckboxDemoComponent,
     DemoAppComponent,
+    HomeComponent,
     DialogDemoComponent,
     GesturesDemoComponent,
     GridListDemoComponent,
