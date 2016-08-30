@@ -1,4 +1,6 @@
-.demo-menu {/* display: flex; */
+.demo-menu {
+  /* doiuse-disable */
+  display: flex;
   flex-flow: row wrap;
   .menu-section {
     width: 300px;

@@ -1,4 +1,6 @@
-.demo-card-container {/* display: flex; */
+.demo-card-container {
+  /* doiuse-disable */
+  display: flex;
   flex-flow: column nowrap;
 
   md-card {
