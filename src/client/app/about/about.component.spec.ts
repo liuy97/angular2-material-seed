@@ -1,4 +1,4 @@
-/// <reference path="../../../typings/globals/jasmine/index.d.ts" />
+/// <reference path="../../../../typings/globals/jasmine/index.d.ts" />
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
