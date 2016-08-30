@@ -1,5 +1,6 @@
 # Introduction
 Angular2 (RC5) + Material(2.0.0-alpha.7-4) + Seed
+[![Build Status](https://travis-ci.org/liuy97/angular2-material-seed.svg?branch=master)](https://travis-ci.org/liuy97/angular2-material-seed)
 
 # How to start
 
@@ -8,8 +9,6 @@ Angular2 (RC5) + Material(2.0.0-alpha.7-4) + Seed
 npm install
 # watches your files and uses livereload by default
 npm start
-# api document for the app
-npm run build.docs
 
 # dev build
 npm run build.dev
