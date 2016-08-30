@@ -1,5 +1,4 @@
-.demo-menu {
-  display: flex;
+.demo-menu {/* display: flex; */
   flex-flow: row wrap;
   .menu-section {
     width: 300px;

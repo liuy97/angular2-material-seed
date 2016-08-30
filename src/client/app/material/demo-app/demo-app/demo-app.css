@@ -7,7 +7,7 @@ body * {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body md-sidenav {
+/* body md-sidenav {
   min-width: 15%;
 }
 
@@ -16,13 +16,13 @@ body md-sidenav [md-button] {
   position: relative;
   bottom: 0;
   margin: 24px 0;
-}
+} */
 
 body .demo-content {
   padding: 32px;
 }
 
-body md-toolbar md-icon {
+/* body md-toolbar md-icon {
   cursor: pointer;
 }
 
@@ -34,7 +34,7 @@ body md-toolbar .demo-toolbar {
   -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
-}
+} */
 
 body h1 {
   font-size: 20px;

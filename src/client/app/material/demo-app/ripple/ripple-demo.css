@@ -4,8 +4,7 @@
   text-transform: uppercase;
 }
 
-.demo-ripple .demo-ripple-container {
-  box-shadow: rgba(0, 0, 0, 0.118) 0 10px 15px, rgba(0, 0, 0, 0.239) 0 5px 10px;
+.demo-ripple .demo-ripple-container {/* box-shadow: rgba(0, 0, 0, 0.118) 0 10px 15px, rgba(0, 0, 0, 0.239) 0 5px 10px; */
   cursor: pointer;
   font-size: 24px;
   height: 150px;

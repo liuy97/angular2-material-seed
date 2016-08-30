@@ -1,18 +1,18 @@
 
 .demo-button {
-  button, a {
+  button,
+  a {
     margin: 8px;
     text-transform: uppercase;
   }
 
-  section {
-    display: flex;
+  section {/* display: flex; */
     align-items: center;
     background-color: #f7f7f7;
     margin: 8px;
   }
 
   p {
-    padding:5px 15px;
+    padding: 5px 15px;
   }
 }

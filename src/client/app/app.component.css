@@ -10,25 +10,25 @@ body {
   padding: 20px;
 }
 
-.app-content md-card {
+/* .app-content md-card {
   margin: 20px;
-}
+} */
 
 .app-sidenav {
   padding: 10px;
   min-width: 100px;
 }
 
-.app-content md-checkbox {
+/* .app-content md-checkbox {
   margin: 10px;
-}
+} */
 
 .app-toolbar-filler {
   flex: 1 1 auto;
 }
 
 .app-toolbar-menu {
-  padding: 0 14px 0 14px;
+  padding: 0 14px/* 0 14px */;
   color: white;
 }
 
@@ -37,8 +37,7 @@ body {
   user-select: none;
   background: none;
   border: none;
-  cursor: pointer;
-  filter: none;
+  cursor: pointer;/* filter: none; */
   font-weight: normal;
   height: auto;
   line-height: inherit;
@@ -50,8 +49,7 @@ body {
 }
 
 .app-action {
-  display: inline-block;
-  position: fixed;
+  display: inline-block;/* position: fixed; */
   bottom: 20px;
   right: 20px;
 }
