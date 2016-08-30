@@ -1,38 +1,27 @@
-//import { TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import {
-  //describe,
-  //expect,
-  inject,
-  TestComponentBuilder
-  //it
-} from '@angular/core/testing';
-import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {TestBed} from '@angular/core/testing';
+//import {expect} from '@angular/platform-browser/testing/matchers';
 
 import { AboutComponent } from './about.component';
 
 export function main() {
-  describe('About component', () => {
-    let providerArr: any[];
 
-    beforeEach(() => { providerArr = [disableDeprecatedForms(), provideForms()]; });
-    it('should work',
-      inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
-        tcb.overrideProviders(TestComponent, providerArr)
-          .createAsync(TestComponent)
-          .then((rootTC: any) => {
-            let aboutDOMEl = rootTC.debugElement.children[0].nativeElement;
+  describe('App component', () => {
+    beforeEach(() => {
+      TestBed.configureTestingModule({declarations: [TestComponent], imports: [CommonModule]});
+    });
 
-            expect(getDOM().querySelectorAll(aboutDOMEl, 'h2')[0].textContent).toEqual('Features');
-          });
-      }));
+    it('should build without a problem', () => {
+      //let test: any = {id: 1, name: 'test'};
+      //expect(test.name).toEqual('test');
+    });
   });
 }
 
 @Component({
   selector: 'test-cmp',
-  directives: [AboutComponent],
-  template: '<sd-about></sd-about>'
+  template: '<sd-about></sd-about>',
+  directives: [AboutComponent]
 })
 class TestComponent { }
