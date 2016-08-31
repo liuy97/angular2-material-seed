@@ -16,7 +16,9 @@
 .demo-card-blue {
   background-color: #b0becc;
 
-  md-card-actions {/* display: flex; */
+  md-card-actions {
+    /* doiuse-disable */
+    display: flex;
     flex-direction: column;
   }
 }
