@@ -75,6 +75,11 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     ToolbarDemoComponent,
     TooltipDemoComponent,
   ],
+  entryComponents: [
+    RotiniPanelComponent,
+    ScienceJokeComponent,
+    SpagettiPanelComponent,
+  ],
 })
 
 export default class DemoAppModule { }
