@@ -1,26 +1,58 @@
-/// <reference path="../../../typings/globals/jasmine/index.d.ts" />
-import { AppComponent } from './app.component';
-
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
+import { APP_BASE_HREF } from '@angular/common';
 
-//import { By }             from '@angular/platform-browser';
+import {
+  async
+} from '@angular/core/testing';
+import {
+  Route
+} from '@angular/router';
+import {
+  RouterTestingModule
+} from '@angular/router/testing';
+import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
+import {MaterialModule} from './all/all';
 
-////////  SPECS  /////////////
+export function main() {
 
-describe('Test', () => {
-  it('should run a passing test', () => {
-    expect(true).toEqual(true, 'should pass');
+  describe('App component', () => {
+
+    let config: Route[] = [
+      { path: 'about', component: AboutComponent }
+    ];
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, MaterialModule.forRoot(), RouterTestingModule.withRoutes(config)],
+        declarations: [TestComponent,
+          AppComponent,
+          AboutComponent],
+        providers: [
+          { provide: APP_BASE_HREF, useValue: '/' }
+        ]
+      });
+    });
+
+    it('should build without a problem',
+      async(() => {
+        TestBed
+          .compileComponents()
+          .then(() => {
+            let fixture = TestBed.createComponent(TestComponent);
+            let compiled = fixture.nativeElement;
+
+            expect(compiled).toBeTruthy();
+          });
+      }));
   });
-});
+}
 
-describe('AppComponent with TCB', function () {
-  beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [AppComponent]});
-  });
+@Component({
+  selector: 'test-cmp',
+  template: '<sd-app></sd-app>'
+})
 
-  it('should instantiate component', () => {
-    let fixture = TestBed.createComponent(AppComponent);
-    expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');
-  });
-
-});
+class TestComponent {
+}

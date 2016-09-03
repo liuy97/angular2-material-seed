@@ -115,7 +115,7 @@ export class SeedConfig {
    * The default directory is `app`.
    * @type {string}
    */
-  BOOTSTRAP_DIR = 'app';
+  BOOTSTRAP_DIR = argv['app'] || 'app';
 
   /**
    * The directory where the client files are located.
@@ -132,6 +132,8 @@ export class SeedConfig {
    * @type {string}
    */
   BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
+
+  BOOTSTRAP_PROD_MODULE = `${this.BOOTSTRAP_DIR}/` + 'main-prod';
 
   /**
    * The default title of the application as used in the `<title>` tag of the
@@ -271,9 +273,9 @@ export class SeedConfig {
   NPM_DEPENDENCIES: InjectableDependency[] = [
     { src: 'zone.js/dist/zone.js', inject: 'libs' },
     { src: 'core-js/client/shim.min.js', inject: 'shims' },
-    { src: 'hammerjs/hammer.min.js', inject: 'libs' },
+	{ src: 'hammerjs/hammer.min.js', inject: 'libs' },
     { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'rxjs/bundles/Rx.umd.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT }
+    { src: 'rxjs/bundles/Rx.umd.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
   ];
 
   /**
@@ -281,7 +283,7 @@ export class SeedConfig {
    * @type {InjectableDependency[]}
    */
   APP_ASSETS: InjectableDependency[] = [
-    { src: `${this.CSS_SRC}/main.${ this.getInjectableStyleExtension() }`, inject: true, vendor: false },
+    { src: `${this.CSS_SRC}/main.${this.getInjectableStyleExtension()}`, inject: true, vendor: false },
   ];
 
   /**
@@ -311,25 +313,38 @@ export class SeedConfig {
     packageConfigPaths: [
       `/node_modules/*/package.json`,
       `/node_modules/**/package.json`,
-      `/node_modules/@angular2-material/**/package.json`,
+	  `/node_modules/@angular2-material/**/package.json`,
       `/node_modules/@angular/*/package.json`
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
-      '@angular/core': `node_modules/@angular/core/bundles/core.umd.js`,
-      '@angular/common': `node_modules/@angular/common/bundles/common.umd.js`,
-      '@angular/compiler': `node_modules/@angular/compiler/bundles/compiler.umd.js`,
-      '@angular/forms': `node_modules/@angular/forms/bundles/forms.umd.js`,
-      '@angular/http': `node_modules/@angular/http/bundles/http.umd.js`,
-      '@angular/platform-browser': `node_modules/@angular/platform-browser/bundles/platform-browser.umd.js`,
-      '@angular/platform-browser-dynamic': `node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js`,
-      '@angular/router': `node_modules/@angular/router/bundles/router.umd.js`,
-      'rxjs/*': `node_modules/rxjs/*`,
-      'app/*': `/app/*`,
-      '*': `node_modules/*`
+      '@angular/common': 'node_modules/@angular/common/bundles/common.umd.js',
+      '@angular/compiler': 'node_modules/@angular/compiler/bundles/compiler.umd.js',
+      '@angular/core': 'node_modules/@angular/core/bundles/core.umd.js',
+      '@angular/forms': 'node_modules/@angular/forms/bundles/forms.umd.js',
+      '@angular/http': 'node_modules/@angular/http/bundles/http.umd.js',
+      '@angular/platform-browser': 'node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
+      '@angular/platform-browser-dynamic': 'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+      '@angular/router': 'node_modules/@angular/router/bundles/router.umd.js',
+
+      '@angular/common/testing': 'node_modules/@angular/common/bundles/common-testing.umd.js',
+      '@angular/compiler/testing': 'node_modules/@angular/compiler/bundles/compiler-testing.umd.js',
+      '@angular/core/testing': 'node_modules/@angular/core/bundles/core-testing.umd.js',
+      '@angular/http/testing': 'node_modules/@angular/http/bundles/http-testing.umd.js',
+      '@angular/platform-browser/testing':
+        'node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
+      '@angular/platform-browser-dynamic/testing':
+        'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
+      '@angular/router/testing': 'node_modules/@angular/router/bundles/router-testing.umd.js',
+
+      'rxjs/*': 'node_modules/rxjs/*',
+      'app/*': '/app/*',
+      // For test config
+      'dist/dev/*': '/base/dist/dev/*',
+      '*': 'node_modules/*'
     },
     packages: {
-      '@angular2-material/core': {
+	  '@angular2-material/core': {
         format: 'cjs',
         defaultExtension: 'js',
         main: 'core.umd.js'
@@ -443,7 +458,7 @@ export class SeedConfig {
     defaultJSExtensions: true,
     packageConfigPaths: [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-      join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '**', 'package.json'),
+	  join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '**', 'package.json'),
       join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
     ],
     paths: {
@@ -456,6 +471,10 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/compiler': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/core/testing': {
         main: 'index.js',
         defaultExtension: 'js'
       },
@@ -483,60 +502,60 @@ export class SeedConfig {
         main: 'index.js',
         defaultExtension: 'js'
       },
-      '@angular2-material/core': {
+	  '@angular2-material/core': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'core.umd.js'
+        main: 'core.js'
       },
       '@angular2-material/sidenav': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'sidenav.umd.js'
+        main: 'sidenav.js'
       },
       '@angular2-material/toolbar': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'toolbar.umd.js'
+        main: 'toolbar.js'
       },
       '@angular2-material/card': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'card.umd.js'
+        main: 'card.js'
       },
       '@angular2-material/button': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'button.umd.js'
+        main: 'button.js'
       },
       '@angular2-material/button-toggle': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'button-toggle.umd.js'
+        main: 'button-toggle.js'
       },
       '@angular2-material/checkbox': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'checkbox.umd.js'
+        main: 'checkbox.js'
       },
       '@angular2-material/radio': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'radio.umd.js'
+        main: 'radio.js'
       },
       '@angular2-material/progress-circle': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'progress-circle.umd.js'
+        main: 'progress-circle.js'
       },
       '@angular2-material/progress-bar': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'progress-bar.umd.js'
+        main: 'progress-bar.js'
       },
       '@angular2-material/input': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'input.umd.js'
+        main: 'input.js'
       },
       '@angular2-material/list': {
         format: 'cjs',
@@ -546,37 +565,37 @@ export class SeedConfig {
       '@angular2-material/icon': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'icon.umd.js'
+        main: 'icon.js'
       },
       '@angular2-material/tabs': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'tabs.umd.js'
+        main: 'tabs.js'
       },
       '@angular2-material/grid-list': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'grid-list.umd.js'
+        main: 'grid-list.js'
       },
       '@angular2-material/slider': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'slider.umd.js'
+        main: 'slider.js'
       },
       '@angular2-material/slide-toggle': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'slide-toggle.umd.js'
+        main: 'slide-toggle.js'
       },
       '@angular2-material/tooltip': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'tooltip.umd.js'
+        main: 'tooltip.js'
       },
       '@angular2-material/menu': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'menu.umd.js'
+        main: 'menu.js'
       },
       'rxjs': {
         defaultExtension: 'js'
@@ -628,6 +647,7 @@ export class SeedConfig {
       server: {
         baseDir: `${this.DIST_DIR}/empty/`,
         routes: {
+          [`${this.APP_BASE}${this.APP_SRC}`]: this.APP_SRC,
           [`${this.APP_BASE}${this.APP_DEST}`]: this.APP_DEST,
           [`${this.APP_BASE}node_modules`]: 'node_modules',
           [`${this.APP_BASE.replace(/\/$/, '')}`]: this.APP_DEST
@@ -675,7 +695,7 @@ export class SeedConfig {
    * @param {any} pluginKey The object key to look up in PLUGIN_CONFIGS.
    */
   getPluginConfig(pluginKey: string): any {
-    if (this.PLUGIN_CONFIGS[ pluginKey ]) {
+    if (this.PLUGIN_CONFIGS[pluginKey]) {
       return this.PLUGIN_CONFIGS[pluginKey];
     }
     return null;
