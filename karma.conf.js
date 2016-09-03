@@ -21,14 +21,19 @@ module.exports = function(config) {
       // Polyfills.
       'node_modules/core-js/client/shim.min.js',
 
+      'node_modules/traceur/bin/traceur.js',
+
       // System.js for module loading
       'node_modules/systemjs/dist/system.src.js',
 
       // Zone.js dependencies
       'node_modules/zone.js/dist/zone.js',
-      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/long-stack-trace-zone.js',
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
+      'node_modules/zone.js/dist/sync-test.js',
+      'node_modules/zone.js/dist/proxy.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
 
       // RxJs.
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
@@ -37,6 +42,7 @@ module.exports = function(config) {
       // paths loaded via module imports
       // Angular itself
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
+      { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
       { pattern: 'node_modules/@angular2-material/**/*.js', included: false, watched: true },
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },

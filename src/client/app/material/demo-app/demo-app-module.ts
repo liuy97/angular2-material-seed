@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoAppComponent, HomeComponent} from './demo-app/demo-app';
@@ -33,10 +33,10 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
+    MaterialModule.forRoot(),
     routing,
   ],
   providers: [

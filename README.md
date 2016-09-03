@@ -1,5 +1,5 @@
 # Introduction
-Angular2 (RC5) + Material(2.0.0-alpha.7-4) + Seed
+Angular2 (RC6) + Material(2.0.0-alpha.8-1) + Seed
 [![Build Status](https://travis-ci.org/liuy97/angular2-material-seed.svg?branch=master)](https://travis-ci.org/liuy97/angular2-material-seed)
 
 # How to start

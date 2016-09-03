@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app.module';
 
-if ('<%= ENV %>' === 'prod') { enableProdMode(); }
+if (String('<%= ENV %>') === 'prod') { enableProdMode(); }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
