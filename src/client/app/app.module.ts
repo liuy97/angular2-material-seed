@@ -6,7 +6,6 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import {MaterialModule} from './all/all';
 import {AboutModule} from './about/about.module';
-//import { MdIconRegistry } from '@angular2-material/icon/icon';
 
 @NgModule({
   imports: [
@@ -20,7 +19,7 @@ import {AboutModule} from './about/about.module';
   declarations: [
     AppComponent
   ],
-  providers: [ //MdIconRegistry 
+  providers: [
   ],
   bootstrap: [AppComponent]
 })

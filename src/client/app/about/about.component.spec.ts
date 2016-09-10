@@ -4,18 +4,16 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { AboutComponent } from './about.component';
-import {MaterialModule} from '../all/all';
+import { AboutModule } from './about.module';
+import { MaterialModule } from '../all/all';
 
 export function main() {
    describe('About component', () => {
-    // Setting module for testing
-    // Disable old forms
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        declarations: [TestComponent, AboutComponent],
-        imports: [MaterialModule.forRoot()]
+        declarations: [TestComponent],
+        imports: [MaterialModule.forRoot(), AboutModule]
       });
     });
 

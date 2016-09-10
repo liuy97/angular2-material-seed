@@ -28,7 +28,6 @@ import {TooltipDemoComponent} from '../tooltip/tooltip-demo';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  // { path: '', redirectTo: 'button', pathMatch: 'full'},
   {path: 'button', component: ButtonDemoComponent},
   {path: 'card', component: CardDemoComponent},
   {path: 'radio', component: RadioDemoComponent},

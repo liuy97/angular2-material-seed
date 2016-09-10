@@ -4,7 +4,8 @@ import {MaterialModule} from '../all/all';
 import {AboutComponent} from './about.component';
 
 @NgModule({
-  imports:      [ AboutRoutes, MaterialModule ],
+  imports:      [ AboutRoutes, MaterialModule.forRoot() ],
+  exports: [AboutComponent],
   declarations: [AboutComponent],
 })
 
