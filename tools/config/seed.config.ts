@@ -1,4 +1,5 @@
 import { join } from 'path';
+import * as slash from 'slash';
 import { argv } from 'yargs';
 
 import { Environments, InjectableDependency } from './seed.config.interfaces';
@@ -83,7 +84,7 @@ export class SeedConfig {
    * The base path of node modules.
    * @type {string}
    */
-  NPM_BASE = join(this.APP_BASE, 'node_modules/');
+  NPM_BASE = slash(join(this.APP_BASE, 'node_modules/'));
 
   /**
    * The flag for the hot-loader option of the application.
@@ -133,7 +134,10 @@ export class SeedConfig {
    */
   BOOTSTRAP_MODULE = `${this.BOOTSTRAP_DIR}/` + (this.ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main');
 
-  BOOTSTRAP_PROD_MODULE = `${this.BOOTSTRAP_DIR}/` + 'main-prod';
+  BOOTSTRAP_PROD_MODULE = `${this.BOOTSTRAP_DIR}/` + 'main';
+  NG_FACTORY_FILE = 'main-prod';
+
+  BOOTSTRAP_FACTORY_PROD_MODULE = `${this.BOOTSTRAP_DIR}/${this.NG_FACTORY_FILE}`;
 
   /**
    * The default title of the application as used in the `<title>` tag of the
@@ -308,7 +312,7 @@ export class SeedConfig {
    * The configuration of SystemJS for the `dev` environment.
    * @type {any}
    */
-  protected SYSTEM_CONFIG_DEV: any = {
+  SYSTEM_CONFIG_DEV: any = {
     defaultJSExtensions: true,
     packageConfigPaths: [
       `/node_modules/*/package.json`,
@@ -620,7 +624,32 @@ export class SeedConfig {
      * @type {any}
      */
     'browser-sync': {
-      middleware: [require('connect-history-api-fallback')({ index: `${this.APP_BASE}index.html` })],
+      middleware: [require('connect-history-api-fallback')({
+        index: `${this.APP_BASE}index.html`,
+        rewrites: [
+          {
+            from: new RegExp(`^${this.NPM_BASE}.*$`),
+            to: (context:any) => context.parsedUrl.pathname
+          },
+          {
+            from: new RegExp(`^\/${this.BOOTSTRAP_DIR}\/.*$`),
+            to: (context:any) => context.parsedUrl.pathname
+          },
+          {
+            from: new RegExp(`^${this.APP_BASE}${this.APP_SRC}\/.*$`),
+            to: (context:any) => context.parsedUrl.pathname
+          },
+          {
+            from: new RegExp(`^${this.ASSETS_SRC.replace(this.APP_SRC, '')}\/.*$`),
+            to: (context:any) => context.parsedUrl.pathname
+          },
+          {
+            from: new RegExp(`^${this.CSS_DEST.replace(this.APP_DEST, '')}\/.*$`),
+            to: (context:any) => `/${slash(join(this.APP_DEST, context.parsedUrl.pathname))}`
+          }
+        ],
+        disableDotRule: true
+      })],
       port: this.PORT,
       startPath: this.APP_BASE,
       open: argv['b'] ? false : true,
