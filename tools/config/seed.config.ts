@@ -275,7 +275,7 @@ export class SeedConfig {
     { src: 'core-js/client/shim.min.js', inject: 'shims' },
 	{ src: 'hammerjs/hammer.min.js', inject: 'libs' },
     { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
-    { src: 'rxjs/bundles/Rx.umd.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
+    { src: 'rxjs/bundles/Rx.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
   ];
 
   /**
