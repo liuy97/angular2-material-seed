@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoAppComponent, HomeComponent} from './demo-app/demo-app';
-import {routing} from './demo-app/routes';
+import {demoRouting} from './demo-app/routes';
 import {MaterialModule} from '../../all/all';
 import {ProgressBarDemoComponent} from './progress-bar/progress-bar-demo';
 import {JazzDialogComponent, DialogDemoComponent} from './dialog/dialog-demo';
@@ -37,7 +37,7 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    routing,
+    demoRouting,
   ],
   providers: [
   ],
@@ -82,4 +82,4 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
   ],
 })
 
-export default class DemoAppModule { }
+export class DemoAppModule { }

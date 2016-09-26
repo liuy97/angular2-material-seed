@@ -6,6 +6,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule} from '@angular/http';
 import {MaterialModule} from './all/all';
 import {AboutModule} from './about/about.module';
+import {DemoAppModule} from './material/demo-app/demo-app-module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {AboutModule} from './about/about.module';
     HttpModule,
     MaterialModule.forRoot(),
     AboutModule,
+    DemoAppModule,
     routing
   ],
   declarations: [

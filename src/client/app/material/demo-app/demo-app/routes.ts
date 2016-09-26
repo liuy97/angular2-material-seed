@@ -1,3 +1,4 @@
+import { ModuleWithProviders }   from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './demo-app';
 import {ButtonDemoComponent} from '../button/button-demo';
@@ -26,33 +27,39 @@ import {RippleDemoComponent} from '../ripple/ripple-demo';
 import {DialogDemoComponent} from '../dialog/dialog-demo';
 import {TooltipDemoComponent} from '../tooltip/tooltip-demo';
 
-const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'button', component: ButtonDemoComponent},
-  {path: 'card', component: CardDemoComponent},
-  {path: 'radio', component: RadioDemoComponent},
-  {path: 'sidenav', component: SidenavDemoComponent},
-  {path: 'slide-toggle', component: SlideToggleDemoComponent},
-  {path: 'slider', component: SliderDemoComponent},
-  {path: 'progress-circle', component: ProgressCircleDemoComponent},
-  {path: 'progress-bar', component: ProgressBarDemoComponent},
-  {path: 'portal', component: PortalDemoComponent},
-  {path: 'overlay', component: OverlayDemoComponent},
-  {path: 'checkbox', component: CheckboxDemoComponent},
-  {path: 'input', component: InputDemoComponent},
-  {path: 'toolbar', component: ToolbarDemoComponent},
-  {path: 'icon', component: IconDemoComponent},
-  {path: 'list', component: ListDemoComponent},
-  {path: 'menu', component: MenuDemoComponent},
-  {path: 'live-announcer', component: LiveAnnouncerDemoComponent},
-  {path: 'gestures', component: GesturesDemoComponent},
-  {path: 'grid-list', component: GridListDemoComponent},
-  {path: 'tabs', component: TabsDemoComponent},
-  {path: 'button-toggle', component: ButtonToggleDemoComponent},
-  {path: 'baseline', component: BaselineDemoComponent},
-  {path: 'ripple', component: RippleDemoComponent},
-  {path: 'dialog', component: DialogDemoComponent},
-  {path: 'tooltip', component: TooltipDemoComponent},
+export const demoRoutes: Routes = [
+  {
+    path: 'demo',
+    component: HomeComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'button', component: ButtonDemoComponent },
+      { path: 'card', component: CardDemoComponent },
+      { path: 'radio', component: RadioDemoComponent },
+      { path: 'sidenav', component: SidenavDemoComponent },
+      { path: 'slide-toggle', component: SlideToggleDemoComponent },
+      { path: 'slider', component: SliderDemoComponent },
+      { path: 'progress-circle', component: ProgressCircleDemoComponent },
+      { path: 'progress-bar', component: ProgressBarDemoComponent },
+      { path: 'portal', component: PortalDemoComponent },
+      { path: 'overlay', component: OverlayDemoComponent },
+      { path: 'checkbox', component: CheckboxDemoComponent },
+      { path: 'input', component: InputDemoComponent },
+      { path: 'toolbar', component: ToolbarDemoComponent },
+      { path: 'icon', component: IconDemoComponent },
+      { path: 'list', component: ListDemoComponent },
+      { path: 'menu', component: MenuDemoComponent },
+      { path: 'live-announcer', component: LiveAnnouncerDemoComponent },
+      { path: 'gestures', component: GesturesDemoComponent },
+      { path: 'grid-list', component: GridListDemoComponent },
+      { path: 'tabs', component: TabsDemoComponent },
+      { path: 'button-toggle', component: ButtonToggleDemoComponent },
+      { path: 'baseline', component: BaselineDemoComponent },
+      { path: 'ripple', component: RippleDemoComponent },
+      { path: 'dialog', component: DialogDemoComponent },
+      { path: 'tooltip', component: TooltipDemoComponent },
+    ]
+  }
 ];
 
-export const routing = RouterModule.forChild(routes);
+export const demoRouting : ModuleWithProviders = RouterModule.forChild(demoRoutes);
