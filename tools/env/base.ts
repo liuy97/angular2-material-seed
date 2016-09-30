@@ -6,4 +6,3 @@ const BaseConfig: EnvConfig = {
 };
 
 export = BaseConfig;
-

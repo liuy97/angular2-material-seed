@@ -20,7 +20,7 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-      {src: `@angular2-material/core/style/core.css`, inject: true, vendor: false},
+      {src: `@angular/material/core/theming/prebuilt/deeppurple-amber.css`, inject: true, vendor: false},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];

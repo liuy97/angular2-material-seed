@@ -4,7 +4,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {DemoAppComponent, HomeComponent} from './demo-app/demo-app';
 import {demoRouting} from './demo-app/routes';
-import {MaterialModule} from '../../all/all';
+import {MaterialModule} from '@angular/material';
 import {ProgressBarDemoComponent} from './progress-bar/progress-bar-demo';
 import {JazzDialogComponent, DialogDemoComponent} from './dialog/dialog-demo';
 import {RippleDemoComponent} from './ripple/ripple-demo';
@@ -76,6 +76,7 @@ import {TabsDemoComponent} from './tabs/tab-group-demo';
     TooltipDemoComponent,
   ],
   entryComponents: [
+    JazzDialogComponent,
     RotiniPanelComponent,
     ScienceJokeComponent,
     SpagettiPanelComponent,

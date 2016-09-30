@@ -277,7 +277,7 @@ export class SeedConfig {
   NPM_DEPENDENCIES: InjectableDependency[] = [
     { src: 'zone.js/dist/zone.js', inject: 'libs' },
     { src: 'core-js/client/shim.min.js', inject: 'shims' },
-	{ src: 'hammerjs/hammer.min.js', inject: 'libs' },
+	  { src: 'hammerjs/hammer.min.js', inject: 'libs' },
     { src: 'systemjs/dist/system.src.js', inject: 'shims', env: ENVIRONMENTS.DEVELOPMENT },
     { src: 'rxjs/bundles/Rx.min.js', inject: 'libs', env: ENVIRONMENTS.DEVELOPMENT },
   ];
@@ -317,7 +317,6 @@ export class SeedConfig {
     packageConfigPaths: [
       `/node_modules/*/package.json`,
       `/node_modules/**/package.json`,
-	  `/node_modules/@angular2-material/**/package.json`,
       `/node_modules/@angular/*/package.json`
     ],
     paths: {
@@ -341,6 +340,8 @@ export class SeedConfig {
         'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing': 'node_modules/@angular/router/bundles/router-testing.umd.js',
 
+      '@angular/material': 'node_modules/@angular/material/material.umd.js',
+
       'rxjs/*': 'node_modules/rxjs/*',
       'app/*': '/app/*',
       // For test config
@@ -348,100 +349,10 @@ export class SeedConfig {
       '*': 'node_modules/*'
     },
     packages: {
-	  '@angular2-material/core': {
+      '@angular/material': {
         format: 'cjs',
         defaultExtension: 'js',
-        main: 'core.umd.js'
-      },
-      '@angular2-material/sidenav': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'sidenav.umd.js'
-      },
-      '@angular2-material/toolbar': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'toolbar.umd.js'
-      },
-      '@angular2-material/card': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'card.umd.js'
-      },
-      '@angular2-material/button': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'button.umd.js'
-      },
-      '@angular2-material/button-toggle': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'button-toggle.umd.js'
-      },
-      '@angular2-material/checkbox': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'checkbox.umd.js'
-      },
-      '@angular2-material/radio': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'radio.umd.js'
-      },
-      '@angular2-material/progress-circle': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'progress-circle.umd.js'
-      },
-      '@angular2-material/progress-bar': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'progress-bar.umd.js'
-      },
-      '@angular2-material/input': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'input.umd.js'
-      },
-      '@angular2-material/list': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'list.umd.js'
-      },
-      '@angular2-material/icon': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'icon.umd.js'
-      },
-      '@angular2-material/tabs': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'tabs.umd.js'
-      },
-      '@angular2-material/grid-list': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'grid-list.umd.js'
-      },
-      '@angular2-material/slider': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'slider.umd.js'
-      },
-      '@angular2-material/slide-toggle': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'slide-toggle.umd.js'
-      },
-      '@angular2-material/tooltip': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'tooltip.umd.js'
-      },
-      '@angular2-material/menu': {
-        format: 'cjs',
-        defaultExtension: 'js',
-        main: 'menu.umd.js'
+        main: 'material.umd.js'
       },
       rxjs: { defaultExtension: 'js' }
     }
@@ -462,7 +373,6 @@ export class SeedConfig {
     defaultJSExtensions: true,
     packageConfigPaths: [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-	  join(this.PROJECT_ROOT, 'node_modules', '@angular2-material', '**', 'package.json'),
       join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
     ],
     paths: {
@@ -506,81 +416,9 @@ export class SeedConfig {
         main: 'index.js',
         defaultExtension: 'js'
       },
-	  '@angular2-material/core': {
+      '@angular/material': {
         defaultExtension: 'js',
-        main: 'core.js'
-      },
-      '@angular2-material/sidenav': {
-        defaultExtension: 'js',
-        main: 'sidenav.js'
-      },
-      '@angular2-material/toolbar': {
-        defaultExtension: 'js',
-        main: 'toolbar.js'
-      },
-      '@angular2-material/card': {
-        defaultExtension: 'js',
-        main: 'card.js'
-      },
-      '@angular2-material/button': {
-        defaultExtension: 'js',
-        main: 'button.js'
-      },
-      '@angular2-material/button-toggle': {
-        defaultExtension: 'js',
-        main: 'button-toggle.js'
-      },
-      '@angular2-material/checkbox': {
-        defaultExtension: 'js',
-        main: 'checkbox.js'
-      },
-      '@angular2-material/radio': {
-        defaultExtension: 'js',
-        main: 'radio.js'
-      },
-      '@angular2-material/progress-circle': {
-        defaultExtension: 'js',
-        main: 'progress-circle.js'
-      },
-      '@angular2-material/progress-bar': {
-        defaultExtension: 'js',
-        main: 'progress-bar.js'
-      },
-      '@angular2-material/input': {
-        defaultExtension: 'js',
-        main: 'input.js'
-      },
-      '@angular2-material/list': {
-        defaultExtension: 'js',
-        main: 'list.umd.js'
-      },
-      '@angular2-material/icon': {
-        defaultExtension: 'js',
-        main: 'icon.js'
-      },
-      '@angular2-material/tabs': {
-        defaultExtension: 'js',
-        main: 'tabs.js'
-      },
-      '@angular2-material/grid-list': {
-        defaultExtension: 'js',
-        main: 'grid-list.js'
-      },
-      '@angular2-material/slider': {
-        defaultExtension: 'js',
-        main: 'slider.js'
-      },
-      '@angular2-material/slide-toggle': {
-        defaultExtension: 'js',
-        main: 'slide-toggle.js'
-      },
-      '@angular2-material/tooltip': {
-        defaultExtension: 'js',
-        main: 'tooltip.js'
-      },
-      '@angular2-material/menu': {
-        defaultExtension: 'js',
-        main: 'menu.js'
+        main: 'index.js'
       },
       'rxjs': {
         defaultExtension: 'js'
