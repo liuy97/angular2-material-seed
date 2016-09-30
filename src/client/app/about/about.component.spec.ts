@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 
 import { AboutModule } from './about.module';
-import { MaterialModule } from '../all/all';
+import { MaterialModule } from '@angular/material';
 
 export function main() {
    describe('About component', () => {

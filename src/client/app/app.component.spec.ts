@@ -14,7 +14,7 @@ import {
 } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import {MaterialModule} from './all/all';
+import { MaterialModule } from '@angular/material';
 
 export function main() {
 
