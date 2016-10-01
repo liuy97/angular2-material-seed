@@ -10,3 +10,4 @@ export interface Environments {
   PRODUCTION: string;
   [key: string]: string;
 }
+
