@@ -1,5 +1,5 @@
-import {Component, ViewContainerRef} from '@angular/core';
-import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import { Component, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -27,7 +27,6 @@ export class DialogDemoComponent {
     });
   }
 }
-
 
 @Component({
   selector: 'demo-jazz-dialog',

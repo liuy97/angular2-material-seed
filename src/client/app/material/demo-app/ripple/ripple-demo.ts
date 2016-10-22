@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {MdRipple} from '@angular/material';
+import { Component, ViewChild } from '@angular/core';
+import { MdRipple } from '@angular/material';
 
 
 @Component({

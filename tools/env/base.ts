@@ -1,4 +1,4 @@
-import {EnvConfig} from './env-config.interface';
+import { EnvConfig } from './env-config.interface';
 
 const BaseConfig: EnvConfig = {
   // Sample API url
@@ -6,3 +6,4 @@ const BaseConfig: EnvConfig = {
 };
 
 export = BaseConfig;
+

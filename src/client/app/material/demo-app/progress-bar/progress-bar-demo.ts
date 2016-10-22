@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 
 // TODO(josephperrott): Add an automatically filling example progress bar.

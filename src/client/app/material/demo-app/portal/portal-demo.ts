@@ -1,4 +1,4 @@
-import {Component, ViewChildren, QueryList} from '@angular/core';
+import { Component, ViewChildren, QueryList } from '@angular/core';
 import {
     Portal,
     ComponentPortal,
