@@ -3,23 +3,23 @@
 'use strict';
 
 var argv = require('yargs').argv;
+var minimatch = require("minimatch");
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: './',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
-
 
     // list of files / patterns to load in the browser
     files: [
       // Polyfills.
       'node_modules/core-js/client/shim.min.js',
+      'node_modules/intl/dist/Intl.min.js',
 
       'node_modules/traceur/bin/traceur.js',
 
@@ -43,7 +43,6 @@ module.exports = function(config) {
       // Angular itself
       { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
       { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
-      { pattern: 'node_modules/@angular2-material/**/*.js', included: false, watched: true },
 
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },
@@ -68,18 +67,13 @@ module.exports = function(config) {
       'node_modules/**/*spec.js'
     ],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      'dist/**/!(*spec).js': ['coverage']
-    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha', 'coverage'],
-
+    reporters: ['mocha'],
 
     // web server port
     port: 9876,
@@ -112,20 +106,13 @@ module.exports = function(config) {
       }
     },
 
-    coverageReporter: {
-      dir: 'coverage/',
-      reporters: [
-        { type: 'json', subdir: '.', file: 'coverage-final.json' }
-      ]
-    },
-
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
 
     // Passing command line arguments to tests
     client: {
-      files: argv.files
+      files:  argv.files ? minimatch.makeRe(argv.files).source : null
     }
   });
 
@@ -138,5 +125,6 @@ module.exports = function(config) {
   if (process.env.TRAVIS || process.env.CIRCLECI) {
     config.browsers = ['Chrome_travis_ci'];
     config.singleRun = true;
+    config.browserNoActivityTimeout = 90000;
   }
 };

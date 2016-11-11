@@ -23,8 +23,8 @@
   <!-- shims:js -->
   <!-- endinject -->
 
-  <% if (ENV === 'dev') { %>
-  <script src="/app/system-config.js"></script>
+  <% if (BUILD_TYPE === 'dev') { %>
+  <script src="<%= APP_BASE %>app/system-config.js"></script>
   <% } %>
 
   <!-- libs:js -->
@@ -33,11 +33,11 @@
   <!-- inject:js -->
   <!-- endinject -->
 
-  <% if (ENV === 'dev') { %>
+  <% if (BUILD_TYPE === 'dev') { %>
   <script>
   System.import('<%= BOOTSTRAP_MODULE %>')
     .catch(function (e) {
-      console.error(e,
+      console.error(e.stack || e,
         'Report this error at https://github.com/liuy97/angular2-material-seed/issues');
     });
   </script>

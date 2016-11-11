@@ -3,8 +3,9 @@
  * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
  */
 import { enableProdMode } from '@angular/core';
-import { AppModuleNgFactory } from './app.module.ngfactory';
 import { platformBrowser } from '@angular/platform-browser';
+
+import { AppModuleNgFactory } from './app.module.ngfactory';
 
 enableProdMode();
 
