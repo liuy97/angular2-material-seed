@@ -45,4 +45,5 @@ tmp
 
 gulpfile.js
 gulpfile.js.map
-
+coverage_js
+coverage
