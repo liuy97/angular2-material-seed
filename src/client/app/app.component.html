@@ -1,32 +1,8 @@
-<md-sidenav-layout>
+<md-sidenav-layout fx-layout='row'>
    <md-sidenav #start>
     <md-nav-list>
-      <a md-list-item [routerLink]="['demo/button']">Button</a>
-      <a md-list-item [routerLink]="['demo/button-toggle']">Button Toggle</a>
-      <a md-list-item [routerLink]="['demo/card']">Card</a>
-      <a md-list-item [routerLink]="['demo/checkbox']">Checkbox</a>
-      <a md-list-item [routerLink]="['demo/dialog']">Dialog</a>
-      <a md-list-item [routerLink]="['demo/gestures']">Gestures</a>
-      <a md-list-item [routerLink]="['demo/grid-list']">Grid List</a>
-      <a md-list-item [routerLink]="['demo/icon']">Icon</a>
-      <a md-list-item [routerLink]="['demo/input']">Input</a>
-      <a md-list-item [routerLink]="['demo/list']">List</a>
-      <a md-list-item [routerLink]="['demo/menu']">Menu</a>
-      <a md-list-item [routerLink]="['demo/live-announcer']">Live Announcer</a>
-      <a md-list-item [routerLink]="['demo/overlay']">Overlay</a>
-      <a md-list-item [routerLink]="['demo/portal']">Portal</a>
-      <a md-list-item [routerLink]="['demo/progress-bar']">Progress Bar</a>
-      <a md-list-item [routerLink]="['demo/progress-circle']">Progress Circle</a>
-      <a md-list-item [routerLink]="['demo/radio']">Radio</a>
-      <a md-list-item [routerLink]="['demo/ripple']">Ripple</a>
-      <a md-list-item [routerLink]="['demo/sidenav']">Sidenav</a>
-      <a md-list-item [routerLink]="['demo/slider']">Slider</a>
-      <a md-list-item [routerLink]="['demo/slide-toggle']">Slide Toggle</a>
-      <a md-list-item [routerLink]="['demo/tabs']">Tabs</a>
-      <a md-list-item [routerLink]="['demo/toolbar']">Toolbar</a>
-      <a md-list-item [routerLink]="['demo/tooltip']">Tooltip</a>
-      <hr>
-      <a md-list-item [routerLink]="['demo/baseline']">Baseline</a>
+      <a md-list-item [routerLink]="['about']">About</a>
+      <a md-list-item [routerLink]="['demo']">Demo</a>
     </md-nav-list>
     <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>
@@ -35,22 +11,18 @@
     <button md-icon-button (click)="start.open()" color="primary">
         <md-icon class="md-24" >menu</md-icon>
       </button>
-      <span>Angular 2.0.0 + Material 2</span>
+      <span>Angular 2.2.0 + Material 2</span>
 
     <span class="app-toolbar-filler"></span>
     <button md-raised-button color="primary">Test</button>
   </md-toolbar>
 
-  <div class="app-content">
+  <div fx-layout='column'>
     <nav>
       <a routerLink="/about" routerLinkActive="active">About</a>
       <a routerLink="/demo" routerLinkActive="active">Material Demo</a>
     </nav>
-    <router-outlet></router-outlet>
+    <router-outlet fx-layout-align="center center"></router-outlet>
   </div>
 
 </md-sidenav-layout>
-
-<span class="app-action">
-  <button md-fab><i class="material-icons md-24">check circle</i></button>
-</span>

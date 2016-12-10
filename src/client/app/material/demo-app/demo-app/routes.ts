@@ -32,7 +32,6 @@ export const demoRoutes: Routes = [
     path: 'demo',
     component: HomeComponent,
     children: [
-      { path: '', component: HomeComponent },
       { path: 'button', component: ButtonDemoComponent },
       { path: 'card', component: CardDemoComponent },
       { path: 'radio', component: RadioDemoComponent },

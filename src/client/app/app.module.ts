@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AboutModule } from './about/about.module';
 import { DemoAppModule } from './material/demo-app/demo-app-module';
+import { FlexLayoutModule } from './flex-layout/index';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { DemoAppModule } from './material/demo-app/demo-app-module';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot(),
     AboutModule,
     DemoAppModule,
     routing
