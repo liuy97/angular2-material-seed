@@ -1,20 +1,50 @@
 <div class="demo-tooltip">
   <h1>Tooltip Demo</h1>
+
   <p class="centered">
-    <button
+    <button #tooltip="mdTooltip"
         md-raised-button
         color="primary"
-        md-tooltip="to see a tooltip"
+        [md-tooltip]="message"
         [tooltip-position]="position">
-      Mouse over this link
+      Mouse over to see the tooltip
     </button>
   </p>
+
   <p>
     <md-radio-group [(ngModel)]="position">
       <md-radio-button value="below">Below</md-radio-button>
       <md-radio-button value="above">Above</md-radio-button>
+      <md-radio-button value="left">Left</md-radio-button>
+      <md-radio-button value="right">Right</md-radio-button>
       <md-radio-button value="before">Before</md-radio-button>
       <md-radio-button value="after">After</md-radio-button>
     </md-radio-group>
   </p>
+
+  <!--p>
+    <strong>Message: </strong>
+    <md-input-container><input md-input type="text" [(ngModel)]="message"></md-input-container>
+  </p-->
+
+  <p>
+    <strong>Show Delay (ms): </strong>
+    <md-input type="number" [(ngModel)]="showDelay"></md-input>
+  </p>
+
+  <p>
+    <strong>Hide Delay (ms): </strong>
+    <md-input type="number" [(ngModel)]="hideDelay"></md-input>
+  </p>
+
+  <strong>Mouse over to</strong>
+  <button md-raised-button color="primary" (mouseenter)="tooltip.show()">
+    Show tooltip
+  </button>
+  <button md-raised-button color="primary" (mouseenter)="tooltip.hide()">
+    Hide tooltip
+  </button>
+  <button md-raised-button color="primary" (mouseenter)="tooltip.toggle()">
+    Toggle tooltip
+  </button>
 </div>

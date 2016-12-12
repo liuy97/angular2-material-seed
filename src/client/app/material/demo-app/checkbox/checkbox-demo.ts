@@ -66,11 +66,16 @@ export class CheckboxDemoComponent {
   isChecked: boolean = false;
   isDisabled: boolean = false;
   alignment: string = 'start';
+  useAlternativeColor: boolean = false;
 
   printResult() {
     if (this.isIndeterminate) {
       return 'Maybe!';
     }
     return this.isChecked ? 'Yes!' : 'No!';
+  }
+
+  checkboxColor() {
+    return this.useAlternativeColor ? 'primary' : 'accent';
   }
 }

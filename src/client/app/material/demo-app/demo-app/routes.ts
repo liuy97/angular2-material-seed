@@ -4,7 +4,8 @@ import { HomeComponent } from './demo-app';
 import { ButtonDemoComponent } from '../button/button-demo';
 import { BaselineDemoComponent } from '../baseline/baseline-demo';
 import { ButtonToggleDemoComponent } from '../button-toggle/button-toggle-demo';
-import { TabsDemoComponent } from '../tabs/tab-group-demo';
+import { TabsDemoComponent, SunnyTabContentComponent,
+  RainyTabContentComponent, FoggyTabContentComponent } from '../tabs/tabs-demo';
 import { GridListDemoComponent } from '../grid-list/grid-list-demo';
 import { GesturesDemoComponent } from '../gestures/gestures-demo';
 import { LiveAnnouncerDemoComponent } from '../live-announcer/live-announcer-demo';
@@ -51,7 +52,14 @@ export const demoRoutes: Routes = [
       { path: 'live-announcer', component: LiveAnnouncerDemoComponent },
       { path: 'gestures', component: GesturesDemoComponent },
       { path: 'grid-list', component: GridListDemoComponent },
-      { path: 'tabs', component: TabsDemoComponent },
+      { path: 'tabs', component: TabsDemoComponent,
+        children: [
+          { path: '', redirectTo: 'sunny-tab', pathMatch: 'full' },
+          { path: 'sunny-tab', component: SunnyTabContentComponent },
+          { path: 'rainy-tab', component: RainyTabContentComponent },
+          { path: 'foggy-tab', component: FoggyTabContentComponent },
+        ]
+      },
       { path: 'button-toggle', component: ButtonToggleDemoComponent },
       { path: 'baseline', component: BaselineDemoComponent },
       { path: 'ripple', component: RippleDemoComponent },

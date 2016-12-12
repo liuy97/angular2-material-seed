@@ -8,7 +8,7 @@ import { AboutModule } from './about.module';
 import { MaterialModule } from '@angular/material';
 
 export function main() {
-   describe('About component', () => {
+  describe('About component', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -25,14 +25,14 @@ export function main() {
             let fixture = TestBed.createComponent(TestComponent);
             let aboutDOMEl = fixture.debugElement.children[0].nativeElement;
 
-	          expect(aboutDOMEl.querySelectorAll('h2')[0].textContent).toEqual('Features');
+            expect(aboutDOMEl.querySelectorAll('h2')[0].textContent).toEqual('Features');
           });
-        }));
-    });
+      }));
+  });
 }
 
 @Component({
   selector: 'test-cmp',
   template: '<sd-about></sd-about>'
 })
-class TestComponent {}
+class TestComponent { }

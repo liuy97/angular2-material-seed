@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MdRipple } from '@angular/material';
 
-
 @Component({
   moduleId: module.id,
   selector: 'ripple-demo',

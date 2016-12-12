@@ -3,8 +3,10 @@ Label <md-slider #slidey></md-slider>
 {{slidey.value}}
 
 <h1>Slider with Min and Max</h1>
-<md-slider min="5" max="7" #slider2></md-slider>
+<input [(ngModel)]="min">
+<md-slider [min]="min" [max]="max" tick-interval="5" #slider2></md-slider>
 {{slider2.value}}
+<input [(ngModel)]="max">
 
 <h1>Disabled Slider</h1>
 <md-slider disabled #slider3></md-slider>
@@ -24,6 +26,25 @@ Label <md-slider #slidey></md-slider>
 <h1>Slider with Thumb Label</h1>
 <md-slider thumb-label></md-slider>
 
+<h1>Slider with one-way binding</h1>
+<md-slider [value]="val" step="40"></md-slider>
+<input [(ngModel)]="val">
+
 <h1>Slider with two-way binding</h1>
 <md-slider [(ngModel)]="demo" step="40"></md-slider>
 <input [(ngModel)]="demo">
+
+<h1>Inverted slider</h1>
+<md-slider invert value="50" tick-interval="5"></md-slider>
+
+<h1>Vertical slider</h1>
+<md-slider vertical thumb-label tick-interval="auto" value="50"></md-slider>
+
+<h1>Inverted vertical slider</h1>
+<md-slider vertical invert thumb-label tick-interval="auto" value="50"></md-slider>
+
+<md-tab-group>
+  <md-tab label="One">
+    <md-slider min="1" max="5" value="3"></md-slider>
+  </md-tab>
+</md-tab-group>

@@ -45,4 +45,6 @@ export class HomeComponent {}
   styleUrls: ['demo-app.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class DemoAppComponent { }
+export class DemoAppComponent {
+  root: any;
+}

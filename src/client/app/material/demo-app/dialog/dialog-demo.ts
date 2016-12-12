@@ -1,5 +1,5 @@
-import { Component, ViewContainerRef } from '@angular/core';
-import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
+import { Component } from '@angular/core';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -10,16 +10,22 @@ import { MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 export class DialogDemoComponent {
   dialogRef: MdDialogRef<JazzDialogComponent>;
   lastCloseResult: string;
+  config: MdDialogConfig = {
+    disableClose: false,
+    width: '',
+    height: '',
+    position: {
+      top: '',
+      bottom: '',
+      left: '',
+      right: ''
+    }
+  };
 
-  constructor(
-      public dialog: MdDialog,
-      public viewContainerRef: ViewContainerRef) { }
+  constructor(public dialog: MdDialog) { }
 
   open() {
-    let config = new MdDialogConfig();
-    config.viewContainerRef = this.viewContainerRef;
-
-    this.dialogRef = this.dialog.open(JazzDialogComponent, config);
+    this.dialogRef = this.dialog.open(JazzDialogComponent, this.config);
 
     this.dialogRef.afterClosed().subscribe(result => {
       this.lastCloseResult = result;
@@ -33,8 +39,11 @@ export class DialogDemoComponent {
   template: `
   <p>It's Jazz!</p>
   <p><label>How much? <input #howMuch></label></p>
+  <p> {{ jazzMessage }} </p>
   <button type="button" (click)="dialogRef.close(howMuch.value)">Close dialog</button>`
 })
 export class JazzDialogComponent {
+  jazzMessage = 'Jazzy jazz jazz';
+
   constructor(public dialogRef: MdDialogRef<JazzDialogComponent>) { }
 }

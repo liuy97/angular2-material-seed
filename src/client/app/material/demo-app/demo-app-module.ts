@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './demo-app/demo-app';
 import { demoRouting } from './demo-app/routes';
 import { MaterialModule } from '@angular/material';
@@ -29,7 +29,15 @@ import { SliderDemoComponent } from './slider/slider-demo';
 import { SidenavDemoComponent } from './sidenav/sidenav-demo';
 import { PortalDemoComponent, ScienceJokeComponent } from './portal/portal-demo';
 import { MenuDemoComponent } from './menu/menu-demo';
-import { TabsDemoComponent } from './tabs/tab-group-demo';
+import { TabsDemoComponent, SunnyTabContentComponent, RainyTabContentComponent, FoggyTabContentComponent
+  } from './tabs/tabs-demo';
+import { ChipsDemoComponent } from './chips/chips-demo';
+import { SelectDemoComponent } from './select/select-demo';
+import { SnackBarDemoComponent } from './snack-bar/snack-bar-demo';
+import { ProjectionDemoComponent } from './projection/projection-demo';
+import { PlatformDemoComponent } from './platform/platform-demo';
+import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
+import { InputContainerDemoComponent } from './input/input-container-demo';
 
 @NgModule({
   imports: [
@@ -53,6 +61,7 @@ import { TabsDemoComponent } from './tabs/tab-group-demo';
     GridListDemoComponent,
     IconDemoComponent,
     InputDemoComponent,
+    InputContainerDemoComponent,
     JazzDialogComponent,
     ListDemoComponent,
     LiveAnnouncerDemoComponent,
@@ -62,6 +71,7 @@ import { TabsDemoComponent } from './tabs/tab-group-demo';
     PortalDemoComponent,
     ProgressBarDemoComponent,
     ProgressCircleDemoComponent,
+    PlatformDemoComponent,
     RadioDemoComponent,
     RippleDemoComponent,
     RotiniPanelComponent,
@@ -69,8 +79,12 @@ import { TabsDemoComponent } from './tabs/tab-group-demo';
     SidenavDemoComponent,
     SliderDemoComponent,
     SlideToggleDemoComponent,
+    SnackBarDemoComponent,
     SpagettiPanelComponent,
     TabsDemoComponent,
+    SunnyTabContentComponent,
+    RainyTabContentComponent,
+    FoggyTabContentComponent,
     ToolbarDemoComponent,
     TooltipDemoComponent,
   ],
