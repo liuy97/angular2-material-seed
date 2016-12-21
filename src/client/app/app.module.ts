@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AboutModule } from './about/about.module';
 import { DemoAppModule } from './material/demo-app/demo-app-module';
-import { FlexLayoutModule } from './flex-layout/index';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
