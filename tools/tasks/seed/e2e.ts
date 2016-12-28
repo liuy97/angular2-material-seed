@@ -31,7 +31,7 @@ export = (done: any) => {
     .server(Config.PORT, Config.PROD_DEST)
     .then((server: any) => {
       gulp
-        .src(join(Config.E2E_DEST, '**/*.e2e-spec.js'))
+        .src(join(Config.DEV_DEST, '**/*.e2e-spec.js'))
         .pipe(protractor({ configFile: 'protractor.conf.js' }))
         .on('error', (error: string) => { throw error; })
         .on('end', () => { server.close(done); });

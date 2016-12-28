@@ -11,9 +11,9 @@
 </button>
 
 
-<button overlay-origin #trigger="overlayOrigin" (click)="isMenuOpen = !isMenuOpen">
+<!--button overlay-origin #trigger="overlayOrigin" (click)="isMenuOpen = !isMenuOpen">
   Open menu
-</button>
+</button-->
 
 <template connected-overlay [origin]="trigger" [width]="500" hasBackdrop [open]="isMenuOpen"
   (backdropClick)="isMenuOpen=false">

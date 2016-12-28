@@ -365,8 +365,8 @@ export class SeedConfig {
       '@angular/platform-browser-dynamic/testing':
         'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing': 'node_modules/@angular/router/bundles/router-testing.umd.js',
-      '@angular/material': 'node_modules/@angular/material/material.umd.js',
-      '@angular/flex-layout': 'node_modules/@angular/flex-layout/flex-layout.umd.js',
+      '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js',
+      '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
 
       'app/*': '/app/*',
       // For test config
@@ -438,6 +438,14 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/router': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/flex-layout': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      '@angular/material': {
         main: 'index.js',
         defaultExtension: 'js'
       },
