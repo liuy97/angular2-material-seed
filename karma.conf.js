@@ -34,6 +34,7 @@ module.exports = function (config) {
       'node_modules/zone.js/dist/sync-test.js',
       'node_modules/zone.js/dist/proxy.js',
       'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/hammerjs/hammer.min.js',
 
       // RxJs.
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },

@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import {
   async,
+  inject,
   TestBed
 } from '@angular/core/testing';
 
 import { AboutModule } from './about.module';
 import { MaterialModule } from '@angular/material';
-
+import { FormsModule } from '@angular/forms';
 export function main() {
   describe('About component', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         declarations: [TestComponent],
-        imports: [MaterialModule.forRoot(), AboutModule]
+        imports: [MaterialModule.forRoot(), AboutModule, FormsModule]
       });
     });
 
