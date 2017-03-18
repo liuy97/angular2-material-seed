@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 
 let max = 5;

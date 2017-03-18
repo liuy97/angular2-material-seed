@@ -1,6 +1,6 @@
-import {Component, Inject, ViewChild, TemplateRef} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
-import {MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA} from '@angular/material';
+import { Component, Inject, ViewChild, TemplateRef } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
+import { MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -54,7 +54,7 @@ export class DialogDemoComponent {
   }
 
   openContentElement() {
-    let dialogRef = this.dialog.open(ContentElementDialog, this.config);
+    let dialogRef = this.dialog.open(ContentElementDialogComponent, this.config);
     dialogRef.componentInstance.actionsAlignment = this.actionsAlignment;
   }
 
@@ -119,13 +119,13 @@ export class JazzDialogComponent {
     </md-dialog-actions>
   `
 })
-export class ContentElementDialog {
+export class ContentElementDialogComponent {
   actionsAlignment: string;
 
   constructor(public dialog: MdDialog) { }
 
   showInStackedDialog() {
-    this.dialog.open(IFrameDialog);
+    this.dialog.open(IFrameDialogComponent);
   }
 }
 
@@ -149,5 +149,5 @@ export class ContentElementDialog {
     </md-dialog-actions>
   `
 })
-export class IFrameDialog {
+export class IFrameDialogComponent {
 }

@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {TooltipPosition} from '@angular/material';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { TooltipPosition } from '@angular/material';
 
 @Component({
   moduleId: module.id,

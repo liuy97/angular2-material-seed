@@ -73,7 +73,7 @@ export class TabsDemoComponent {
     // This is not an ideal check and can be removed if routerLink exposes if it is active.
     // https://github.com/angular/angular/pull/12525
     this.activeLinkIndex =
-        this.tabLinks.indexOf(this.tabLinks.find(tab => router.url.indexOf(tab.link) != -1));
+        this.tabLinks.indexOf(this.tabLinks.find(tab => router.url.indexOf(tab.link) !== -1));
   }
 
   addTab(includeExtraContent: boolean): void {
