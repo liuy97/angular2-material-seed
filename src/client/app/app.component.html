@@ -1,5 +1,5 @@
-<md-sidenav-layout fx-layout='row'>
-   <md-sidenav #start>
+<md-sidenav-container x-layout='row' fullscreen>
+  <md-sidenav #start>
     <md-nav-list>
       <a md-list-item [routerLink]="['about']">About</a>
       <a md-list-item [routerLink]="['demo']">Demo</a>
@@ -25,4 +25,4 @@
     <router-outlet fx-layout-align="center center"></router-outlet>
   </div>
 
-</md-sidenav-layout>
+</md-sidenav-container>

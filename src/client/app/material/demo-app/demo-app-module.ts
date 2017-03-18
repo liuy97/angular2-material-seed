@@ -37,7 +37,6 @@ import { SnackBarDemoComponent } from './snack-bar/snack-bar-demo';
 import { ProjectionDemoComponent } from './projection/projection-demo';
 import { PlatformDemoComponent } from './platform/platform-demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
-import { InputContainerDemoComponent } from './input/input-container-demo';
 
 @NgModule({
   imports: [
@@ -61,7 +60,6 @@ import { InputContainerDemoComponent } from './input/input-container-demo';
     GridListDemoComponent,
     IconDemoComponent,
     InputDemoComponent,
-    InputContainerDemoComponent,
     JazzDialogComponent,
     ListDemoComponent,
     LiveAnnouncerDemoComponent,
