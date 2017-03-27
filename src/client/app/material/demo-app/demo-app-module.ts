@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,12 +44,14 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
     CommonModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     MaterialModule.forRoot(),
     demoRouting,
   ],
   providers: [
   ],
   declarations: [
+    AutocompleteDemoComponent,
     BaselineDemoComponent,
     ButtonDemoComponent,
     ButtonToggleDemoComponent,

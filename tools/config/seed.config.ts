@@ -365,6 +365,7 @@ export class SeedConfig {
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
       '@angular/animations': 'node_modules/@angular/animations/bundles/animations.umd.js',
+      '@angular/animations/browser':'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       '@angular/platform-browser/animations': 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
       '@angular/common': 'node_modules/@angular/common/bundles/common.umd.js',
       '@angular/compiler': 'node_modules/@angular/compiler/bundles/compiler.umd.js',
@@ -422,6 +423,7 @@ export class SeedConfig {
       // You will have to include entries for each individual application in
       // `src/client`.
       [join(this.TMP_DIR, this.BOOTSTRAP_DIR, '*')]: `${this.TMP_DIR}/${this.BOOTSTRAP_DIR}/*`,
+      '@angular/animations/browser':'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       '@angular/platform-browser/animations': 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
       'dist/tmp/node_modules/*': 'dist/tmp/node_modules/*',
       'node_modules/*': 'node_modules/*',

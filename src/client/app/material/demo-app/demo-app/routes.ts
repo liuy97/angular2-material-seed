@@ -1,6 +1,7 @@
 import { ModuleWithProviders }   from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './demo-app';
+import { AutocompleteDemoComponent } from '../autocomplete/autocomplete-demo';
 import { ButtonDemoComponent } from '../button/button-demo';
 import { BaselineDemoComponent } from '../baseline/baseline-demo';
 import { ButtonToggleDemoComponent } from '../button-toggle/button-toggle-demo';
@@ -33,6 +34,7 @@ export const demoRoutes: Routes = [
     path: 'demo',
     component: HomeComponent,
     children: [
+      { path: 'autocomplete', component: AutocompleteDemoComponent },
       { path: 'button', component: ButtonDemoComponent },
       { path: 'card', component: CardDemoComponent },
       { path: 'radio', component: RadioDemoComponent },

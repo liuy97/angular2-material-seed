@@ -4,7 +4,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'home-app',
   template: `
-    <nav>
+  <div fxLayout="column">
+    <nav fxLayout='column' fxLayoutAlign="center center">
+      <a [routerLink]="['autocomplete']">Autocomplete</a>
       <a [routerLink]="['button']">Button</a>
       <a [routerLink]="['button-toggle']">Button Toggle</a>
       <a [routerLink]="['card']">Card</a>
@@ -32,7 +34,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <a [routerLink]="['baseline']">Baseline</a>
     </nav>
     <p>Welcome to the development demos for Angular Material 2!</p>
-    <router-outlet></router-outlet>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
   `
 })
 export class HomeComponent {}
