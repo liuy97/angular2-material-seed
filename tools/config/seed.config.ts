@@ -475,11 +475,11 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/flex-layout': {
-        main: 'index.js',
+        main: 'bundles/flex-layout.umd.js',
         defaultExtension: 'js'
       },
       '@angular/material': {
-        main: 'index.js',
+        main: 'bundles/material.umd.js',
         defaultExtension: 'js'
       },
       'rxjs': {
