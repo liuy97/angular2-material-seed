@@ -1,5 +1,5 @@
 <div class="demo-autocomplete">
-  Space above cards: <input type="number">
+  Space above cards: <input type="number" [formControl]="topHeightCtrl">
 <div [style.height.px]="topHeightCtrl.value"></div>
 <div class="demo-autocomplete">
   <md-card>
@@ -8,7 +8,7 @@
     <div>Reactive dirty: {{ stateCtrl.dirty }}</div>
 
     <md-input-container floatPlaceholder="never">
-      <input mdInput placeholder="State" [mdAutocomplete]="reactiveAuto">
+      <input mdInput placeholder="State" [mdAutocomplete]="reactiveAuto" [formControl]="stateCtrl">
     </md-input-container>
 
     <md-card-actions>

@@ -14,7 +14,7 @@ export function main() {
     beforeEach(() => {
       TestBed.configureTestingModule({
         declarations: [TestComponent],
-        imports: [MaterialModule.forRoot(), AboutModule, FormsModule]
+        imports: [MaterialModule, AboutModule, FormsModule]
       });
     });
 

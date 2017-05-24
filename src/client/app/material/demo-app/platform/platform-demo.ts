@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdPlatform } from '@angular/material';
+import { Platform, getSupportedInputTypes } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -7,7 +7,7 @@ import { MdPlatform } from '@angular/material';
   templateUrl: 'platform-demo.html',
 })
 export class PlatformDemoComponent {
-  supportedInputTypes = [];
+  supportedInputTypes = getSupportedInputTypes();
 
-  constructor(public platform: MdPlatform) {}
+  constructor(public platform: Platform) {}
 }

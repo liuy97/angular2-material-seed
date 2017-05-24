@@ -45,7 +45,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     demoRouting,
   ],
   providers: [

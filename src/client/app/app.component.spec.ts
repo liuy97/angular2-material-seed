@@ -25,7 +25,7 @@ export function main() {
     ];
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [FormsModule, MaterialModule.forRoot(), RouterTestingModule.withRoutes(config)],
+        imports: [FormsModule, MaterialModule, RouterTestingModule.withRoutes(config)],
         declarations: [TestComponent,
           AppComponent,
           AboutComponent],

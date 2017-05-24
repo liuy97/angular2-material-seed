@@ -15,7 +15,7 @@ export class AutocompleteDemoComponent {
   topHeightCtrl = new FormControl(0);
 
   reactiveStates: any;
-  tdStates: any[] = [];
+  tdStates: any[];
 
   tdDisabled = false;
 
@@ -91,5 +91,4 @@ export class AutocompleteDemoComponent {
     return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s.name))
                : this.states;
   }
-
 }

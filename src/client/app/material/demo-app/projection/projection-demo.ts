@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
-import { DomProjectionHost, DomProjection } from '@angular/material';
+//import { DomProjectionHost, DomProjection } from '@angular/material';
 
 @Component({
   selector: 'projection-app',
