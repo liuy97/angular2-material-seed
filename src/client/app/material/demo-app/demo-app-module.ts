@@ -43,6 +43,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
