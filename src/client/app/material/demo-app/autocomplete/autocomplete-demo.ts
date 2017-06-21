@@ -1,5 +1,5 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormControl, NgModel } from '@angular/forms';
+import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {FormControl, NgModel} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 
 @Component({
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/startWith';
   selector: 'autocomplete-demo',
   templateUrl: 'autocomplete-demo.html',
   styleUrls: ['autocomplete-demo.css'],
-encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class AutocompleteDemoComponent {
   stateCtrl: FormControl;
@@ -91,4 +91,5 @@ export class AutocompleteDemoComponent {
     return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s.name))
                : this.states;
   }
+
 }
