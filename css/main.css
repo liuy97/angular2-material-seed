@@ -232,6 +232,15 @@
   line-height: 16px;
 }
 
+.mat-header-cell {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.mat-cell {
+  font-size: 14px;
+}
+
 .mat-calendar {
   font-family: Roboto,Helvetica Neue,sans-serif;
 }
@@ -340,10 +349,16 @@
 }
 
 .mat-menu-item {
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 16px;
 }
 
-.mat-menu-item,
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger {
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size: 12px;
+}
+
 .mat-radio-button,
 .mat-select {
   font-family: Roboto,Helvetica Neue,sans-serif;
@@ -445,15 +460,16 @@
 }
 
 .mat-option {
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 16px;
 }
 
-.mat-option,
-.mat-simple-snackbar {
-  font-family: Roboto,Helvetica Neue,sans-serif;
+.mat-optgroup-label {
+  font: 500 14px/24px Roboto,Helvetica Neue,sans-serif;
 }
 
 .mat-simple-snackbar {
+  font-family: Roboto,Helvetica Neue,sans-serif;
   font-size: 14px;
 }
 
@@ -571,8 +587,6 @@
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  font-weight: 700;
-  font-size: 14px;
 }
 
 .mat-optgroup-label[disabled] {
@@ -642,6 +656,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  -webkit-tap-highlight-color: transparent;
   transition: opacity .4s cubic-bezier(.25,.8,.25,1);
   opacity: 0;
 }
@@ -1039,8 +1054,26 @@
   color: #fff;
 }
 
+.mat-table {
+  background: #fff;
+}
+
+.mat-header-row,
+.mat-row {
+  border-bottom-color: rgba(0,0,0,.12);
+}
+
+.mat-header-cell {
+  color: rgba(0,0,0,.54);
+}
+
+.mat-cell {
+  color: rgba(0,0,0,.87);
+}
+
 .mat-datepicker-content {
   background-color: #fff;
+  color: rgba(0,0,0,.87);
 }
 
 .mat-calendar-arrow {
@@ -1238,6 +1271,26 @@ input.mat-input-element:-webkit-autofill+.mat-input-placeholder .mat-placeholder
 .mat-menu-item:focus:not([disabled]),
 .mat-menu-item:hover:not([disabled]) {
   background: rgba(0,0,0,.04);
+}
+
+.mat-paginator {
+  background: #fff;
+}
+
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger {
+  color: rgba(0,0,0,.54);
+}
+
+.mat-paginator-decrement,
+.mat-paginator-increment {
+  border-top: 2px solid rgba(0,0,0,.54);
+  border-right: 2px solid rgba(0,0,0,.54);
+}
+
+.mat-icon-button[disabled] .mat-paginator-decrement,
+.mat-icon-button[disabled] .mat-paginator-increment {
+  border-color: rgba(0,0,0,.38);
 }
 
 .mat-progress-bar-background {
