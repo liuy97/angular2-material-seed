@@ -38,7 +38,9 @@ import { SnackBarDemoComponent } from './snack-bar/snack-bar-demo';
 import { ProjectionDemoComponent } from './projection/projection-demo';
 import { PlatformDemoComponent } from './platform/platform-demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
+import { TableDemoComponent } from './table/table-demo';
 
+import { CdkTableModule } from '@angular/cdk';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
     BrowserAnimationsModule,
     MaterialModule,
     demoRouting,
+    CdkTableModule,
   ],
   providers: [
   ],
@@ -89,6 +92,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
     FoggyTabContentComponent,
     ToolbarDemoComponent,
     TooltipDemoComponent,
+    TableDemoComponent,
   ],
   entryComponents: [
     JazzDialogComponent,

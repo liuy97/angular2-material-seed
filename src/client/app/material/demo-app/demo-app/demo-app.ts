@@ -32,6 +32,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <a [routerLink]="['toolbar']">Toolbar</a>
       <a [routerLink]="['tooltip']">Tooltip</a>
       <a [routerLink]="['baseline']">Baseline</a>
+      <a [routerLink]="['table']">Table</a>
     </nav>
     <p>Welcome to the development demos for Angular Material 2!</p>
   </div>
