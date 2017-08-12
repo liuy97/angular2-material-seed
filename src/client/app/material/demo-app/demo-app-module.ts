@@ -7,7 +7,7 @@ import { HomeComponent } from './demo-app/demo-app';
 import { demoRouting } from './demo-app/routes';
 import { MaterialModule } from '@angular/material';
 import { ProgressBarDemoComponent } from './progress-bar/progress-bar-demo';
-import { JazzDialogComponent, DialogDemoComponent } from './dialog/dialog-demo';
+import { JazzDialogComponent, DialogDemoComponent, ContentElementDialogComponent, IFrameDialogComponent } from './dialog/dialog-demo';
 import { RippleDemoComponent } from './ripple/ripple-demo';
 import { IconDemoComponent } from './icon/icon-demo';
 import { GesturesDemoComponent } from './gestures/gestures-demo';
@@ -93,6 +93,11 @@ import { CdkTableModule } from '@angular/cdk';
     ToolbarDemoComponent,
     TooltipDemoComponent,
     TableDemoComponent,
+    ProjectionDemoComponent,
+    ChipsDemoComponent,
+    SelectDemoComponent,
+    ContentElementDialogComponent,
+    IFrameDialogComponent,
   ],
   entryComponents: [
     JazzDialogComponent,

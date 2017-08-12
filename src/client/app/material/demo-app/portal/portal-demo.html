@@ -1,6 +1,6 @@
 <h2> The portal host is here: </h2>
 <div class="demo-portal-host">
-  <template [portalHost]="selectedPortal"></template>
+  <ng-template [cdkPortalHost]="selectedPortal"></ng-template>
 </div>
 
 <button type="button" (click)="selectedPortal = programmingJoke">
@@ -20,10 +20,10 @@
     referring to something *in* the template (such as #item in ngFor). As such, the component
     has to use @ViewChild / @ViewChildren to get these references.
     See https://github.com/angular/angular/issues/7158 -->
-<template portal>
+<ng-template cdk-portal>
   <p> - Why don't jokes work in octal?</p>
   <p> - Because 7 10 11.</p>
-</template>
+</ng-template>
 
 <div *portal>
  <p> - Did you hear about this year's Fibonacci Conference? </p>

@@ -5,9 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><%= APP_TITLE %></title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="<%= APP_BASE %>assets/favicon/favicon-<%= ENV_CONFIG.ENV %>.ico" type="image/x-icon">
+
   <!-- inject:css -->
   <!-- endinject -->
 </head>
@@ -24,7 +25,7 @@
   <!-- endinject -->
 
   <% if (BUILD_TYPE === 'dev') { %>
-  <script src="<%= APP_BASE %>app/system-config.js"></script>
+  <script src="<%= APP_BASE %>system-config.js"></script>
   <% } %>
 
   <!-- libs:js -->
@@ -38,7 +39,7 @@
   System.import('<%= BOOTSTRAP_MODULE %>')
     .catch(function (e) {
       console.error(e.stack || e,
-        'Report this error at https://github.com/liuy97/angular2-material-seed/issues');
+        'Not expecting this error? Report it at https://github.com/liuy97/angular2-material-seed/issues');
     });
   </script>
   <% } %>

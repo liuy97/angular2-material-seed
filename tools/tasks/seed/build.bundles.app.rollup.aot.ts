@@ -1,6 +1,8 @@
-import Config from '../../config';
+import { parallel } from 'async';
 import { writeFile } from 'fs';
 import { join } from 'path';
+
+import Config from '../../config';
 
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -22,12 +24,9 @@ const config = {
     nodeResolve({
       jsnext: true, main: true, module: true
     }),
-    commonjs({
-      include: 'node_modules/**',
-      namedExports: {
-        // 'node_modules/immutable/dist/immutable.js': [ 'Map', 'Set', 'List', 'fromJS' ],
-        // 'node_modules/ng2-dragula/ng2-dragula.js': [ 'DragulaModule', 'DragulaService' ]
-      }
+    commonjs({ //See project.config.ts to extend
+      include: Config.ROLLUP_INCLUDE_DIR,
+      namedExports: Config.getRollupNamedExports()
     })
   ]
 };
@@ -37,11 +36,13 @@ export = (done: any) => {
   rollup.rollup(config)
     .then((bundle: any) => {
       const result = bundle.generate({
-        format: 'iife'
+        format: 'iife',
+        sourceMap: Config.PRESERVE_SOURCE_MAPS
       });
       const path = join(Config.TMP_DIR, 'bundle.js');
-      writeFile(path, result.code, (error: any) => {
-        if (error) {
+
+      parallel(getTasks(path, result), (error: any, results: boolean[]) => {
+        if (error && results.indexOf(false) === -1) {
           console.error(error);
           process.exit(0);
         }
@@ -53,3 +54,18 @@ export = (done: any) => {
       process.exit(0);
     });
 };
+
+function getTasks(path: string, result: any): any[] {
+  const tasks = [
+    (callback: any) =>
+      writeFile(path,
+        result.code + (Config.PRESERVE_SOURCE_MAPS ? '\n//# sourceMappingURL=bundle.js.map' : ''),
+        (error: any) => callback(null, !error))
+  ];
+  if (Config.PRESERVE_SOURCE_MAPS) {
+    tasks.push((callback: any) => writeFile(path + '.map',
+      result.map.toString(),
+      (error: any) => callback(null, !error)));
+  }
+  return tasks;
+}

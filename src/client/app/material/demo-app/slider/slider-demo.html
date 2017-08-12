@@ -1,23 +1,23 @@
 <h1>Default Slider</h1>
 Label <md-slider #slidey></md-slider>
-{{slidey.value}}
+{{ slidey.value }}
 
 <h1>Slider with Min and Max</h1>
 <input [(ngModel)]="min">
 <md-slider [min]="min" [max]="max" tick-interval="5" #slider2></md-slider>
-{{slider2.value}}
+{{ slider2.value }}
 <input [(ngModel)]="max">
 
 <h1>Disabled Slider</h1>
 <md-slider disabled #slider3></md-slider>
-{{slider3.value}}
+{{ slider3.value }}
 
 <h1>Slider with set value</h1>
 <md-slider value="43"></md-slider>
 
 <h1>Slider with step defined</h1>
 <md-slider min="1" max="100" step="20" #slider5></md-slider>
-{{slider5.value}}
+{{ slider5.value }}
 
 <h1>Slider with set tick interval</h1>
 <md-slider tick-interval="auto"></md-slider>

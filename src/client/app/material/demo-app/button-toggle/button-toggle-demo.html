@@ -50,8 +50,8 @@
 <section class="demo-section">
   <md-button-toggle-group name="pies" [(ngModel)]="favoritePie" [vertical]="isVertical">
     <md-button-toggle *ngFor="let pie of pieOptions" [value]="pie">
-      {{pie}}
+      {{ pie }}
     </md-button-toggle>
   </md-button-toggle-group>
-  <p>Your favorite type of pie is: {{favoritePie}}</p>
+  <p>Your favorite type of pie is: {{ favoritePie }}</p>
 </section>

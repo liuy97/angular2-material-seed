@@ -5,34 +5,30 @@
     "declaration": false,
     "removeComments": true,
     "noLib": false,
+    "lib": ["es2016", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "pretty": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "../../node_modules/@types",
       "../../node_modules"
     ],
     "types": [
-      "core-js",
-      "express",
-      "jasmine",
       "node",
-      "protractor",
-      "hammerjs",
+      "jasmine",
       "systemjs"
     ]
   },
+  "compileOnSave": false,
   "exclude": [
-    "node_modules",
-    "dist",
-    "src"
-  ],
-  "compileOnSave": false
+    "app/main-prod.ts"
+  ]
 }

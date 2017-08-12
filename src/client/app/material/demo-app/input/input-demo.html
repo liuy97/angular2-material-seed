@@ -42,7 +42,7 @@
             <input mdInput #postalCode maxLength="5" placeholder="Postal Code" value="94043">
             <md-hint align="end">
               <md-icon>mode_edit</md-icon>
-              {{postalCode.value.length}} / 5
+              {{ postalCode.value.length }} / 5
             </md-hint>
           </md-input-container>
         </td>
@@ -108,7 +108,7 @@
                placeholder="Character count (100 max)"
                maxLength="100"
                value="Hello world. How are you?">
-        <md-hint align="end">{{characterCountInputHintExample.value.length}} / 100</md-hint>
+        <md-hint align="end">{{ characterCountInputHintExample.value.length }} / 100</md-hint>
       </md-input-container>
     </p>
 
@@ -119,7 +119,7 @@
                   #characterCountTextareaHintExample
                   placeholder="Character count (100 max)"
                   maxLength="100">Hello world. How are you?</textarea>
-        <md-hint align="end">{{characterCountTextareaHintExample.value.length}} / 100</md-hint>
+        <md-hint align="end">{{ characterCountTextareaHintExample.value.length }} / 100</md-hint>
       </md-input-container>
     </p>
   </md-card-content>
@@ -150,7 +150,7 @@
     <p>
       <md-input-container style="width: 100%">
         <input mdInput #input placeholder="Character count (100 max)" maxLength="100">
-        <md-hint align="end">{{input.value.length}} / 100</md-hint>
+        <md-hint align="end">{{ input.value.length }} / 100</md-hint>
       </md-input-container>
     </p>
     <p>
@@ -173,7 +173,7 @@
     <p>
       <md-input-container hintLabel="Hint label" style="width: 100%">
         <input mdInput #hintLabelWithCharCount placeholder="Show Hint Label With Character Count">
-        <md-hint align="end">{{hintLabelWithCharCount.value.length}}</md-hint>
+        <md-hint align="end">{{ hintLabelWithCharCount.value.length }}</md-hint>
       </md-input-container>
     </p>
     <p>
@@ -243,7 +243,7 @@
       </td>
       </thead>
       <tr *ngFor="let item of items; let i = index">
-        <td>{{i+1}}</td>
+        <td>{{ i+1 }}</td>
         <td>
           <md-input-container>
             <input mdInput
@@ -256,7 +256,7 @@
         <td>
           <input type="number" [(ngModel)]="items[i].value">
         </td>
-        <td>{{item.value}}</td>
+        <td>{{ item.value }}</td>
       </tr>
     </table>
   </md-card-content>

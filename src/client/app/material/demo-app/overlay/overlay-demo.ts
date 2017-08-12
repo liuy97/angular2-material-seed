@@ -11,6 +11,9 @@ import {
     OverlayState,
     OverlayOrigin,
     ComponentPortal,
+    // This import is only used to define a generic type. The current TypeScript version incorrectly
+    // considers such imports as unused (https://github.com/Microsoft/TypeScript/issues/14953)
+    // tslint:disable-next-line:no-unused-variable
     Portal,
     TemplatePortalDirective,
 } from '@angular/material';
@@ -25,9 +28,12 @@ import {
 export class OverlayDemoComponent {
   nextPosition: number = 0;
   isMenuOpen: boolean = false;
+  tortelliniFillings = ['cheese and spinach', 'mushroom and broccoli'];
 
   @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
   @ViewChild(OverlayOrigin) _overlayOrigin: OverlayOrigin;
+  @ViewChild('tortelliniOrigin') tortelliniOrigin: OverlayOrigin;
+  @ViewChild('tortelliniTemplate') tortelliniTemplate: TemplatePortalDirective;
 
   constructor(public overlay: Overlay, public viewContainerRef: ViewContainerRef) { }
 
@@ -74,6 +80,21 @@ export class OverlayDemoComponent {
     overlayRef.attach(new ComponentPortal(SpagettiPanelComponent, this.viewContainerRef));
   }
 
+  openTortelliniPanel() {
+    let strategy = this.overlay.position()
+        .connectedTo(
+            this.tortelliniOrigin.elementRef,
+            {originX: 'start', originY: 'bottom'},
+            {overlayX: 'end', overlayY: 'top'} );
+
+    let config = new OverlayState();
+    config.positionStrategy = strategy;
+
+    let overlayRef = this.overlay.create(config);
+
+    overlayRef.attach(this.tortelliniTemplate);
+  }
+
   openPanelWithBackdrop() {
     let config = new OverlayState();
 
@@ -81,7 +102,7 @@ export class OverlayDemoComponent {
       .global()
       .centerHorizontally();
     config.hasBackdrop = true;
-    config.backdropClass = 'md-overlay-transparent-backdrop';
+    config.backdropClass = 'cdk-overlay-transparent-backdrop';
 
     let overlayRef = this.overlay.create(config);
     overlayRef.attach(this.templatePortals.first);
@@ -94,7 +115,7 @@ export class OverlayDemoComponent {
 @Component({
   moduleId: module.id,
   selector: 'rotini-panel',
-  template: '<p class="demo-rotini">Rotini {{value}}</p>'
+  template: '<p class="demo-rotini">Rotini {{ value }}</p>'
 })
 export class RotiniPanelComponent {
   value: number = 9000;
@@ -103,7 +124,7 @@ export class RotiniPanelComponent {
 /** Simple component to load into an overlay */
 @Component({
   selector: 'spagetti-panel',
-  template: '<div class="demo-spagetti">Spagetti {{value}}</div>'
+  template: '<div class="demo-spagetti">Spagetti {{ value }}</div>'
 })
 export class SpagettiPanelComponent {
   value: string = 'Omega';

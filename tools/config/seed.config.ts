@@ -2,7 +2,10 @@ import { join } from 'path';
 import * as slash from 'slash';
 import { argv } from 'yargs';
 
-import { BuildType, ExtendPackages, InjectableDependency } from './seed.config.interfaces';
+import {
+  BuildType, ExtendPackages, InjectableDependency,
+  SourceMapExplorerOutputFormat
+} from './seed.config.interfaces';
 
 /************************* DO NOT CHANGE ************************
  *
@@ -27,6 +30,16 @@ import { BuildType, ExtendPackages, InjectableDependency } from './seed.config.i
 export const BUILD_TYPES: BuildType = {
   DEVELOPMENT: 'dev',
   PRODUCTION: 'prod'
+};
+
+/**
+ * The enumeration of available source-map-explorer output formats.
+ * @type {SourceMapExplorerOutputFormats}
+ */
+export const SME_OUTPUT_FORMATS: SourceMapExplorerOutputFormat = {
+  HTML: 'html',
+  JSON: 'json',
+  TSV: 'tsv'
 };
 
 /**
@@ -60,6 +73,23 @@ export class SeedConfig {
    * The default build type is `dev`, which can be overriden by the `--build-type dev|prod` flag when running `npm start`.
    */
   BUILD_TYPE = getBuildType();
+
+  /**
+   * The flag to determine preserving source maps on build or not.
+   * The default value is `false`, which can be overriden by the `--preserve-source-maps` flag when running `npm start`.
+   */
+  PRESERVE_SOURCE_MAPS = argv['preserve-source-maps'] || false;
+
+  /**
+   * The current source-map-explorer output format.
+   * The default value is `html`, which can be overriden by the `--sme-out-format html|json|tsv` flag when running `npm run sme`.
+   */
+  SME_OUT_FORMAT = getSmeOutFormat();
+
+  /**
+   * The current source-map-explorer output folder.
+   */
+  SME_DIR = 'sme';
 
   /**
    * The flag for the debug option of the application.
@@ -144,7 +174,7 @@ export class SeedConfig {
    * `index.html`.
    * @type {string}
    */
-  APP_TITLE = 'Welcome to angular-seed!';
+  APP_TITLE = 'Welcome to angular material seed!';
 
   /**
    * Tracking ID.
@@ -239,6 +269,12 @@ export class SeedConfig {
    * @type {string}
    */
   E2E_DEST = `${this.DIST_DIR}/e2e`;
+
+  /**
+   * The folder for the built translation file.
+   * @type {string}
+   */
+  LOCALE_DEST = `${this.DIST_DIR}/locale`;
 
   /**
    * The folder for temporary files.
@@ -348,6 +384,19 @@ export class SeedConfig {
   ];
 
   /**
+   * List of directories to include in commonjs
+   * @type {string[]}
+   */
+  ROLLUP_INCLUDE_DIR: string[] = ['node_modules/**'];
+
+ /**
+  * List of named export Object key value pairs
+  * key: dependencie file
+  * value: exported Objects
+  */
+  ROLLUP_NAMED_EXPORTS: any[] = [];
+
+  /**
    * Returns the array of injectable dependencies (npm dependencies and assets).
    * @return {InjectableDependency[]} The array of npm dependencies and assets.
    */
@@ -361,11 +410,9 @@ export class SeedConfig {
    * @type {any}
    */
   SYSTEM_CONFIG_DEV: any = {
-    defaultJSExtensions: true,
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
       '@angular/animations': 'node_modules/@angular/animations/bundles/animations.umd.js',
-      '@angular/animations/browser':'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       '@angular/platform-browser/animations': 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
       '@angular/common': 'node_modules/@angular/common/bundles/common.umd.js',
       '@angular/compiler': 'node_modules/@angular/compiler/bundles/compiler.umd.js',
@@ -375,6 +422,7 @@ export class SeedConfig {
       '@angular/platform-browser': 'node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/router': 'node_modules/@angular/router/bundles/router.umd.js',
+      '@angular/animations/browser': 'node_modules/@angular/animations/bundles/animations-browser.umd.js',
 
       '@angular/common/testing': 'node_modules/@angular/common/bundles/common-testing.umd.js',
       '@angular/compiler/testing': 'node_modules/@angular/compiler/bundles/compiler-testing.umd.js',
@@ -388,13 +436,15 @@ export class SeedConfig {
       '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js',
       '@angular/cdk': 'node_modules/@angular/cdk/bundles/cdk.umd.js',
       '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
-
-      'app/*': '/app/*',
+      'app/': `${this.APP_BASE}app/`,
       // For test config
-      'dist/dev/*': '/base/dist/dev/*',
-      '*': 'node_modules/*'
+      'dist/dev/': '/base/dist/dev/',
+      '': 'node_modules/'
     },
     packages: {
+      [this.BOOTSTRAP_DIR]: {
+        defaultExtension: 'js'
+      }
     }
   };
 
@@ -424,8 +474,8 @@ export class SeedConfig {
       // You will have to include entries for each individual application in
       // `src/client`.
       [join(this.TMP_DIR, this.BOOTSTRAP_DIR, '*')]: `${this.TMP_DIR}/${this.BOOTSTRAP_DIR}/*`,
-      '@angular/animations/browser':'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       '@angular/platform-browser/animations': 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+      '@angular/animations/browser': 'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       'dist/tmp/node_modules/*': 'dist/tmp/node_modules/*',
       'node_modules/*': 'node_modules/*',
       '*': 'node_modules/*'
@@ -542,8 +592,8 @@ export class SeedConfig {
    */
   private get _APP_ASSETS(): InjectableDependency[] {
     return [
-      { src: `${this.CSS_SRC}/${this.CSS_BUNDLE_NAME}.${this.getInjectableStyleExtension()}`, inject: true, vendor: false },
       ...this.APP_ASSETS,
+      { src: `${this.CSS_SRC}/${this.CSS_BUNDLE_NAME}.${this.getInjectableStyleExtension()}`, inject: true, vendor: false },
     ];
   }
 
@@ -630,7 +680,7 @@ export class SeedConfig {
         }
       }
     };
-  };
+  }
 
   /**
    * Recursively merge source onto target.
@@ -678,6 +728,16 @@ export class SeedConfig {
 
   }
 
+/**
+ * Convert named rollup array to object
+ */
+  getRollupNamedExports() {
+    let namedExports = {};
+    this.ROLLUP_NAMED_EXPORTS.map(namedExport => {
+      namedExports = Object.assign(namedExports, namedExport);
+    });
+    return namedExports;
+  }
 }
 
 /**
@@ -730,4 +790,9 @@ function getBuildType() {
   } else {
     return BUILD_TYPES.DEVELOPMENT;
   }
+}
+
+function getSmeOutFormat() {
+  let format = (argv['sme-out-format'] || '').toUpperCase();
+  return SME_OUTPUT_FORMATS[format] || SME_OUTPUT_FORMATS.HTML;
 }

@@ -8,6 +8,6 @@ export = () => {
     .pipe(gulpAddStaticFiles(gulp.src([
       join(Config.APP_DEST, '**', '*'),
       '!' + join(Config.APP_DEST, 'ngsw-manifest.json')
-    ], { /*nodir: true*/ })))
+    ], { nodir: true })))
     .pipe(gulp.dest(Config.APP_DEST));
 };

@@ -48,13 +48,12 @@ module.exports = function (config) {
       { pattern: 'dist/dev/**/*.js', included: false, watched: true },
       { pattern: 'dist/dev/**/*.html', included: false, watched: true, served: true },
       { pattern: 'dist/dev/**/*.css', included: false, watched: true, served: true },
-      { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false }, // PhantomJS2 (and possibly others) might require it
 
       // suppress annoying 404 warnings for resources, images, etc.
       { pattern: 'dist/dev/assets/**/*', watched: false, included: false, served: true },
 
       'test-config.js',
-      'dist/dev/app/system-config.js',
+      'dist/dev/system-config.js',
       'test-main.js'
     ],
 
@@ -68,6 +67,7 @@ module.exports = function (config) {
       'node_modules/**/*spec.js'
     ],
 
+
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
@@ -75,6 +75,7 @@ module.exports = function (config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['mocha'],
+
 
     // web server port
     port: 9876,

@@ -7,7 +7,7 @@
 <h1>Dynamic Example</h1>
 <section class="demo-section">
   <div>
-    <span>isDisabled: {{isDisabled}}</span>
+    <span>isDisabled: {{ isDisabled }}</span>
     <button md-raised-button (click)="isDisabled=!isDisabled" class="demo-button">
       Disable buttons
     </button>
@@ -26,8 +26,8 @@
 <section class="demo-section">
   <md-radio-group name="more_options" [(ngModel)]="favoriteSeason">
     <md-radio-button *ngFor="let season of seasonOptions" name="more_options" [value]="season">
-      {{season}}
+      {{ season }}
     </md-radio-button>
   </md-radio-group>
-  <p>Your favorite season is: {{favoriteSeason}}</p>
+  <p>Your favorite season is: {{ favoriteSeason }}</p>
 </section>

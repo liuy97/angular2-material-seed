@@ -10,15 +10,15 @@
     <md-list>
       <h3 md-subheader>Items</h3>
       <md-list-item *ngFor="let item of items">
-        {{item}}
+        {{ item }}
       </md-list-item>
     </md-list>
 
     <md-list>
       <md-list-item *ngFor="let contact of contacts">
-        <h3 md-line>{{contact.name}}</h3>
+        <h3 md-line>{{ contact.name }}</h3>
         <p md-line *ngIf="thirdLine">extra line</p>
-        <p md-line class="demo-secondary-text">{{contact.headline}}</p>
+        <p md-line class="demo-secondary-text">{{ contact.headline }}</p>
       </md-list-item>
     </md-list>
 
@@ -26,17 +26,17 @@
       <h3 md-subheader>Today</h3>
       <md-list-item *ngFor="let message of messages">
         <img *ngIf="message.image" md-list-avatar [src]="message.image" alt="Image of {{message.from}}">
-        <h4 md-line>{{message.from}}</h4>
+        <h4 md-line>{{ message.from }}</h4>
         <p md-line>
-          <span>{{message.subject}} -- </span>
-          <span class="demo-secondary-text">{{message.message}}</span>
+          <span>{{ message.subject }} -- </span>
+          <span class="demo-secondary-text">{{ message.message }}</span>
         </p>
       </md-list-item>
       <md-divider></md-divider>
       <md-list-item *ngFor="let message of messages">
-        <h4 md-line>{{message.from}}</h4>
-        <p md-line> {{message.subject}} </p>
-        <p md-line class="demo-secondary-text">{{message.message}} </p>
+        <h4 md-line>{{ message.from }}</h4>
+        <p md-line> {{ message.subject }} </p>
+        <p md-line class="demo-secondary-text">{{ message.message }} </p>
       </md-list-item>
     </md-list>
   </div>
@@ -46,14 +46,14 @@
     <md-list dense>
       <h3 md-subheader>Items</h3>
       <md-list-item *ngFor="let item of items">
-        {{item}}
+        {{ item }}
       </md-list-item>
     </md-list>
 
     <md-list dense>
       <md-list-item *ngFor="let contact of contacts">
-        <h3 md-line>{{contact.name}}</h3>
-        <p md-line class="demo-secondary-text">{{contact.headline}}</p>
+        <h3 md-line>{{ contact.name }}</h3>
+        <p md-line class="demo-secondary-text">{{ contact.headline }}</p>
       </md-list-item>
     </md-list>
 
@@ -61,9 +61,9 @@
       <h3 md-subheader>Today</h3>
       <md-list-item *ngFor="let message of messages">
         <img md-list-avatar [src]="message.image" alt="Image of {{message.from}}">
-        <h4 md-line>{{message.from}}</h4>
-        <p md-line> {{message.subject}} </p>
-        <p md-line class="demo-secondary-text">{{message.message}} </p>
+        <h4 md-line>{{ message.from }}</h4>
+        <p md-line> {{ message.subject }} </p>
+        <p md-line class="demo-secondary-text">{{ message.message }} </p>
       </md-list-item>
     </md-list>
   </div>

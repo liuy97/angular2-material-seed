@@ -17,7 +17,7 @@
       <md-grid-list [cols]="fixedCols" [rowHeight]="fixedRowHeight">
         <md-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
                       [style.background]="tile.color">
-          {{tile.text}}
+          {{ tile.text }}
         </md-grid-tile>
       </md-grid-list>
     </md-card-content>
@@ -33,7 +33,7 @@
     <md-card-content class="demo-ratio-list">
       <md-grid-list cols="2" [rowHeight]="ratio" gutterSize="4px">
         <md-grid-tile *ngFor="let tile of tiles" [style.background]="'lightblue'">
-          {{tile.text}}
+          {{ tile.text }}
         </md-grid-tile>
       </md-grid-list>
     </md-card-content>
@@ -48,7 +48,7 @@
       <md-grid-list cols="2" rowHeight="fit" [gutterSize]="ratioGutter"
                     [style.height]="fitListHeight">
         <md-grid-tile *ngFor="let tile of tiles" [style.background]="'#F1EBBA'">
-          {{tile.text}}
+          {{ tile.text }}
         </md-grid-tile>
       </md-grid-list>
     </md-card-content>
@@ -65,7 +65,7 @@
         <md-grid-tile *ngFor="let dog of dogs" style="background:gray">
           <md-grid-tile-header>
             <md-icon md-grid-avatar>info_outline</md-icon>
-            {{dog.name}}
+            {{ dog.name }}
           </md-grid-tile-header>
         </md-grid-tile>
       </md-grid-list>
@@ -79,8 +79,8 @@
         <md-grid-tile *ngFor="let dog of dogs">
           <img [alt]="dog.name" src="https://material.angularjs.org/material2_assets/ngconf/{{dog.name}}.png">
           <md-grid-tile-footer>
-            <h3 md-line>{{dog.name}}</h3>
-            <span md-line>Human: {{dog.human}}</span>
+            <h3 md-line>{{ dog.name }}</h3>
+            <span md-line>Human: {{ dog.human }}</span>
             <md-icon>star_border</md-icon>
           </md-grid-tile-footer>
         </md-grid-tile>

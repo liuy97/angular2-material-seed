@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk';
 import { MdPaginator, MdSort, SelectionModel } from '@angular/material';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -18,7 +18,7 @@ import 'rxjs/add/operator/debounceTime';
   templateUrl: 'table-demo.html',
   styleUrls: ['table-demo.css'],
 })
-export class TableDemoComponent {
+export class TableDemoComponent implements OnInit {
   displayedColumns = [ 'userId', 'userName', 'progress', 'color'];
   exampleDatabase = new ExampleDatabase();
   selection = new SelectionModel<string>(true, []);
@@ -44,9 +44,9 @@ export class TableDemoComponent {
     if (this.selection.isEmpty()) { return false; }
 
     if (this.filter.nativeElement.value) {
-      return this.selection.selected.length == this.dataSource.renderedData.length;
+      return this.selection.selected.length === this.dataSource.renderedData.length;
     } else {
-      return this.selection.selected.length == this.exampleDatabase.data.length;
+      return this.selection.selected.length === this.exampleDatabase.data.length;
     }
   }
 
@@ -122,7 +122,7 @@ export class ExampleDataSource extends DataSource<any> {
               private _paginator: MdPaginator,
               private _sort: MdSort) {
     super();
-    
+
     this._filterChange.subscribe(() => this._paginator.pageIndex = 0);
   }
 
@@ -131,7 +131,7 @@ export class ExampleDataSource extends DataSource<any> {
     // Listen for any changes in the base data, sorting, filtering, or pagination
     const displayDataChanges = [
       this._exampleDatabase.dataChange,
-      this._sort.mdSortChange, 
+      this._sort.mdSortChange,
       this._filterChange,
       this._paginator.page,
     ];
@@ -140,7 +140,7 @@ export class ExampleDataSource extends DataSource<any> {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((item: UserData) => {
         let searchStr = (item.name + item.color).toLowerCase();
-        return searchStr.indexOf(this.filter.toLowerCase()) != -1;
+        return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
       // Sort filtered data
@@ -153,11 +153,13 @@ export class ExampleDataSource extends DataSource<any> {
     });
   }
 
-  disconnect() {}
+  disconnect() {
+    //
+  }
 
   /** Returns a sorted copy of the database data. */
   sortData(data: UserData[]): UserData[] {
-    if (!this._sort.active || this._sort.direction == '') { return data; }
+    if (!this._sort.active || this._sort.direction === '') { return data; }
 
     return data.sort((a, b) => {
       let propertyA: number|string = '';
@@ -173,7 +175,7 @@ export class ExampleDataSource extends DataSource<any> {
       let valueA = isNaN(+propertyA) ? propertyA : +propertyA;
       let valueB = isNaN(+propertyB) ? propertyB : +propertyB;
 
-      return (valueA < valueB ? -1 : 1) * (this._sort.direction == 'asc' ? 1 : -1);
+      return (valueA < valueB ? -1 : 1) * (this._sort.direction === 'asc' ? 1 : -1);
     });
   }
 }

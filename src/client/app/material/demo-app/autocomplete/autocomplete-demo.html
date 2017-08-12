@@ -44,7 +44,7 @@ Space above cards: <input type="number" [formControl]="topHeightCtrl">
 <md-autocomplete #reactiveAuto="mdAutocomplete" [displayWith]="displayFn">
   <md-option *ngFor="let state of reactiveStates | async" [value]="state">
     <span>{{ state.name }}</span>
-    <span class="demo-secondary-text"> ({{state.code}}) </span>
+    <span class="demo-secondary-text"> ({{ state.code }}) </span>
   </md-option>
 </md-autocomplete>
 

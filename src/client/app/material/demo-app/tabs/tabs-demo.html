@@ -1,14 +1,20 @@
 <h1>Tab Nav Bar</h1>
 
+<button md-button (click)="tabLinks.shift()">Remove tab</button>
+<button md-button (click)="swapTabLinks()">Swap first two</button>
+<button md-button (click)="addToLabel()">Add to labels</button>
+<button md-button (click)="toggleBackground()">Toggle background</button>
+
 <div class="demo-nav-bar">
   <nav md-tab-nav-bar aria-label="weather navigation links">
     <a md-tab-link
        *ngFor="let tabLink of tabLinks; let i = index"
        [routerLink]="tabLink.link"
-       [active]="activeLinkIndex === i"
-       (click)="activeLinkIndex = i">
-      {{tabLink.label}}
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{ tabLink.label }}
     </a>
+    <a md-tab-link disabled>Disabled Link</a>
   </nav>
   <router-outlet></router-outlet>
 </div>
@@ -48,9 +54,9 @@
 
   <md-tab-group class="demo-tab-group" dynamicHeight [(selectedIndex)]="activeTabIndex">
     <md-tab *ngFor="let tab of dynamicTabs" [disabled]="tab.disabled">
-      <template md-tab-label>{{tab.label}}</template>
+      <ng-template md-tab-label>{{ tab.label }}</ng-template>
       <div class="tab-content">
-        {{tab.content}}
+        {{ tab.content }}
         <br>
         <br>
         <div *ngIf="tab.extraContent">
@@ -100,9 +106,9 @@
 
 <md-tab-group class="demo-tab-group" dynamicHeight>
   <md-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
-    <template md-tab-label>{{tab.label}}</template>
+    <ng-template md-tab-label>{{ tab.label }}</ng-template>
     <div class="tab-content">
-      {{tab.content}}
+      {{ tab.content }}
       <br>
       <br>
       <div *ngIf="tab.extraContent">
@@ -146,9 +152,9 @@
 
 <md-tab-group class="demo-tab-group" style="height: 220px">
   <md-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
-    <template md-tab-label>{{tab.label}}</template>
+    <ng-template md-tab-label>{{ tab.label }}</ng-template>
     <div class="tab-content">
-      {{tab.content}}
+      {{ tab.content }}
       <br>
       <br>
       <div *ngIf="tab.extraContent">
@@ -191,9 +197,9 @@
 
 <md-tab-group class="demo-tab-group" style="height: 200px" md-stretch-tabs>
   <md-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
-    <template md-tab-label>{{tab.label}}</template>
+    <ng-template md-tab-label>{{ tab.label }}</ng-template>
     <div class="tab-content">
-      {{tab.content}}
+      {{ tab.content }}
     </div>
   </md-tab>
 </md-tab-group>
@@ -203,10 +209,10 @@
 
 <md-tab-group class="demo-tab-group">
   <md-tab *ngFor="let tab of asyncTabs | async; let i = index" [disabled]="i == 1">
-    <template md-tab-label>{{tab.label}}</template>
+    <ng-template md-tab-label>{{ tab.label }}</ng-template>
 
     <div class="tab-content">
-      {{tab.content}}
+      {{ tab.content }}
       <br>
       <br>
       <br>
@@ -232,6 +238,34 @@
 
 <h1>Inverted tabs</h1>
 <md-tab-group class="demo-tab-group" headerPosition="below">
+  <md-tab label="Earth">
+    <div class="tab-content">
+      This tab is about the Earth!
+    </div>
+  </md-tab>
+  <md-tab label="Fire">
+    <div class="tab-content">
+      This tab is about combustion!
+    </div>
+  </md-tab>
+</md-tab-group>
+
+<h1>Accent tabs</h1>
+<md-tab-group class="demo-tab-group" color="accent">
+  <md-tab label="Earth">
+    <div class="tab-content">
+      This tab is about the Earth!
+    </div>
+  </md-tab>
+  <md-tab label="Fire">
+    <div class="tab-content">
+      This tab is about combustion!
+    </div>
+  </md-tab>
+</md-tab-group>
+
+<h1>Tabs with background color</h1>
+<md-tab-group class="demo-tab-group" color="accent">
   <md-tab label="Earth">
     <div class="tab-content">
       This tab is about the Earth!

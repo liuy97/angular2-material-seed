@@ -34,21 +34,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <a [routerLink]="['baseline']">Baseline</a>
       <a [routerLink]="['table']">Table</a>
     </nav>
-    <p>Welcome to the development demos for Angular Material 2!</p>
   </div>
-  <router-outlet></router-outlet>  
+  <router-outlet></router-outlet>
   `
 })
 export class HomeComponent {}
-
-@Component({
-  moduleId: module.id,
-  selector: 'demo-app',
-  providers: [],
-  templateUrl: 'demo-app.html',
-  styleUrls: ['demo-app.css'],
-  encapsulation: ViewEncapsulation.None,
-})
-export class DemoAppComponent {
-  root: any;
-}

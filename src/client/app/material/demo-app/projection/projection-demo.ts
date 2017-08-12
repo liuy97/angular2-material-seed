@@ -5,7 +5,7 @@ import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
   selector: 'projection-app',
   template: `
     <div projection-test class="demo-inner">
-      <div class="content">Content: {{binding}}</div>
+      <div class="content">Content: {{ binding }}</div>
     </div>
     <br/>
     <input projection-test [(ngModel)]="binding" [class]="binding" [ngClass]="{'blue': true}">
