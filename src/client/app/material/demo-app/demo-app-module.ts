@@ -40,7 +40,8 @@ import { PlatformDemoComponent } from './platform/platform-demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
 import { TableDemoComponent } from './table/table-demo';
 
-import { CdkTableModule } from '@angular/cdk';
+import { CdkTableModule } from '@angular/cdk/table';
+
 @NgModule({
   imports: [
     CommonModule,

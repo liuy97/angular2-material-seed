@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { MdIconRegistry } from '@angular/material';
 
 @Component({
   moduleId: module.id,
   selector: 'grid-list-demo',
   templateUrl: 'grid-list-demo.html',
   styleUrls: ['grid-list-demo.css'],
-  providers: [MdIconRegistry]
 })
+
 export class GridListDemoComponent {
   tiles: any[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},

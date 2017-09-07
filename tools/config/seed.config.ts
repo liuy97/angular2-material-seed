@@ -434,7 +434,18 @@ export class SeedConfig {
         'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing': 'node_modules/@angular/router/bundles/router-testing.umd.js',
       '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js',
-      '@angular/cdk': 'node_modules/@angular/cdk/bundles/cdk.umd.js',
+      '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
+      '@angular/cdk/keycodes': 'node_modules/@angular/cdk/bundles/cdk-keycodes.umd.js',
+      '@angular/cdk/coercion': 'node_modules/@angular/cdk/bundles/cdk-coercion.umd.js',
+      '@angular/cdk/collections': 'node_modules/@angular/cdk/bundles/cdk-collections.umd.js',
+      '@angular/cdk/rxjs': 'node_modules/@angular/cdk/bundles/cdk-rxjs.umd.js',
+      '@angular/cdk/scrolling': 'node_modules/@angular/cdk/bundles/cdk-scrolling.umd.js',
+      '@angular/cdk/a11y': 'node_modules/@angular/cdk/bundles/cdk-a11y.umd.js',
+      '@angular/cdk/bidi': 'node_modules/@angular/cdk/bundles/cdk-bidi.umd.js',
+      '@angular/cdk/observers': 'node_modules/@angular/cdk/bundles/cdk-observers.umd.js',
+      '@angular/cdk/portal': 'node_modules/@angular/cdk/bundles/cdk-portal.umd.js',
+      '@angular/cdk/overlay': 'node_modules/@angular/cdk/bundles/cdk-overlay.umd.js',
+      '@angular/cdk/platform': 'node_modules/@angular/cdk/bundles/cdk-platform.umd.js',
       '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
       'app/': `${this.APP_BASE}app/`,
       // For test config
@@ -477,6 +488,19 @@ export class SeedConfig {
       '@angular/platform-browser/animations': 'node_modules/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
       '@angular/animations/browser': 'node_modules/@angular/animations/bundles/animations-browser.umd.js',
       'dist/tmp/node_modules/*': 'dist/tmp/node_modules/*',
+      '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
+      '@angular/cdk/keycodes': 'node_modules/@angular/cdk/bundles/cdk-keycodes.umd.js',
+      '@angular/cdk/coercion': 'node_modules/@angular/cdk/bundles/cdk-coercion.umd.js',
+      '@angular/cdk/collections': 'node_modules/@angular/cdk/bundles/cdk-collections.umd.js',
+      '@angular/cdk/rxjs': 'node_modules/@angular/cdk/bundles/cdk-rxjs.umd.js',
+      '@angular/cdk/scrolling': 'node_modules/@angular/cdk/bundles/cdk-scrolling.umd.js',
+      '@angular/cdk/a11y': 'node_modules/@angular/cdk/bundles/cdk-a11y.umd.js',
+      '@angular/cdk/bidi': 'node_modules/@angular/cdk/bundles/cdk-bidi.umd.js',
+      '@angular/cdk/observers': 'node_modules/@angular/cdk/bundles/cdk-observers.umd.js',
+      '@angular/cdk/portal': 'node_modules/@angular/cdk/bundles/cdk-portal.umd.js',
+      '@angular/cdk/overlay': 'node_modules/@angular/cdk/bundles/cdk-overlay.umd.js',
+      '@angular/cdk/platform': 'node_modules/@angular/cdk/bundles/cdk-platform.umd.js',
+      '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
       'node_modules/*': 'node_modules/*',
       '*': 'node_modules/*'
     },
@@ -531,10 +555,6 @@ export class SeedConfig {
       },
       '@angular/material': {
         main: 'bundles/material.umd.js',
-        defaultExtension: 'js'
-      },
-      '@angular/cdk': {
-        main: 'bundles/cdk.umd.js',
         defaultExtension: 'js'
       },
       'rxjs': {
