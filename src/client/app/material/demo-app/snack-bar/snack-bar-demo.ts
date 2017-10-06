@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -14,10 +14,10 @@ export class SnackBarDemoComponent {
   autoHide: number = 0;
 
   constructor(
-      public snackBar: MdSnackBar) { }
+      public snackBar: MatSnackBar) { }
 
   open() {
-    let config = new MdSnackBarConfig();
+    let config = new MatSnackBarConfig();
     config.duration = this.autoHide;
     this.snackBar.open(this.message, this.action && this.actionButtonLabel, config);
   }

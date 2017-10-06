@@ -1,58 +1,58 @@
 <h2>Basic Use Case</h2>
 
-<md-sidenav-container class="demo-sidenav-container">
-  <md-sidenav #start (open)="myinput.focus()" mode="side">
+<mat-sidenav-container class="demo-sidenav-container">
+  <mat-sidenav #start (open)="myinput.focus()" mode="side">
     Start Side Drawer
     <br>
-    <button md-button (click)="start.close()">Close</button>
+    <button mat-button (click)="start.close()">Close</button>
     <br>
-    <button md-button (click)="end.open()">Open End Side</button>
+    <button mat-button (click)="end.open()">Open End Side</button>
     <br>
-    <button md-button
+    <button mat-button
             (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">Toggle Mode</button>
     <div>Mode: {{ start.mode }}</div>
     <br>
     <input #myinput>
-  </md-sidenav>
+  </mat-sidenav>
 
-  <md-sidenav #end align="end">
+  <mat-sidenav #end align="end">
     End Side Drawer
     <br>
-    <button md-button (click)="end.close()">Close</button>
-  </md-sidenav>
+    <button mat-button (click)="end.close()">Close</button>
+  </mat-sidenav>
 
   <div class="demo-sidenav-content">
     <h1>My Content</h1>
 
     <div>
       <header>Sidenav</header>
-      <button md-button (click)="start.toggle()">Toggle Start Side Drawer</button>
-      <button md-button (click)="end.toggle()">Toggle End Side Drawer</button>
+      <button mat-button (click)="start.toggle()">Toggle Start Side Drawer</button>
+      <button mat-button (click)="end.toggle()">Toggle End Side Drawer</button>
     </div>
 
-    <button md-button>HELLO</button>
-    <button md-raised-button class="mat-primary">HELLO</button>
-    <button md-fab class="mat-accent">HI</button>
+    <button mat-button>HELLO</button>
+    <button mat-raised-button class="mat-primary">HELLO</button>
+    <button mat-fab class="mat-accent">HI</button>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>
 
 <h2>Sidenav Already Opened</h2>
 
-<md-sidenav-container class="demo-sidenav-container">
-  <md-sidenav #start2 opened mode="side">
+<mat-sidenav-container class="demo-sidenav-container">
+  <mat-sidenav #start2 opened mode="side">
     Drawer
-  </md-sidenav>
+  </mat-sidenav>
 
   <div class="demo-sidenav-content">
-    <button md-button (click)="start2.toggle()">Toggle Start Side Drawer</button>
+    <button mat-button (click)="start2.toggle()">Toggle Start Side Drawer</button>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>
 
 <h2>Dynamic Alignment Sidenav</h2>
 
-<md-sidenav-container class="demo-sidenav-container">
-  <md-sidenav #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">Start</md-sidenav>
-  <md-sidenav #dynamicAlignSidenav2 mode="side" [align]="invert ? 'start' : 'end'">End</md-sidenav>
+<mat-sidenav-container class="demo-sidenav-container">
+  <mat-sidenav #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">Start</mat-sidenav>
+  <mat-sidenav #dynamicAlignSidenav2 mode="side" [align]="invert ? 'start' : 'end'">End</mat-sidenav>
 
   <div class="demo-sidenav-content">
     <button (click)="dynamicAlignSidenav1.toggle(); dynamicAlignSidenav2.toggle()">
@@ -60,4 +60,4 @@
     </button>
     <button (click)="invert = !invert">Change sides</button>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>

@@ -1,22 +1,20 @@
+import { Overlay, OverlayOrigin, OverlayConfig } from '@angular/cdk/overlay';
 import {
-    Component,
-    ViewChildren,
-    QueryList,
-    ViewEncapsulation,
-    ViewChild,
-    ViewContainerRef,
+  ComponentPortal,
+  // This import is only used to define a generic type. The current TypeScript version incorrectly
+  // considers such imports as unused (https://github.com/Microsoft/TypeScript/issues/14953)
+  // tslint:disable-next-line:no-unused-variable
+  Portal,
+  TemplatePortalDirective
+} from '@angular/cdk/portal';
+import {
+  Component,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  ViewContainerRef,
+  ViewEncapsulation,
 } from '@angular/core';
-import {
-    Overlay,
-    OverlayState,
-    OverlayOrigin,
-    ComponentPortal,
-    // This import is only used to define a generic type. The current TypeScript version incorrectly
-    // considers such imports as unused (https://github.com/Microsoft/TypeScript/issues/14953)
-    // tslint:disable-next-line:no-unused-variable
-    Portal,
-    TemplatePortalDirective,
-} from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -24,7 +22,9 @@ import {
   templateUrl: 'overlay-demo.html',
   styleUrls: ['overlay-demo.css'],
   encapsulation: ViewEncapsulation.None,
+  preserveWhitespaces: false,
 })
+
 export class OverlayDemoComponent {
   nextPosition: number = 0;
   isMenuOpen: boolean = false;
@@ -38,7 +38,7 @@ export class OverlayDemoComponent {
   constructor(public overlay: Overlay, public viewContainerRef: ViewContainerRef) { }
 
   openRotiniPanel() {
-    let config = new OverlayState();
+    let config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position()
         .global()
@@ -52,7 +52,7 @@ export class OverlayDemoComponent {
   }
 
   openFusilliPanel() {
-    let config = new OverlayState();
+    let config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position()
         .global()
@@ -73,10 +73,9 @@ export class OverlayDemoComponent {
             {originX: 'start', originY: 'bottom'},
             {overlayX: 'start', overlayY: 'top'} );
 
-    let config = new OverlayState();
-    config.positionStrategy = strategy;
-
+    let config = new OverlayConfig({positionStrategy: strategy});
     let overlayRef = this.overlay.create(config);
+
     overlayRef.attach(new ComponentPortal(SpagettiPanelComponent, this.viewContainerRef));
   }
 
@@ -87,22 +86,18 @@ export class OverlayDemoComponent {
             {originX: 'start', originY: 'bottom'},
             {overlayX: 'end', overlayY: 'top'} );
 
-    let config = new OverlayState();
-    config.positionStrategy = strategy;
-
+    let config = new OverlayConfig({positionStrategy: strategy});
     let overlayRef = this.overlay.create(config);
 
     overlayRef.attach(this.tortelliniTemplate);
   }
 
   openPanelWithBackdrop() {
-    let config = new OverlayState();
-
-    config.positionStrategy = this.overlay.position()
-      .global()
-      .centerHorizontally();
-    config.hasBackdrop = true;
-    config.backdropClass = 'cdk-overlay-transparent-backdrop';
+    let config = new OverlayConfig({
+      hasBackdrop: true,
+      backdropClass: 'cdk-overlay-transparent-backdrop',
+      positionStrategy: this.overlay.position().global().centerHorizontally()
+    });
 
     let overlayRef = this.overlay.create(config);
     overlayRef.attach(this.templatePortals.first);

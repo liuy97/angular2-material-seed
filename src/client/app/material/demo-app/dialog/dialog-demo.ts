@@ -1,6 +1,6 @@
 import { Component, Inject, ViewChild, TemplateRef } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   moduleId: module.id,
@@ -9,10 +9,10 @@ import { MdDialog, MdDialogRef, MdDialogConfig, MD_DIALOG_DATA } from '@angular/
   styleUrls: ['dialog-demo.css'],
 })
 export class DialogDemoComponent {
-  dialogRef: MdDialogRef<JazzDialogComponent>;
+  dialogRef: MatDialogRef<JazzDialogComponent>;
   lastCloseResult: string;
   actionsAlignment: string;
-  config: MdDialogConfig = {
+  config: MatDialogConfig = {
     disableClose: false,
     width: '',
     height: '',
@@ -30,11 +30,11 @@ export class DialogDemoComponent {
 
   @ViewChild(TemplateRef) template: TemplateRef<any>;
 
-  constructor(public dialog: MdDialog, @Inject(DOCUMENT) doc: any) {
+  constructor(public dialog: MatDialog, @Inject(DOCUMENT) doc: any) {
     // Possible useful example for the open and closeAll events.
     // Adding a class to the body if a dialog opens and
     // removing it after all open dialogs are closed
-    dialog.afterOpen.subscribe((ref: MdDialogRef<any>) => {
+    dialog.afterOpen.subscribe((ref: MatDialogRef<any>) => {
       if (!doc.body.classList.contains('no-scroll')) {
         doc.body.classList.add('no-scroll');
       }
@@ -75,8 +75,8 @@ export class DialogDemoComponent {
 })
 export class JazzDialogComponent {
   constructor(
-    public dialogRef: MdDialogRef<JazzDialogComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<JazzDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 }
 
 
@@ -88,8 +88,8 @@ export class JazzDialogComponent {
     }`
   ],
   template: `
-    <h2 md-dialog-title>Neptune</h2>
-    <md-dialog-content>
+    <h2 mat-dialog-title>Neptune</h2>
+    <mat-dialog-content>
       <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg"/>
       <p>
         Neptune is the eighth and farthest known planet from the Sun in the Solar System. In the
@@ -100,29 +100,29 @@ export class JazzDialogComponent {
         astronomical units (4.50×109 km). It is named after the Roman god of the sea and has the
         astronomical symbol ♆, a stylised version of the god Neptune's trident.
       </p>
-    </md-dialog-content>
-    <md-dialog-actions [attr.align]="actionsAlignment">
+    </mat-dialog-content>
+    <mat-dialog-actions [attr.align]="actionsAlignment">
       <button
-        md-raised-button
+        mat-raised-button
         color="primary"
-        md-dialog-close>Close</button>
+        mat-dialog-close>Close</button>
       <a
-        md-button
+        mat-button
         color="primary"
         href="https://en.wikipedia.org/wiki/Neptune"
         target="_blank">Read more on Wikipedia</a>
       <button
-        md-button
+        mat-button
         color="secondary"
         (click)="showInStackedDialog()">
         Show in Dialog</button>
-    </md-dialog-actions>
+    </mat-dialog-actions>
   `
 })
 export class ContentElementDialogComponent {
   actionsAlignment: string;
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   showInStackedDialog() {
     this.dialog.open(IFrameDialogComponent);
@@ -137,16 +137,16 @@ export class ContentElementDialogComponent {
     }`
   ],
   template: `
-    <h2 md-dialog-title>Neptune</h2>
-    <md-dialog-content>
+    <h2 mat-dialog-title>Neptune</h2>
+    <mat-dialog-content>
       <iframe frameborder="0" src="https://en.wikipedia.org/wiki/Neptune"></iframe>
-    </md-dialog-content>
-    <md-dialog-actions>
+    </mat-dialog-content>
+    <mat-dialog-actions>
       <button
-        md-raised-button
+        mat-raised-button
         color="primary"
-        md-dialog-close>Close</button>
-    </md-dialog-actions>
+        mat-dialog-close>Close</button>
+    </mat-dialog-actions>
   `
 })
 export class IFrameDialogComponent {

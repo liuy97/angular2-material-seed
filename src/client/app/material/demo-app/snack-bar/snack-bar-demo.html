@@ -1,32 +1,32 @@
 <h1>SnackBar demo</h1>
 <div>
   <div>
-    Message: <!--md-input-container><input md-input type="text" [(ngModel)]="message"></md-input-container-->
+    Message: <!--mat-input-container><input mat-input type="text" [(ngModel)]="message"></mat-input-container-->
   </div>
   <div>
-    <md-checkbox [(ngModel)]="action">
+    <mat-checkbox [(ngModel)]="action">
       <p *ngIf="!action">Show button on snack bar</p>
-      <!--md-input-container *ngIf="action">
-        <input md-input
+      <!--mat-input-container *ngIf="action">
+        <input mat-input
                type="text"
                class="demo-button-label-input"
                placeholder="Snack bar action label"
                [(ngModel)]="actionButtonLabel">
-      </md-input-container-->
-    </md-checkbox>
+      </mat-input-container-->
+    </mat-checkbox>
   </div>
   <div>
-    <md-checkbox [(ngModel)]="setAutoHide">
+    <mat-checkbox [(ngModel)]="setAutoHide">
       <p *ngIf="!setAutoHide">Auto hide after duration</p>
-      <!--md-input-container *ngIf="setAutoHide">
-        <input md-input
+      <!--mat-input-container *ngIf="setAutoHide">
+        <input mat-input
                type="number"
                class="demo-button-label-input"
                placeholder="Auto Hide Duration in ms"
                [(ngModel)]="autoHide">
-      </md-input-container-->
-    </md-checkbox>
+      </mat-input-container-->
+    </mat-checkbox>
   </div>
 </div>
 
-<button md-raised-button (click)="open()">OPEN</button>
+<button mat-raised-button (click)="open()">OPEN</button>

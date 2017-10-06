@@ -1,50 +1,50 @@
 <h1>Default Slider</h1>
-Label <md-slider #slidey></md-slider>
+Label <mat-slider #slidey></mat-slider>
 {{ slidey.value }}
 
 <h1>Slider with Min and Max</h1>
 <input [(ngModel)]="min">
-<md-slider [min]="min" [max]="max" tick-interval="5" #slider2></md-slider>
+<mat-slider [min]="min" [max]="max" tick-interval="5" #slider2></mat-slider>
 {{ slider2.value }}
 <input [(ngModel)]="max">
 
 <h1>Disabled Slider</h1>
-<md-slider disabled #slider3></md-slider>
+<mat-slider disabled #slider3></mat-slider>
 {{ slider3.value }}
 
 <h1>Slider with set value</h1>
-<md-slider value="43"></md-slider>
+<mat-slider value="43"></mat-slider>
 
 <h1>Slider with step defined</h1>
-<md-slider min="1" max="100" step="20" #slider5></md-slider>
+<mat-slider min="1" max="100" step="20" #slider5></mat-slider>
 {{ slider5.value }}
 
 <h1>Slider with set tick interval</h1>
-<md-slider tick-interval="auto"></md-slider>
-<md-slider tick-interval="9"></md-slider>
+<mat-slider tick-interval="auto"></mat-slider>
+<mat-slider tick-interval="9"></mat-slider>
 
 <h1>Slider with Thumb Label</h1>
-<md-slider thumb-label></md-slider>
+<mat-slider thumb-label></mat-slider>
 
 <h1>Slider with one-way binding</h1>
-<md-slider [value]="val" step="40"></md-slider>
+<mat-slider [value]="val" step="40"></mat-slider>
 <input [(ngModel)]="val">
 
 <h1>Slider with two-way binding</h1>
-<md-slider [(ngModel)]="demo" step="40"></md-slider>
+<mat-slider [(ngModel)]="demo" step="40"></mat-slider>
 <input [(ngModel)]="demo">
 
 <h1>Inverted slider</h1>
-<md-slider invert value="50" tick-interval="5"></md-slider>
+<mat-slider invert value="50" tick-interval="5"></mat-slider>
 
 <h1>Vertical slider</h1>
-<md-slider vertical thumb-label tick-interval="auto" value="50"></md-slider>
+<mat-slider vertical thumb-label tick-interval="auto" value="50"></mat-slider>
 
 <h1>Inverted vertical slider</h1>
-<md-slider vertical invert thumb-label tick-interval="auto" value="50"></md-slider>
+<mat-slider vertical invert thumb-label tick-interval="auto" value="50"></mat-slider>
 
-<md-tab-group>
-  <md-tab label="One">
-    <md-slider min="1" max="5" value="3"></md-slider>
-  </md-tab>
-</md-tab-group>
+<mat-tab-group>
+  <mat-tab label="One">
+    <mat-slider min="1" max="5" value="3"></mat-slider>
+  </mat-tab>
+</mat-tab-group>

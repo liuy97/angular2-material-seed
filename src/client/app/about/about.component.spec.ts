@@ -6,7 +6,7 @@ import {
 } from '@angular/core/testing';
 
 import { AboutModule } from './about.module';
-import { MaterialModule } from '@angular/material';
+import { MatListModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 export function main() {
   describe('About component', () => {
@@ -14,7 +14,7 @@ export function main() {
     beforeEach(() => {
       TestBed.configureTestingModule({
         declarations: [TestComponent],
-        imports: [MaterialModule, AboutModule, FormsModule]
+        imports: [MatListModule, AboutModule, FormsModule]
       });
     });
 

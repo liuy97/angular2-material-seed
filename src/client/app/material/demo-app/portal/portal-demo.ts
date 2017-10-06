@@ -1,9 +1,5 @@
 import { Component, ViewChildren, QueryList } from '@angular/core';
-import {
-    Portal,
-    ComponentPortal,
-    TemplatePortalDirective,
-} from '@angular/material';
+import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/portal';
 
 @Component({
   moduleId: module.id,

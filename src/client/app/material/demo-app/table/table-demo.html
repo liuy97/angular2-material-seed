@@ -1,55 +1,55 @@
 <div class="demo-data-source-actions">
   <div [style.display]="selection.isEmpty() ? '' : 'none'">
-    <md-input-container floatPlaceholder="never">
-      <input mdInput #filter placeholder="Filter users">
-    </md-input-container>
+    <mat-input-container floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter users">
+    </mat-input-container>
   </div>
 
-  <md-table #table [dataSource]="dataSource" mdSort>
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- ID Column -->
     <ng-container cdkColumnDef="userId">
-      <md-header-cell *cdkHeaderCellDef md-sort-header> ID </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{ row.id }} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{ row.id }} </mat-cell>
     </ng-container>
 
     <!-- Progress Column -->
     <ng-container cdkColumnDef="progress">
-      <md-header-cell *cdkHeaderCellDef md-sort-header> Progress </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{ row.progress }}% </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{ row.progress }}% </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container cdkColumnDef="userName">
-      <md-header-cell *cdkHeaderCellDef md-sort-header> Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{ row.name }} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *cdkCellDef="let row"> {{ row.name }} </mat-cell>
     </ng-container>
 
     <!-- Color Column -->
     <ng-container cdkColumnDef="color">
-      <md-header-cell *cdkHeaderCellDef md-sort-header> Color </md-header-cell>
-      <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{ row.color }} </md-cell>
+      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Color </mat-header-cell>
+      <mat-cell *cdkCellDef="let row" [style.color]="row.color"> {{ row.color }} </mat-cell>
     </ng-container>
 
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"
+    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *cdkRowDef="let row; columns: displayedColumns;"
              [class.example-selected-row]="selection.isSelected(row.id)"
              (click)="selection.toggle(row.id)">
-    </md-row>
-  </md-table>
+    </mat-row>
+  </mat-table>
 
   <div class="example-no-results"
        [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
     No users found matching filter.
   </div>
 
-  <md-paginator #paginator
+  <mat-paginator #paginator
                 [length]="dataSource.filteredData.length"
                 [pageIndex]="0"
                 [pageSize]="25"
                 [pageSizeOptions]="[5, 10, 25, 100]">
-  </md-paginator>
+  </mat-paginator>
 </div>

@@ -1,69 +1,69 @@
 <h1>Dialog demo</h1>
 
-<button md-raised-button color="primary" (click)="openJazz()" [disabled]="dialogRef">
+<button mat-raised-button color="primary" (click)="openJazz()" [disabled]="dialogRef">
   Open dialog
 </button>
-<button md-raised-button color="accent" (click)="openContentElement()">
+<button mat-raised-button color="accent" (click)="openContentElement()">
   Open dialog with content elements
 </button>
-<button md-raised-button color="accent" (click)="openTemplate()">
+<button mat-raised-button color="accent" (click)="openTemplate()">
   Open dialog with template content
 </button>
 
-<md-card class="demo-dialog-card">
-  <md-card-content>
+<mat-card class="demo-dialog-card">
+  <mat-card-content>
     <h2>Dialog dimensions</h2>
 
     <p>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.width" placeholder="Width">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.height" placeholder="Height">
-      </md-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.width" placeholder="Width">
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.height" placeholder="Height">
+      </mat-input-container>
     </p>
 
     <h2>Dialog position</h2>
 
     <p>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.position.top" (change)="config.position.bottom = ''" placeholder="Top">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.position.bottom" (change)="config.position.top = ''" placeholder="Bottom">
-      </md-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.position.top" (change)="config.position.bottom = ''" placeholder="Top">
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.position.bottom" (change)="config.position.top = ''" placeholder="Bottom">
+      </mat-input-container>
     </p>
 
     <p>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.position.left" (change)="config.position.right = ''" placeholder="Left">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.position.right" (change)="config.position.left = ''" placeholder="Right">
-      </md-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.position.left" (change)="config.position.right = ''" placeholder="Left">
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.position.right" (change)="config.position.left = ''" placeholder="Right">
+      </mat-input-container>
     </p>
 
     <h2>Other options</h2>
 
     <p>
-      <md-select placeholder="Button alignment" [(ngModel)]="actionsAlignment">
-        <md-option>Start</md-option>
-        <md-option value="end">End</md-option>
-        <md-option value="center">Center</md-option>
-      </md-select>
+      <mat-select placeholder="Button alignment" [(ngModel)]="actionsAlignment">
+        <mat-option>Start</mat-option>
+        <mat-option value="end">End</mat-option>
+        <mat-option value="center">Center</mat-option>
+      </mat-select>
     </p>
 
     <p>
-      <md-input-container>
-        <input mdInput [(ngModel)]="config.data.message" placeholder="Dialog message">
-      </md-input-container>
+      <mat-input-container>
+        <input matInput [(ngModel)]="config.data.message" placeholder="Dialog message">
+      </mat-input-container>
     </p>
 
     <p>
-      <md-checkbox [(ngModel)]="config.disableClose">Disable close</md-checkbox>
+      <mat-checkbox [(ngModel)]="config.disableClose">Disable close</mat-checkbox>
     </p>
-  </md-card-content>
-</md-card>
+  </mat-card-content>
+</mat-card>
 
 <p>Last close result: {{ lastCloseResult }}</p>
 
