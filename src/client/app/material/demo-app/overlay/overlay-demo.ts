@@ -38,7 +38,7 @@ export class OverlayDemoComponent {
   constructor(public overlay: Overlay, public viewContainerRef: ViewContainerRef) { }
 
   openRotiniPanel() {
-    let config = new OverlayConfig();
+    const config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position()
         .global()
@@ -47,12 +47,12 @@ export class OverlayDemoComponent {
 
     this.nextPosition += 30;
 
-    let overlayRef = this.overlay.create(config);
+    const overlayRef = this.overlay.create(config);
     overlayRef.attach(new ComponentPortal(RotiniPanelComponent, this.viewContainerRef));
   }
 
   openFusilliPanel() {
-    let config = new OverlayConfig();
+    const config = new OverlayConfig();
 
     config.positionStrategy = this.overlay.position()
         .global()
@@ -61,45 +61,45 @@ export class OverlayDemoComponent {
 
     this.nextPosition += 30;
 
-    let overlayRef = this.overlay.create(config);
+    const overlayRef = this.overlay.create(config);
     overlayRef.attach(this.templatePortals.first);
   }
 
   openSpaghettiPanel() {
     // TODO(jelbourn): separate overlay demo for connected positioning.
-    let strategy = this.overlay.position()
+    const strategy = this.overlay.position()
         .connectedTo(
             this._overlayOrigin.elementRef,
             {originX: 'start', originY: 'bottom'},
             {overlayX: 'start', overlayY: 'top'} );
 
-    let config = new OverlayConfig({positionStrategy: strategy});
-    let overlayRef = this.overlay.create(config);
+    const config = new OverlayConfig({positionStrategy: strategy});
+    const overlayRef = this.overlay.create(config);
 
     overlayRef.attach(new ComponentPortal(SpagettiPanelComponent, this.viewContainerRef));
   }
 
   openTortelliniPanel() {
-    let strategy = this.overlay.position()
+    const strategy = this.overlay.position()
         .connectedTo(
             this.tortelliniOrigin.elementRef,
             {originX: 'start', originY: 'bottom'},
             {overlayX: 'end', overlayY: 'top'} );
 
-    let config = new OverlayConfig({positionStrategy: strategy});
-    let overlayRef = this.overlay.create(config);
+    const config = new OverlayConfig({positionStrategy: strategy});
+    const overlayRef = this.overlay.create(config);
 
     overlayRef.attach(this.tortelliniTemplate);
   }
 
   openPanelWithBackdrop() {
-    let config = new OverlayConfig({
+    const config = new OverlayConfig({
       hasBackdrop: true,
       backdropClass: 'cdk-overlay-transparent-backdrop',
       positionStrategy: this.overlay.position().global().centerHorizontally()
     });
 
-    let overlayRef = this.overlay.create(config);
+    const overlayRef = this.overlay.create(config);
     overlayRef.attach(this.templatePortals.first);
     overlayRef.backdropClick().subscribe(() => overlayRef.detach());
   }

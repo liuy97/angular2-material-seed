@@ -53,7 +53,11 @@ module.exports = function (config) {
       { pattern: 'dist/dev/assets/**/*', watched: false, included: false, served: true },
 
       'test-config.js',
-      'dist/dev/system-config.js',
+      { pattern: 'dist/dev/system-config.js', watched: true, included: true },
+
+      // Test dependencies for HttpClient
+      { pattern: 'node_modules/tslib/**/*.js', included: false, watched: true },
+
       'test-main.js'
     ],
 

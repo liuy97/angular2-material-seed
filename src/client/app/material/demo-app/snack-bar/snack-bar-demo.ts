@@ -17,7 +17,7 @@ export class SnackBarDemoComponent {
       public snackBar: MatSnackBar) { }
 
   open() {
-    let config = new MatSnackBarConfig();
+    const config = new MatSnackBarConfig();
     config.duration = this.autoHide;
     this.snackBar.open(this.message, this.action && this.actionButtonLabel, config);
   }

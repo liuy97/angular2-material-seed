@@ -73,4 +73,4 @@ export const demoRoutes: Routes = [
   }
 ];
 
-export const demoRouting : ModuleWithProviders = RouterModule.forChild(demoRoutes);
+export const demoRouting: ModuleWithProviders = RouterModule.forChild(demoRoutes);

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './demo-app/demo-app';
 import { demoRouting } from './demo-app/routes';
@@ -83,7 +83,7 @@ import { PortalModule } from '@angular/cdk/portal';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatCheckboxModule,

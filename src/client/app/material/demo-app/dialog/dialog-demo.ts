@@ -54,7 +54,7 @@ export class DialogDemoComponent {
   }
 
   openContentElement() {
-    let dialogRef = this.dialog.open(ContentElementDialogComponent, this.config);
+    const dialogRef = this.dialog.open(ContentElementDialogComponent, this.config);
     dialogRef.componentInstance.actionsAlignment = this.actionsAlignment;
   }
 
