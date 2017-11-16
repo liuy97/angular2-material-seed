@@ -1,0 +1,69 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "appData": {
+    "test": true
+  },
+  "assetGroups": [
+    {
+      "name": "appshell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/data.json",
+        "/assets/favicon.ico",
+        "/assets/favicon/favicon.DEV.ico",
+        "/assets/favicon/favicon.PROD.ico",
+        "/assets/svg/core-icon-set.svg",
+        "/assets/svg/more.svg",
+        "/assets/svg/search-icon.svg",
+        "/assets/svg/thumbup-icon.svg",
+        "/index.html",
+        "/ngsw-worker.js",
+        "/css/main.css",
+        "/js/app.js",
+        "/js/shims.js"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "patterns": [
+        "\\/timeline"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 259200000,
+      "timeoutMs": 60000,
+      "version": 1
+    },
+    {
+      "name": "api-performance",
+      "patterns": [
+        "\\/favorites"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 259200000,
+      "timeoutMs": 60000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/index.html": "4ae2737d31a2e039ccaf7a7b47d6e13c855138cf",
+    "/ngsw-worker.js": "f41ea28c068e85a641fb71215cf4ab16f2acb023",
+    "/css/main.css": "c6228c287cc4c5a41a7536305d5a4d885732ba24",
+    "/js/app.js": "9db4f9018658c3ee1ed45525a98743bc0319914c",
+    "/js/shims.js": "f4b415bbb2db22c11f8e7b989a62929fda46cf0c",
+    "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
+    "/assets/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/assets/favicon/favicon.DEV.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/assets/favicon/favicon.PROD.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/assets/svg/core-icon-set.svg": "5a196ff3f081273aa25015deff90b9e15da79d7f",
+    "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc",
+    "/assets/svg/search-icon.svg": "69cc7e3229abbaab20cd1c2696e77ed42942fdc4",
+    "/assets/svg/thumbup-icon.svg": "fcfb716d30a1b15e03a25e597d66b7ac615d534c"
+  }
+}
