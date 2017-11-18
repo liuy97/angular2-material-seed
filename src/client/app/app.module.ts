@@ -1,9 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { routing } from './app.routers';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }  from './app.component';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import {
   MatAutocompleteModule,
   MatCheckboxModule,
@@ -44,7 +43,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -77,7 +75,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule,
     AboutModule,
     DemoAppModule,
-    routing
+    AppRoutingModule
   ],
   declarations: [
     AppComponent
