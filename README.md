@@ -1,5 +1,5 @@
 # Introduction
-Angular (5.0.0) + Material(5.0.0-rc0) + Seed
+Angular (5.0.0) + Material(5.0.0-rc.2) + Seed
 [![Build Status](https://travis-ci.org/liuy97/angular2-material-seed.svg?branch=master)](https://travis-ci.org/liuy97/angular2-material-seed)
 
 # How to start
