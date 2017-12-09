@@ -318,26 +318,34 @@
   border-top: .84375em solid transparent;
 }
 
-.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
   -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
   transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
   -ms-transform: translateY(-1.28125em) scale(.75);
   width: 133.33333%;
 }
 
-.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-placeholder-wrapper .mat-form-field-placeholder {
-  -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
-  transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
-  -ms-transform: translateY(-1.28125em) scale(.75);
-  width: 133.33333%;
+.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {
+  -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+  transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+  -ms-transform: translateY(-1.28124em) scale(.75);
+  width: 133.33334%;
 }
 
-.mat-form-field-placeholder-wrapper {
+.mat-form-field-can-float .mat-input-server[label]:not(:label-shown)+.mat-form-field-label-wrapper .mat-form-field-label {
+  -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+  transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+  -ms-transform: translateY(-1.28123em) scale(.75);
+  width: 133.33335%;
+}
+
+.mat-form-field-label-wrapper {
   top: -.84375em;
   padding-top: .84375em;
 }
 
-.mat-form-field-placeholder {
+.mat-form-field-label {
   top: 1.28125em;
 }
 
@@ -615,6 +623,17 @@ input.mat-input-element {
   position: relative;
   cursor: pointer;
   outline: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .mat-option[disabled] {
@@ -653,6 +672,11 @@ input.mat-input-element {
 
 .mat-option-text {
   display: inline-block;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mat-option-ripple {
@@ -1304,20 +1328,20 @@ input.mat-input-element {
   color: inherit;
 }
 
-.mat-form-field-placeholder,
+.mat-form-field-label,
 .mat-hint {
   color: rgba(0,0,0,.54);
 }
 
-.mat-focused .mat-form-field-placeholder {
+.mat-focused .mat-form-field-label {
   color: #673ab7;
 }
 
-.mat-focused .mat-form-field-placeholder.mat-accent {
+.mat-focused .mat-form-field-label.mat-accent {
   color: #ffd740;
 }
 
-.mat-focused .mat-form-field-placeholder.mat-warn {
+.mat-focused .mat-form-field-label.mat-warn {
   color: #f44336;
 }
 
@@ -1347,9 +1371,9 @@ input.mat-input-element {
   background-color: #f44336;
 }
 
-.mat-form-field-invalid .mat-form-field-placeholder,
-.mat-form-field-invalid .mat-form-field-placeholder.mat-accent,
-.mat-form-field-invalid .mat-form-field-placeholder .mat-form-field-required-marker {
+.mat-form-field-invalid .mat-form-field-label,
+.mat-form-field-invalid .mat-form-field-label.mat-accent,
+.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
   color: #f44336;
 }
 
@@ -1374,6 +1398,26 @@ input.mat-input-element {
 }
 
 .mat-input-element:disabled {
+  color: rgba(0,0,0,.42);
+}
+
+.mat-input-element::-ms-input-placeholder {
+  color: rgba(0,0,0,.42);
+}
+
+.mat-input-element::placeholder {
+  color: rgba(0,0,0,.42);
+}
+
+.mat-input-element::-moz-placeholder {
+  color: rgba(0,0,0,.42);
+}
+
+.mat-input-element::-webkit-input-placeholder {
+  color: rgba(0,0,0,.42);
+}
+
+.mat-input-element:-ms-input-placeholder {
   color: rgba(0,0,0,.42);
 }
 
@@ -1432,7 +1476,7 @@ input.mat-input-element {
 }
 
 .mat-menu-item-submenu-trigger:after,
-.mat-menu-item .mat-icon {
+.mat-menu-item .mat-icon:not([color]) {
   color: rgba(0,0,0,.54);
 }
 
@@ -1603,6 +1647,10 @@ input.mat-input-element {
 
 .mat-select.mat-select-disabled .mat-select-arrow {
   color: #f44336;
+}
+
+.mat-select-placeholder {
+  color: rgba(0,0,0,.42);
 }
 
 .mat-drawer-container {
