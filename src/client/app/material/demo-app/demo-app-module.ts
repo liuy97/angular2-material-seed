@@ -69,6 +69,7 @@ import { ProjectionDemoComponent } from './projection/projection-demo';
 import { PlatformDemoComponent } from './platform/platform-demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete-demo';
 import { TableDemoComponent } from './table/table-demo';
+import { PeopleDatabase } from './table/people-database';
 
 import { CdkTableModule } from '@angular/cdk/table';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -124,6 +125,7 @@ import { PortalModule } from '@angular/cdk/portal';
     PortalModule,
   ],
   providers: [
+    PeopleDatabase,
   ],
   declarations: [
     AutocompleteDemoComponent,

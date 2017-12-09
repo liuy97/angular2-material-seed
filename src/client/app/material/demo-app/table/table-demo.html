@@ -1,55 +1,65 @@
-<div class="demo-data-source-actions">
-  <div [style.display]="selection.isEmpty() ? '' : 'none'">
-    <mat-input-container floatPlaceholder="never">
-      <input matInput #filter placeholder="Filter users">
-    </mat-input-container>
+<h3>MatTable Example</h3>
+
+<mat-form-field>
+  <input matInput #filter placeholder="Filter users">
+</mat-form-field>
+
+<div class="demo-table-container demo-mat-table-example mat-elevation-z4 mat-table-selectable">
+
+  <div class="example-header example-selection-header" *ngIf="!selection.isEmpty()">
+    {{ selection.selected.length }} {{ selection.selected.length == 1 ? 'user' : 'users' }} selected
   </div>
 
-  <mat-table #table [dataSource]="dataSource" matSort>
+  <mat-table [dataSource]="matTableDataSource" matSort #sortForDataSource="matSort">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="userId">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *cdkCellDef="let row"> {{ row.id }} </mat-cell>
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [disabled]="!matTableDataSource.filteredData.length" [checked]="isMasterToggleChecked()"
+          [indeterminate]="isMasterToggleIndeterminate()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
     </ng-container>
 
-    <!-- Progress Column -->
-    <ng-container cdkColumnDef="progress">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-      <mat-cell *cdkCellDef="let row"> {{ row.progress }}% </mat-cell>
+    <!-- Column Definition: userId -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="userName">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *cdkCellDef="let row"> {{ row.name }} </mat-cell>
+    <!-- Column Definition: Progress -->
+    <ng-container matColumnDef="progress">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <div class="demo-progress-stat">{{ row.progress }}%</div>
+        <div class="demo-progress-indicator-container">
+          <div class="demo-progress-indicator" [style.background]="row.progress > 50 ? 'green' : 'red'" [style.opacity]="getOpacity(row.progress)"
+            [style.width.%]="row.progress"></div>
+        </div>
+      </mat-cell>
     </ng-container>
 
-    <!-- Color Column -->
-    <ng-container cdkColumnDef="color">
-      <mat-header-cell *cdkHeaderCellDef mat-sort-header> Color </mat-header-cell>
-      <mat-cell *cdkCellDef="let row" [style.color]="row.color"> {{ row.color }} </mat-cell>
+    <!-- Column Definition: Name -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
     </ng-container>
 
-    <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *cdkRowDef="let row; columns: displayedColumns;"
-             [class.example-selected-row]="selection.isSelected(row.id)"
-             (click)="selection.toggle(row.id)">
+    <!-- Column Definition: Color -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Color</mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{ row.color }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="matTableDataSourceColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: matTableDataSourceColumns;" [class.selected]="selection.isSelected(row)" (click)="selection.toggle(row)">
     </mat-row>
   </mat-table>
 
-  <div class="example-no-results"
-       [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
-    No users found matching filter.
-  </div>
-
-  <mat-paginator #paginator
-                [length]="dataSource.filteredData.length"
-                [pageIndex]="0"
-                [pageSize]="25"
-                [pageSizeOptions]="[5, 10, 25, 100]">
+  <mat-paginator #paginatorForDataSource [length]="_peopleDatabase.data.length" [pageSizeOptions]="[10, 25, 100]">
   </mat-paginator>
 </div>

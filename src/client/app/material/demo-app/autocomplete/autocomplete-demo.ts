@@ -1,6 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormControl, NgModel } from '@angular/forms';
-import { startWith } from 'rxjs/operators';
+import { startWith } from 'rxjs/operators/startWith';
+import { map } from 'rxjs/operators/map';
 
 @Component({
   moduleId: module.id,
@@ -80,9 +81,11 @@ export class AutocompleteDemoComponent {
     this.tdStates = this.states;
     this.stateCtrl = new FormControl({code: 'CA', name: 'California'});
     this.reactiveStates = this.stateCtrl.valueChanges
-        .startWith(this.stateCtrl.value)
-        .map(val => this.displayFn(val))
-        .map(name => this.filterStates(name));
+    .pipe(
+      startWith(this.stateCtrl.value),
+      map(val => this.displayFn(val)),
+      map(name => this.filterStates(name))
+    );
   }
 
   displayFn(value: any): string {
