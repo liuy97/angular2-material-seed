@@ -45,6 +45,6 @@ export class ListDemoComponent {
 
   ];
 
-  thirdLine: boolean = false;
-  infoClicked: boolean = false;
+  thirdLine = false;
+  infoClicked = false;
 }

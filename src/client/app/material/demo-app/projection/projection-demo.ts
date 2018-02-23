@@ -18,5 +18,5 @@ import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
   `]
 })
 export class ProjectionDemoComponent {
-  binding: string = 'abc';
+  binding = 'abc';
 }

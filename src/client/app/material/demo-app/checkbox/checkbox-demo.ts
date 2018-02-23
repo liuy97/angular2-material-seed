@@ -62,11 +62,11 @@ export class MdCheckboxDemoNestedChecklistComponent {
   styleUrls: ['checkbox-demo.css'],
 })
 export class CheckboxDemoComponent {
-  isIndeterminate: boolean = false;
-  isChecked: boolean = false;
-  isDisabled: boolean = false;
-  alignment: string = 'start';
-  useAlternativeColor: boolean = false;
+  isIndeterminate = false;
+  isChecked = false;
+  isDisabled = false;
+  alignment = 'start';
+  useAlternativeColor = false;
 
   printResult() {
     if (this.isIndeterminate) {

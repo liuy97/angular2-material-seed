@@ -22,8 +22,6 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-      { src: `@angular/material/prebuilt-themes/deeppurple-amber.css`, inject: true, vendor: false },
-      { src: 'hammerjs/hammer.min.js', inject: 'libs' },
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -45,7 +43,7 @@ export class ProjectConfig extends SeedConfig {
     ];
 
     // Add packages (e.g. ng2-translate)
-    // let additionalPackages: ExtendPackages[] = [{
+    // const additionalPackages: ExtendPackages[] = [{
     //   name: 'ng2-translate',
     //   // Path to the package's bundle
     //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'

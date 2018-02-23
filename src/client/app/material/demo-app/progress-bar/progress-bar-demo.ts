@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
   styleUrls: ['progress-bar-demo.css'],
 })
 export class ProgressBarDemoComponent {
-  determinateProgressValue: number = 30;
-  bufferProgressValue: number = 30;
-  bufferBufferValue: number = 40;
+  determinateProgressValue = 30;
+  bufferProgressValue = 30;
+  bufferBufferValue = 40;
 
   stepDeterminateProgressVal(val: number) {
     this.determinateProgressValue += val;

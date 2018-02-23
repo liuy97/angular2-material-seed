@@ -7,11 +7,11 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
   templateUrl: 'snack-bar-demo.html',
 })
 export class SnackBarDemoComponent {
-  message: string = 'Snack Bar opened.';
-  actionButtonLabel: string = 'Retry';
-  action: boolean = false;
-  setAutoHide: boolean = true;
-  autoHide: number = 0;
+  message = 'Snack Bar opened.';
+  actionButtonLabel = 'Retry';
+  action = false;
+  setAutoHide = true;
+  autoHide = 0;
 
   constructor(
       public snackBar: MatSnackBar) { }

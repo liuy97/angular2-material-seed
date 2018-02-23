@@ -427,12 +427,6 @@ export class SeedConfig {
       inject: 'shims',
       buildType: BUILD_TYPES.DEVELOPMENT
     },
-    // Temporary fix. See https://github.com/angular/angular/issues/9359
-    {
-      src: '.tmp/Rx.min.js',
-      inject: 'libs',
-      buildType: BUILD_TYPES.DEVELOPMENT
-    }
   ];
 
   /**
@@ -489,7 +483,6 @@ export class SeedConfig {
         'node_modules/@angular/compiler/bundles/compiler.umd.js',
       '@angular/core': 'node_modules/@angular/core/bundles/core.umd.js',
       '@angular/forms': 'node_modules/@angular/forms/bundles/forms.umd.js',
-      '@angular/http': 'node_modules/@angular/http/bundles/http.umd.js',
       '@angular/platform-browser':
         'node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic':
@@ -507,15 +500,13 @@ export class SeedConfig {
         'node_modules/@angular/compiler/bundles/compiler-testing.umd.js',
       '@angular/core/testing':
         'node_modules/@angular/core/bundles/core-testing.umd.js',
-      '@angular/http/testing':
-        'node_modules/@angular/http/bundles/http-testing.umd.js',
       '@angular/platform-browser/testing':
         'node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
       '@angular/platform-browser-dynamic/testing':
         'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing':
         'node_modules/@angular/router/bundles/router-testing.umd.js',
-      'rxjs/operators': 'node_modules/rxjs/operators/index.js',
+      'rxjs/operators/*': 'node_modules/rxjs/operators/*',
 
       '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js',
       '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
@@ -626,10 +617,6 @@ export class SeedConfig {
         main: 'bundles/forms.umd.js',
         defaultExtension: 'js'
       },
-      '@angular/http': {
-        main: 'bundles/http.umd.js',
-        defaultExtension: 'js'
-      },
       '@angular/platform-browser': {
         main: 'bundles/platform-browser.umd.js',
         defaultExtension: 'js'
@@ -654,7 +641,7 @@ export class SeedConfig {
         main: 'bundles/material.umd.js',
         defaultExtension: 'js'
       },
-      'rxjs': {
+      rxjs: {
         main: 'Rx.js',
         defaultExtension: 'js'
       }

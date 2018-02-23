@@ -11,7 +11,7 @@ import { TooltipPosition } from '@angular/material';
 })
 export class TooltipDemoComponent {
   position: TooltipPosition = 'below';
-  message: string = 'Here is the tooltip';
+  message = 'Here is the tooltip';
   tooltips: string[] = [];
   disabled = false;
   showDelay = 0;

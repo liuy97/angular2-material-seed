@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['progress-circle-demo.css'],
 })
 export class ProgressCircleDemoComponent {
-  progressValue: number = 60;
-  color: string = 'primary';
-  modeToggle: boolean = false;
+  progressValue = 60;
+  color = 'primary';
+  modeToggle = false;
 
   step(val: number) {
     this.progressValue = Math.max(0, Math.min(100, val + this.progressValue));

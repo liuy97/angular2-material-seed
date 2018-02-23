@@ -11,7 +11,7 @@ let max = 5;
   styleUrls: ['input-demo.css'],
 })
 export class InputDemoComponent {
-  floatingLabel: string = 'auto';
+  floatingLabel = 'auto';
   dividerColor: boolean;
   requiredField: boolean;
   ctrlDisabled = false;

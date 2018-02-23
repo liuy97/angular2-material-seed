@@ -26,8 +26,8 @@ import {
 })
 
 export class OverlayDemoComponent {
-  nextPosition: number = 0;
-  isMenuOpen: boolean = false;
+  nextPosition = 0;
+  isMenuOpen = false;
   tortelliniFillings = ['cheese and spinach', 'mushroom and broccoli'];
 
   @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
@@ -113,7 +113,7 @@ export class OverlayDemoComponent {
   template: '<p class="demo-rotini">Rotini {{ value }}</p>'
 })
 export class RotiniPanelComponent {
-  value: number = 9000;
+  value = 9000;
 }
 
 /** Simple component to load into an overlay */
@@ -122,5 +122,5 @@ export class RotiniPanelComponent {
   template: '<div class="demo-spagetti">Spagetti {{ value }}</div>'
 })
 export class SpagettiPanelComponent {
-  value: string = 'Omega';
+  value = 'Omega';
 }
