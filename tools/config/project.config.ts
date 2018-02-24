@@ -24,6 +24,8 @@ export class ProjectConfig extends SeedConfig {
       ...this.NPM_DEPENDENCIES,
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
+      { src: `@angular/material/prebuilt-themes/deeppurple-amber.css`, inject: true, vendor: false },
+      { src: 'hammerjs/hammer.min.js', inject: 'libs' },
     ];
 
     // Add `local` third-party libraries to be injected/bundled.

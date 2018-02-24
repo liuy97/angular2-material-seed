@@ -427,6 +427,12 @@ export class SeedConfig {
       inject: 'shims',
       buildType: BUILD_TYPES.DEVELOPMENT
     },
+    // Temporary fix. See https://github.com/angular/angular/issues/9359
+    {
+      src: '.tmp/Rx.min.js',
+      inject: 'libs',
+      buildType: BUILD_TYPES.DEVELOPMENT
+    }
   ];
 
   /**
