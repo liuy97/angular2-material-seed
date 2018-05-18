@@ -1,14 +1,21 @@
 Space above cards: <input type="number" [formControl]="topHeightCtrl">
 <div [style.height.px]="topHeightCtrl.value"></div>
 <div class="demo-autocomplete">
-  <mat-card>
-    Reactive length: {{ reactiveStates.length }}
-    <div>Reactive value: {{ stateCtrl?.value | json }}</div>
-    <div>Reactive dirty: {{ stateCtrl?.dirty }}</div>
+  <mat-card *ngIf="(reactiveStates | async) as tempStates">
+    Reactive length: {{ tempStates.length }}
+    <div>Reactive value: {{ stateCtrl.value | json }}</div>
+    <div>Reactive dirty: {{ stateCtrl.dirty }}</div>
 
-    <mat-input-container floatPlaceholder="never">
-      <input matInput placeholder="State" [matAutocomplete]="reactiveAuto" [formControl]="stateCtrl">
-    </mat-input-container>
+    <mat-form-field floatLabel="never">
+      <mat-label>State</mat-label>
+      <input matInput [matAutocomplete]="reactiveAuto" [formControl]="stateCtrl">
+      <mat-autocomplete #reactiveAuto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let state of tempStates" [value]="state">
+          <span>{{ state.name }}</span>
+          <span class="demo-secondary-text"> ({{ state.code }}) </span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
     <mat-card-actions>
       <button mat-button (click)="stateCtrl.reset()">RESET</button>
@@ -23,12 +30,19 @@ Space above cards: <input type="number" [formControl]="topHeightCtrl">
   <mat-card>
 
     <div>Template-driven value (currentState): {{ currentState }}</div>
+    <div>Template-driven dirty: {{ modelDir ? modelDir.dirty : false }}</div>
 
     <!-- Added an ngIf below to test that autocomplete works with ngIf -->
-    <mat-input-container *ngIf="true">
-      <input matInput placeholder="State" [matAutocomplete]="tdAuto" [(ngModel)]="currentState"
+    <mat-form-field *ngIf="true">
+      <mat-label>State</mat-label>
+      <input matInput [matAutocomplete]="tdAuto" [(ngModel)]="currentState"
         (ngModelChange)="tdStates = filterStates(currentState)" [disabled]="tdDisabled">
-    </mat-input-container>
+      <mat-autocomplete #tdAuto="matAutocomplete">
+        <mat-option *ngFor="let state of tdStates" [value]="state.name">
+          <span>{{ state.name }}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
     <mat-card-actions>
       <button mat-button (click)="modelDir.reset()">RESET</button>
@@ -39,17 +53,24 @@ Space above cards: <input type="number" [formControl]="topHeightCtrl">
     </mat-card-actions>
 
   </mat-card>
+
+  <mat-card>
+    <div>Option groups (currentGroupedState): {{ currentGroupedState }}</div>
+
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <input
+        matInput
+        [matAutocomplete]="groupedAuto"
+        [(ngModel)]="currentGroupedState"
+        (ngModelChange)="filteredGroupedStates = filterStateGroups(currentGroupedState)">
+    </mat-form-field>
+  </mat-card>
 </div>
 
-<mat-autocomplete #reactiveAuto="matAutocomplete" [displayWith]="displayFn">
-  <mat-option *ngFor="let state of reactiveStates | async" [value]="state">
-    <span>{{ state.name }}</span>
-    <span class="demo-secondary-text"> ({{ state.code }}) </span>
-  </mat-option>
-</mat-autocomplete>
-
-<mat-autocomplete #tdAuto="matAutocomplete">
-  <mat-option *ngFor="let state of tdStates" [value]="state.name">
-    <span>{{ state.name }}</span>
-  </mat-option>
+<mat-autocomplete #groupedAuto="matAutocomplete">
+  <mat-optgroup *ngFor="let group of filteredGroupedStates"
+    [label]="'States starting with ' + group.letter">
+    <mat-option *ngFor="let state of group.states" [value]="state.name">{{ state.name }}</mat-option>
+  </mat-optgroup>
 </mat-autocomplete>

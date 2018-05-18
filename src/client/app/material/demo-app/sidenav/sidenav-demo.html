@@ -15,7 +15,7 @@
     <input #myinput>
   </mat-sidenav>
 
-  <mat-sidenav #end align="end">
+  <mat-sidenav #end position="end">
     End Side Drawer
     <br>
     <button mat-button (click)="end.close()">Close</button>
@@ -51,8 +51,8 @@
 <h2>Dynamic Alignment Sidenav</h2>
 
 <mat-sidenav-container class="demo-sidenav-container">
-  <mat-sidenav #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">Start</mat-sidenav>
-  <mat-sidenav #dynamicAlignSidenav2 mode="side" [align]="invert ? 'start' : 'end'">End</mat-sidenav>
+  <mat-sidenav #dynamicAlignSidenav1 mode="side" [position]="invert ? 'end' : 'start'">Start</mat-sidenav>
+  <mat-sidenav #dynamicAlignSidenav2 mode="side" [position]="invert ? 'start' : 'end'">End</mat-sidenav>
 
   <div class="demo-sidenav-content">
     <button (click)="dynamicAlignSidenav1.toggle(); dynamicAlignSidenav2.toggle()">

@@ -36,6 +36,7 @@ module.exports = function(config) {
       'node_modules/hammerjs/hammer.min.js',
 
       // RxJs.
+      'node_modules/.tmp/Rx.min.js',
       { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
       { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
 

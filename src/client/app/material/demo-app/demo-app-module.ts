@@ -51,7 +51,7 @@ import { ListDemoComponent } from './list/list-demo';
 import { BaselineDemoComponent } from './baseline/baseline-demo';
 import { GridListDemoComponent } from './grid-list/grid-list-demo';
 import { LiveAnnouncerDemoComponent } from './live-announcer/live-announcer-demo';
-import { OverlayDemoComponent, SpagettiPanelComponent, RotiniPanelComponent } from './overlay/overlay-demo';
+import { OverlayDemoComponent } from './overlay/overlay-demo';
 import { SlideToggleDemoComponent } from './slide-toggle/slide-toggle-demo';
 import { ToolbarDemoComponent } from './toolbar/toolbar-demo';
 import { ButtonDemoComponent } from './button/button-demo';
@@ -60,7 +60,7 @@ import { SliderDemoComponent } from './slider/slider-demo';
 import { SidenavDemoComponent } from './sidenav/sidenav-demo';
 import { PortalDemoComponent, ScienceJokeComponent } from './portal/portal-demo';
 import { MenuDemoComponent } from './menu/menu-demo';
-import { TabsDemoComponent, SunnyTabContentComponent, RainyTabContentComponent, FoggyTabContentComponent
+import { TabsDemoComponent, SunnyTabContentComponent, RainyTabContentComponent, FoggyTabContentComponent, CounterComponent
 } from './tabs/tabs-demo';
 import { ChipsDemoComponent } from './chips/chips-demo';
 import { SelectDemoComponent } from './select/select-demo';
@@ -152,13 +152,11 @@ import { PortalModule } from '@angular/cdk/portal';
     PlatformDemoComponent,
     RadioDemoComponent,
     RippleDemoComponent,
-    RotiniPanelComponent,
     ScienceJokeComponent,
     SidenavDemoComponent,
     SliderDemoComponent,
     SlideToggleDemoComponent,
     SnackBarDemoComponent,
-    SpagettiPanelComponent,
     TabsDemoComponent,
     SunnyTabContentComponent,
     RainyTabContentComponent,
@@ -170,13 +168,13 @@ import { PortalModule } from '@angular/cdk/portal';
     ChipsDemoComponent,
     SelectDemoComponent,
     ContentElementDialogComponent,
+    CounterComponent,
     IFrameDialogComponent,
   ],
   entryComponents: [
+    ContentElementDialogComponent,
     JazzDialogComponent,
-    RotiniPanelComponent,
     ScienceJokeComponent,
-    SpagettiPanelComponent,
   ],
 })
 

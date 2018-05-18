@@ -1,6 +1,9 @@
-import { Component, Inject, ViewChild, TemplateRef } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+
+
+const defaultDialogConfig = new MatDialogConfig();
 
 @Component({
   moduleId: module.id,
@@ -9,13 +12,21 @@ import { MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA } from '@angu
   styleUrls: ['dialog-demo.css'],
 })
 export class DialogDemoComponent {
-  dialogRef: MatDialogRef<JazzDialogComponent>;
-  lastCloseResult: string;
+  dialogRef: MatDialogRef<JazzDialogComponent> | null;
+  lastAfterClosedResult: string;
+  lastBeforeCloseResult: string;
   actionsAlignment: string;
-  config: MatDialogConfig = {
+  config = {
     disableClose: false,
+    panelClass: 'custom-overlay-pane-class',
+    hasBackdrop: true,
+    backdropClass: '',
     width: '',
     height: '',
+    minWidth: '',
+    minHeight: '',
+    maxWidth: defaultDialogConfig.maxWidth,
+    maxHeight: '',
     position: {
       top: '',
       bottom: '',
@@ -34,7 +45,7 @@ export class DialogDemoComponent {
     // Possible useful example for the open and closeAll events.
     // Adding a class to the body if a dialog opens and
     // removing it after all open dialogs are closed
-    dialog.afterOpen.subscribe((ref: MatDialogRef<any>) => {
+    dialog.afterOpen.subscribe(() => {
       if (!doc.body.classList.contains('no-scroll')) {
         doc.body.classList.add('no-scroll');
       }
@@ -47,8 +58,11 @@ export class DialogDemoComponent {
   openJazz() {
     this.dialogRef = this.dialog.open(JazzDialogComponent, this.config);
 
+    this.dialogRef.beforeClose().subscribe((result: string) => {
+      this.lastBeforeCloseResult = result;
+    });
     this.dialogRef.afterClosed().subscribe((result: string) => {
-      this.lastCloseResult = result;
+      this.lastAfterClosedResult = result;
       this.dialogRef = null;
     });
   }

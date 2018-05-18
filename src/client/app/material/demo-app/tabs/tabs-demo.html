@@ -6,7 +6,7 @@
 <button mat-button (click)="toggleBackground()">Toggle background</button>
 
 <div class="demo-nav-bar">
-  <nav mat-tab-nav-bar aria-label="weather navigation links">
+  <nav mat-tab-nav-bar aria-label="weather navigation links" [backgroundColor]="tabNavBackground">
     <a mat-tab-link
        *ngFor="let tabLink of tabLinks; let i = index"
        [routerLink]="tabLink.link"
@@ -24,9 +24,9 @@
 
 <div>
   Selected tab index:
-  <mat-input-container>
+  <mat-form-field>
     <input matInput type="number" [(ngModel)]="activeTabIndex">
-  </mat-input-container>
+  </mat-form-field>
 </div>
 
 <div class="demo-dynamic-tabs">
@@ -41,9 +41,9 @@
       </mat-checkbox>
       <div>
         Position:
-        <mat-input-container>
+        <mat-form-field>
           <input matInput type="number" [(ngModel)]="addTabPosition">
-        </mat-input-container>
+        </mat-form-field>
       </div>
       <button mat-raised-button color="primary"
               (click)="addTab(createWithLongContent)">
@@ -55,7 +55,7 @@
   <mat-tab-group class="demo-tab-group" dynamicHeight [(selectedIndex)]="activeTabIndex">
     <mat-tab *ngFor="let tab of dynamicTabs" [disabled]="tab.disabled">
       <ng-template mat-tab-label>{{ tab.label }}</ng-template>
-      <div class="tab-content">
+      <div class="demo-tab-content">
         {{ tab.content }}
         <br>
         <br>
@@ -88,12 +88,13 @@
         </div>
         <br>
         <br>
-        <mat-input-container>
-          <input matInput placeholder="Tab Label" [(ngModel)]="tab.label">
-        </mat-input-container>
+        <mat-form-field>
+          <mat-label>Tab label</mat-label>
+          <input matInput [(ngModel)]="tab.label">
+        </mat-form-field>
         <br><br>
         <button mat-raised-button
-                [disabled]="dynamicTabs.length == 1"
+                [disabled]="dynamicTabs.length === 1"
                 (click)="deleteTab(tab)">
           Delete Tab
         </button>
@@ -107,7 +108,7 @@
 <mat-tab-group class="demo-tab-group" dynamicHeight>
   <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
     <ng-template mat-tab-label>{{ tab.label }}</ng-template>
-    <div class="tab-content">
+    <div class="demo-tab-content">
       {{ tab.content }}
       <br>
       <br>
@@ -140,9 +141,10 @@
       </div>
       <br>
       <br>
-      <mat-input-container>
-        <input matInput placeholder="Tab Label" [(ngModel)]="tab.label">
-      </mat-input-container>
+      <mat-form-field>
+        <mat-label>Tab label</mat-label>
+        <input matInput [(ngModel)]="tab.label">
+      </mat-form-field>
     </div>
   </mat-tab>
 </mat-tab-group>
@@ -153,7 +155,7 @@
 <mat-tab-group class="demo-tab-group" style="height: 220px">
   <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
     <ng-template mat-tab-label>{{ tab.label }}</ng-template>
-    <div class="tab-content">
+    <div class="demo-tab-content">
       {{ tab.content }}
       <br>
       <br>
@@ -186,9 +188,10 @@
       </div>
       <br>
       <br>
-      <mat-input-container>
-        <input matInput placeholder="Tab Label" [(ngModel)]="tab.label">
-      </mat-input-container>
+      <mat-form-field>
+        <mat-label>Tab label</mat-label>
+        <input matInput [(ngModel)]="tab.label">
+      </mat-form-field>
     </div>
   </mat-tab>
 </mat-tab-group>
@@ -198,7 +201,7 @@
 <mat-tab-group class="demo-tab-group" style="height: 200px" mat-stretch-tabs>
   <mat-tab *ngFor="let tab of tabs" [disabled]="tab.disabled">
     <ng-template mat-tab-label>{{ tab.label }}</ng-template>
-    <div class="tab-content">
+    <div class="demo-tab-content">
       {{ tab.content }}
     </div>
   </mat-tab>
@@ -208,26 +211,26 @@
 <h1>Async Tabs</h1>
 
 <mat-tab-group class="demo-tab-group">
-  <mat-tab *ngFor="let tab of asyncTabs | async; let i = index" [disabled]="i == 1">
+  <mat-tab *ngFor="let tab of asyncTabs | async; let i = index" [disabled]="i === 1">
     <ng-template mat-tab-label>{{ tab.label }}</ng-template>
 
-    <div class="tab-content">
+    <div class="demo-tab-content">
       {{ tab.content }}
       <br>
       <br>
       <br>
-      <mat-input-container>
-        <input matInput placeholder="Tab Label" [(ngModel)]="tab.label">
-      </mat-input-container>
+      <mat-form-field>
+        <mat-label>Tab label</mat-label>
+        <input matInput [(ngModel)]="tab.label">
+      </mat-form-field>
     </div>
   </mat-tab>
 </mat-tab-group>
 
-<!-- Simple tabs api -->
 <h1>Tabs with simplified api</h1>
 <mat-tab-group class="demo-tab-group">
   <mat-tab label="Earth">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about the Earth!
     </div>
   </mat-tab>
@@ -239,12 +242,12 @@
 <h1>Inverted tabs</h1>
 <mat-tab-group class="demo-tab-group" headerPosition="below">
   <mat-tab label="Earth">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about the Earth!
     </div>
   </mat-tab>
   <mat-tab label="Fire">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about combustion!
     </div>
   </mat-tab>
@@ -253,27 +256,56 @@
 <h1>Accent tabs</h1>
 <mat-tab-group class="demo-tab-group" color="accent">
   <mat-tab label="Earth">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about the Earth!
     </div>
   </mat-tab>
   <mat-tab label="Fire">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about combustion!
     </div>
   </mat-tab>
 </mat-tab-group>
 
 <h1>Tabs with background color</h1>
-<mat-tab-group class="demo-tab-group" color="accent">
+<mat-tab-group class="demo-tab-group" backgroundColor="primary" color="accent">
   <mat-tab label="Earth">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about the Earth!
     </div>
   </mat-tab>
   <mat-tab label="Fire">
-    <div class="tab-content">
+    <div class="demo-tab-content">
       This tab is about combustion!
     </div>
+  </mat-tab>
+</mat-tab-group>
+
+<h1>Tabs with autosize textarea</h1>
+<mat-tab-group class="demo-tab-group">
+  <mat-tab label="Tab 1">
+    <div class="demo-tab-content">
+      <mat-form-field>
+        <mat-label>Autosize textarea</mat-label>
+        <textarea matInput cdkTextareaAutosize>This is an autosize textarea, it should adjust to the size of its content.</textarea>
+      </mat-form-field>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<h1>Lazy Loaded Tabs</h1>
+<mat-tab-group>
+  <mat-tab label="First">
+    <ng-template matTabContent>
+      <counter-comp></counter-comp>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Second">
+    <ng-template matTabContent>
+      <counter-comp></counter-comp>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Third">
+      <counter-comp></counter-comp>
   </mat-tab>
 </mat-tab-group>

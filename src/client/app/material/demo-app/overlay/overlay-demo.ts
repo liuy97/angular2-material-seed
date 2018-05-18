@@ -1,126 +1,100 @@
-import { Overlay, OverlayOrigin, OverlayConfig } from '@angular/cdk/overlay';
+import { Directionality } from '@angular/cdk/bidi';
 import {
-  ComponentPortal,
-  // This import is only used to define a generic type. The current TypeScript version incorrectly
-  // considers such imports as unused (https://github.com/Microsoft/TypeScript/issues/14953)
-  // tslint:disable-next-line:no-unused-variable
-  Portal,
-  TemplatePortalDirective
-} from '@angular/cdk/portal';
-import {
-  Component,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  ViewContainerRef,
-  ViewEncapsulation,
-} from '@angular/core';
+  CdkOverlayOrigin,
+  HorizontalConnectionPos,
+  Overlay,
+  OverlayRef,
+  VerticalConnectionPos
+} from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+import { Component, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'overlay-demo',
   templateUrl: 'overlay-demo.html',
   styleUrls: ['overlay-demo.css'],
-  encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
 })
 
 export class OverlayDemoComponent {
-  nextPosition = 0;
-  isMenuOpen = false;
-  tortelliniFillings = ['cheese and spinach', 'mushroom and broccoli'];
+  @ViewChild(CdkOverlayOrigin) _overlayOrigin: CdkOverlayOrigin;
+  @ViewChild('overlay') overlayTemplate: TemplateRef<any>;
 
-  @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
-  @ViewChild(OverlayOrigin) _overlayOrigin: OverlayOrigin;
-  @ViewChild('tortelliniOrigin') tortelliniOrigin: OverlayOrigin;
-  @ViewChild('tortelliniTemplate') tortelliniTemplate: TemplatePortalDirective;
+  originX: HorizontalConnectionPos = 'start';
+  originY: VerticalConnectionPos = 'bottom';
+  overlayX: HorizontalConnectionPos = 'start';
+  overlayY: VerticalConnectionPos = 'top';
+  isFlexible = true;
+  canPush = true;
+  showBoundingBox = false;
+  offsetX = 0;
+  offsetY = 0;
+  itemCount = 25;
+  itemArray: any[] = [];
+  itemText = 'Item with a long name';
+  overlayRef: OverlayRef | null;
 
-  constructor(public overlay: Overlay, public viewContainerRef: ViewContainerRef) { }
+  constructor(
+      public overlay: Overlay,
+      public viewContainerRef: ViewContainerRef,
+      public dir: Directionality) { }
 
-  openRotiniPanel() {
-    const config = new OverlayConfig();
+  openWithConfig() {
+    const positionStrategy = this.overlay.position()
+        .flexibleConnectedTo(this._overlayOrigin.elementRef)
+        .withFlexibleDimensions(this.isFlexible)
+        .withPush(this.canPush)
+        .withViewportMargin(10)
+        .withGrowAfterOpen(true)
+        .withPositions([{
+          originX: this.originX,
+          originY: this.originY,
+          overlayX: this.overlayX,
+          overlayY: this.overlayY,
+          offsetX: this.offsetX,
+          offsetY: this.offsetY
+        },
+        {
+          originX: 'start',
+          originY: 'top',
+          overlayX: 'start',
+          overlayY: 'bottom',
+        },
+        {
+          originX: 'start',
+          originY: 'bottom',
+          overlayX: 'start',
+          overlayY: 'top',
+        }
+      ]);
 
-    config.positionStrategy = this.overlay.position()
-        .global()
-        .left(`${this.nextPosition}px`)
-        .top(`${this.nextPosition}px`);
-
-    this.nextPosition += 30;
-
-    const overlayRef = this.overlay.create(config);
-    overlayRef.attach(new ComponentPortal(RotiniPanelComponent, this.viewContainerRef));
-  }
-
-  openFusilliPanel() {
-    const config = new OverlayConfig();
-
-    config.positionStrategy = this.overlay.position()
-        .global()
-        .centerHorizontally()
-        .top(`${this.nextPosition}px`);
-
-    this.nextPosition += 30;
-
-    const overlayRef = this.overlay.create(config);
-    overlayRef.attach(this.templatePortals.first);
-  }
-
-  openSpaghettiPanel() {
-    // TODO(jelbourn): separate overlay demo for connected positioning.
-    const strategy = this.overlay.position()
-        .connectedTo(
-            this._overlayOrigin.elementRef,
-            {originX: 'start', originY: 'bottom'},
-            {overlayX: 'start', overlayY: 'top'} );
-
-    const config = new OverlayConfig({positionStrategy: strategy});
-    const overlayRef = this.overlay.create(config);
-
-    overlayRef.attach(new ComponentPortal(SpagettiPanelComponent, this.viewContainerRef));
-  }
-
-  openTortelliniPanel() {
-    const strategy = this.overlay.position()
-        .connectedTo(
-            this.tortelliniOrigin.elementRef,
-            {originX: 'start', originY: 'bottom'},
-            {overlayX: 'end', overlayY: 'top'} );
-
-    const config = new OverlayConfig({positionStrategy: strategy});
-    const overlayRef = this.overlay.create(config);
-
-    overlayRef.attach(this.tortelliniTemplate);
-  }
-
-  openPanelWithBackdrop() {
-    const config = new OverlayConfig({
-      hasBackdrop: true,
-      backdropClass: 'cdk-overlay-transparent-backdrop',
-      positionStrategy: this.overlay.position().global().centerHorizontally()
+    this.overlayRef = this.overlay.create({
+      positionStrategy,
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
+      direction: this.dir.value,
+      minWidth: 200,
+      minHeight: 50
     });
 
-    const overlayRef = this.overlay.create(config);
-    overlayRef.attach(this.templatePortals.first);
-    overlayRef.backdropClick().subscribe(() => overlayRef.detach());
+    this.itemArray = Array(this.itemCount);
+    this.overlayRef.attach(new TemplatePortal(this.overlayTemplate, this.viewContainerRef));
   }
 
-}
+  close() {
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+      this.overlayRef = null;
+      this.showBoundingBox = false;
+    }
+  }
 
-/** Simple component to load into an overlay */
-@Component({
-  moduleId: module.id,
-  selector: 'rotini-panel',
-  template: '<p class="demo-rotini">Rotini {{ value }}</p>'
-})
-export class RotiniPanelComponent {
-  value = 9000;
-}
+  toggleShowBoundingBox() {
+    const box = document.querySelector<HTMLElement>('.cdk-overlay-connected-position-bounding-box');
 
-/** Simple component to load into an overlay */
-@Component({
-  selector: 'spagetti-panel',
-  template: '<div class="demo-spagetti">Spagetti {{ value }}</div>'
-})
-export class SpagettiPanelComponent {
-  value = 'Omega';
+    if (box) {
+      this.showBoundingBox = !this.showBoundingBox;
+      box.style.background = this.showBoundingBox ? 'rgb(255, 69, 0, 0.2)' : '';
+    }
+  }
 }

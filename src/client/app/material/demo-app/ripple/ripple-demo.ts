@@ -14,21 +14,29 @@ export class RippleDemoComponent {
   disabled = false;
   unbounded = false;
   rounded = false;
-  radius: number = null;
+  radius: number;
   rippleSpeed = 1;
   rippleColor = '';
 
   disableButtonRipples = false;
 
-  launchRipple(persistent = false) {
-    if (this.ripple) {
-      //this.ripple.launch(0, 0, { centered: true, persistent });
+  launchRipple(persistent = false, disableAnimation = false) {
+    if (!this.ripple) {
+      return;
     }
+
+    const rippleConfig = {
+      centered: true,
+      persistent: persistent,
+      animation: disableAnimation ? {enterDuration: 0, exitDuration: 0} : undefined
+    };
+
+    this.ripple.launch(0, 0, rippleConfig);
   }
 
   fadeOutAll() {
     if (this.ripple) {
-      //this.ripple.fadeOutAll();
+      this.ripple.fadeOutAll();
     }
   }
 

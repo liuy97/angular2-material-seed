@@ -1,5 +1,5 @@
 import { Component, ViewChildren, QueryList } from '@angular/core';
-import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/portal';
+import { ComponentPortal, Portal, CdkPortal } from '@angular/cdk/portal';
 
 @Component({
   moduleId: module.id,
@@ -8,7 +8,7 @@ import { ComponentPortal, Portal, TemplatePortalDirective } from '@angular/cdk/p
   styleUrls: ['portal-demo.css'],
 })
 export class PortalDemoComponent {
-  @ViewChildren(TemplatePortalDirective) templatePortals: QueryList<Portal<any>>;
+  @ViewChildren(CdkPortal) templatePortals: QueryList<Portal<any>>;
 
   selectedPortal: Portal<any>;
 

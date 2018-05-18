@@ -427,12 +427,6 @@ export class SeedConfig {
       inject: 'shims',
       buildType: BUILD_TYPES.DEVELOPMENT
     },
-    // Temporary fix. See https://github.com/angular/angular/issues/9359
-    {
-      src: '.tmp/Rx.min.js',
-      inject: 'libs',
-      buildType: BUILD_TYPES.DEVELOPMENT
-    }
   ];
 
   /**
@@ -477,6 +471,12 @@ export class SeedConfig {
    * @type {any}
    */
   SYSTEM_CONFIG_DEV: any = {
+    bundles: {
+      'node_modules/.tmp/Rx.min.js': [
+        'rxjs',
+        'rxjs/*'
+      ]
+    },
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
       '@angular/animations':
@@ -512,8 +512,6 @@ export class SeedConfig {
         'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing':
         'node_modules/@angular/router/bundles/router-testing.umd.js',
-      'rxjs/operators/*': 'node_modules/rxjs/operators/*',
-
       '@angular/material': 'node_modules/@angular/material/bundles/material.umd.js',
       '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
       '@angular/cdk/accordion': 'node_modules/@angular/cdk/bundles/cdk-accordion.umd.js',
@@ -529,6 +527,8 @@ export class SeedConfig {
       '@angular/cdk/portal': 'node_modules/@angular/cdk/bundles/cdk-portal.umd.js',
       '@angular/cdk/overlay': 'node_modules/@angular/cdk/bundles/cdk-overlay.umd.js',
       '@angular/cdk/stepper': 'node_modules/@angular/cdk/bundles/cdk-stepper.umd.js',
+      '@angular/cdk/text-field': 'node_modules/@angular/cdk/bundles/cdk-text-field.umd.js',
+      '@angular/cdk/tree': 'node_modules/@angular/cdk/bundles/cdk-tree.umd.js',
       '@angular/cdk/platform': 'node_modules/@angular/cdk/bundles/cdk-platform.umd.js',
       '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
       '@angular/flex-layout/core': 'node_modules/@angular/flex-layout/bundles/flex-layout-core.umd.js',
@@ -613,8 +613,8 @@ export class SeedConfig {
       '@angular/common/http':
         'node_modules/@angular/common/bundles/common-http.umd.js',
       'tslib': 'node_modules/tslib/tslib.js',
-      'rxjs/operators': 'node_modules/rxjs/operators/index.js',
-      'dist/tmp/node_modules/*': 'dist/tmp/node_modules/*',
+      'rxjs': 'node_modules/rxjs',
+      'rxjs-compat': 'node_modules/rxjs-compat',
       '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
       '@angular/cdk/accordion': 'node_modules/@angular/cdk/bundles/cdk-accordion.umd.js',
       '@angular/cdk/layout': 'node_modules/@angular/cdk/bundles/cdk-layout.umd.js',
@@ -629,44 +629,15 @@ export class SeedConfig {
       '@angular/cdk/portal': 'node_modules/@angular/cdk/bundles/cdk-portal.umd.js',
       '@angular/cdk/overlay': 'node_modules/@angular/cdk/bundles/cdk-overlay.umd.js',
       '@angular/cdk/stepper': 'node_modules/@angular/cdk/bundles/cdk-stepper.umd.js',
+      '@angular/cdk/text-field': 'node_modules/@angular/cdk/bundles/cdk-text-field.umd.js',
+      '@angular/cdk/tree': 'node_modules/@angular/cdk/bundles/cdk-tree.umd.js',
       '@angular/cdk/platform': 'node_modules/@angular/cdk/bundles/cdk-platform.umd.js',
       '@angular/flex-layout': 'node_modules/@angular/flex-layout/bundles/flex-layout.umd.js',
       '@angular/flex-layout/core': 'node_modules/@angular/flex-layout/bundles/flex-layout-core.umd.js',
       '@angular/flex-layout/extended': 'node_modules/@angular/flex-layout/bundles/flex-layout-extended.umd.js',
       '@angular/flex-layout/flex': 'node_modules/@angular/flex-layout/bundles/flex-layout-flex.umd.js',
       '@angular/flex-layout/server': 'node_modules/@angular/flex-layout/bundles/flex-layout-server.umd.js',
-      '@angular/material/core': 'node_modules/@angular/material/bundles/material-core.umd.js',
-      '@angular/material/autocomplete': 'node_modules/@angular/material/bundles/material-autocomplete.umd.js',
-      '@angular/material/button-toggle': 'node_modules/@angular/material/bundles/material-button-toggle.umd.js',
-      '@angular/material/button': 'node_modules/@angular/material/bundles/material-button.umd.js',
-      '@angular/material/card': 'node_modules/@angular/material/bundles/material-card.umd.js',
-      '@angular/material/checkbox': 'node_modules/@angular/material/bundles/material-checkbox.umd.js',
-      '@angular/material/chips': 'node_modules/@angular/material/bundles/material-chips.umd.js',
-      '@angular/material/datepicker': 'node_modules/@angular/material/bundles/material-datepicker.umd.js',
-      '@angular/material/divider': 'node_modules/@angular/material/bundles/material-divider.umd.js',
-      '@angular/material/dialog': 'node_modules/@angular/material/bundles/material-dialog.umd.js',
-      '@angular/material/expansion': 'node_modules/@angular/material/bundles/material-expansion.umd.js',
-      '@angular/material/form-field': 'node_modules/@angular/material/bundles/material-form-field.umd.js',
-      '@angular/material/grid-list': 'node_modules/@angular/material/bundles/material-grid-list.umd.js',
-      '@angular/material/icon': 'node_modules/@angular/material/bundles/material-icon.umd.js',
-      '@angular/material/input': 'node_modules/@angular/material/bundles/material-input.umd.js',
-      '@angular/material/list': 'node_modules/@angular/material/bundles/material-list.umd.js',
-      '@angular/material/menu': 'node_modules/@angular/material/bundles/material-menu.umd.js',
-      '@angular/material/paginator': 'node_modules/@angular/material/bundles/material-paginator.umd.js',
-      '@angular/material/progress-bar': 'node_modules/@angular/material/bundles/material-progress-bar.umd.js',
-      '@angular/material/progress-spinner': 'node_modules/@angular/material/bundles/material-progress-spinner.umd.js',
-      '@angular/material/radio': 'node_modules/@angular/material/bundles/material-radio.umd.js',
-      '@angular/material/select': 'node_modules/@angular/material/bundles/material-select.umd.js',
-      '@angular/material/sidenav': 'node_modules/@angular/material/bundles/material-sidenav.umd.js',
-      '@angular/material/slide-toggle': 'node_modules/@angular/material/bundles/material-slide-toggle.umd.js',
-      '@angular/material/slider': 'node_modules/@angular/material/bundles/material-slider.umd.js',
-      '@angular/material/snack-bar': 'node_modules/@angular/material/bundles/material-snack-bar.umd.js',
-      '@angular/material/sort': 'node_modules/@angular/material/bundles/material-sort.umd.js',
-      '@angular/material/stepper': 'node_modules/@angular/material/bundles/material-stepper.umd.js',
-      '@angular/material/table': 'node_modules/@angular/material/bundles/material-table.umd.js',
-      '@angular/material/tabs': 'node_modules/@angular/material/bundles/material-tabs.umd.js',
-      '@angular/material/toolbar': 'node_modules/@angular/material/bundles/material-toolbar.umd.js',
-      '@angular/material/tooltip': 'node_modules/@angular/material/bundles/material-tooltip.umd.js',
+      'dist/tmp/node_modules/*': 'dist/tmp/node_modules/*',
       'node_modules/*': 'node_modules/*',
       '*': 'node_modules/*'
     },
@@ -719,8 +690,24 @@ export class SeedConfig {
         main: 'bundles/material.umd.js',
         defaultExtension: 'js'
       },
-      rxjs: {
-        main: 'Rx.js',
+      'rxjs': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'rxjs/ajax': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'rxjs/operators': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'rxjs/testing': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'rxjs/webSocket': {
+        main: 'index.js',
         defaultExtension: 'js'
       }
     }

@@ -3,9 +3,8 @@ import { PeopleDatabase, UserData } from './people-database';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SelectionModel } from '@angular/cdk/collections';
-import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
 
 @Component({
   moduleId: module.id,

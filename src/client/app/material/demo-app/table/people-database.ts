@@ -9,7 +9,7 @@
 import { Injectable } from '@angular/core';
 import { NAMES } from './names';
 import { COLORS } from './colors';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 export let LATEST_ID = 0;
 

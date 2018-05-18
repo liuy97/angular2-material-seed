@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   moduleId: module.id,
@@ -126,3 +126,13 @@ export class RainyTabContentComponent {}
 })
 export class FoggyTabContentComponent {}
 
+@Component({
+  moduleId: module.id,
+  selector: 'counter-comp',
+  template: `<span>Content</span>`
+})
+export class CounterComponent implements OnInit {
+  ngOnInit() {
+    console.log('Tab Loaded');
+  }
+}

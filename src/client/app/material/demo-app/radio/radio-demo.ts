@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['radio-demo.css'],
 })
 export class RadioDemoComponent {
-  isDisabled = false;
   isAlignEnd = false;
+  isDisabled = false;
+  isRequired = false;
   favoriteSeason = 'Autumn';
   seasonOptions = [
     'Winter',
