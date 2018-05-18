@@ -1,9 +1,9 @@
 {
   "configVersion": 1,
-  "index": "/index.html",
   "appData": {
     "test": true
   },
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "appshell",
@@ -18,11 +18,11 @@
         "/assets/svg/more.svg",
         "/assets/svg/search-icon.svg",
         "/assets/svg/thumbup-icon.svg",
-        "/index.html",
-        "/ngsw-worker.js",
         "/css/main.css",
+        "/index.html",
         "/js/app.js",
-        "/js/shims.js"
+        "/js/shims.js",
+        "/ngsw-worker.js"
       ],
       "patterns": []
     }
@@ -52,11 +52,6 @@
     }
   ],
   "hashTable": {
-    "/index.html": "cb539118503788d075368fe4824871b252570b08",
-    "/ngsw-worker.js": "cc9f9d13e189ccf4b9ec7f2734786cf6dc775c9d",
-    "/css/main.css": "33bc55978055f92a963dfca094117e13549728ee",
-    "/js/app.js": "e7c946c5fc0de7df46c0f82f86a9e2ad9dae7eff",
-    "/js/shims.js": "137287837cc4db5f3922490aab8d76a0b983ccbc",
     "/assets/data.json": "4442de734b100da8d244b35d34a355dee4dd9618",
     "/assets/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "/assets/favicon/favicon.DEV.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
@@ -64,6 +59,29 @@
     "/assets/svg/core-icon-set.svg": "5a196ff3f081273aa25015deff90b9e15da79d7f",
     "/assets/svg/more.svg": "9838cd822e0f989a0befbd365365ee2751bbdebc",
     "/assets/svg/search-icon.svg": "69cc7e3229abbaab20cd1c2696e77ed42942fdc4",
-    "/assets/svg/thumbup-icon.svg": "fcfb716d30a1b15e03a25e597d66b7ac615d534c"
-  }
+    "/assets/svg/thumbup-icon.svg": "fcfb716d30a1b15e03a25e597d66b7ac615d534c",
+    "/css/main.css": "d11cf59eaa552fea8280fb102f52be4516cb3469",
+    "/index.html": "0c24dbc9526940700fb243c4f1a6c52b4986b4dc",
+    "/js/app.js": "b1369dd02e44b9200f590b5f2dc834d1a9ae243d",
+    "/js/shims.js": "01389fefac796d12f11383961373db0f024ac8bb",
+    "/ngsw-worker.js": "c5a902eadafef027da61d8960343491e15191ab4"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
 }
