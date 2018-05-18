@@ -615,6 +615,7 @@ export class SeedConfig {
       'tslib': 'node_modules/tslib/tslib.js',
       'rxjs': 'node_modules/rxjs',
       'rxjs-compat': 'node_modules/rxjs-compat',
+      'rxjs/operators': 'node_modules/rxjs/operators/index.js',
       '@angular/cdk/table': 'node_modules/@angular/cdk/bundles/cdk-table.umd.js',
       '@angular/cdk/accordion': 'node_modules/@angular/cdk/bundles/cdk-accordion.umd.js',
       '@angular/cdk/layout': 'node_modules/@angular/cdk/bundles/cdk-layout.umd.js',
