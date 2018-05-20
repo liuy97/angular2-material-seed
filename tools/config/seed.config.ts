@@ -567,6 +567,7 @@ export class SeedConfig {
       '@angular/material/tabs': 'node_modules/@angular/material/bundles/material-tabs.umd.js',
       '@angular/material/toolbar': 'node_modules/@angular/material/bundles/material-toolbar.umd.js',
       '@angular/material/tooltip': 'node_modules/@angular/material/bundles/material-tooltip.umd.js',
+      '@angular/material/tree': 'node_modules/@angular/material/bundles/material-tree.umd.js',
       'app/': `${this.APP_BASE}app/`,
       // For test config
       'dist/dev/': '/base/dist/dev/',

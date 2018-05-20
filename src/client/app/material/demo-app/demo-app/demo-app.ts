@@ -31,6 +31,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
       <a [routerLink]="['tabs']">Tabs</a>
       <a [routerLink]="['toolbar']">Toolbar</a>
       <a [routerLink]="['tooltip']">Tooltip</a>
+      <a [routerLink]="['tree']">Tree</a>
       <a [routerLink]="['baseline']">Baseline</a>
       <a [routerLink]="['table']">Table</a>
     </nav>

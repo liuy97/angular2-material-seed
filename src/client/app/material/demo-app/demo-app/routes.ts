@@ -29,6 +29,7 @@ import { RippleDemoComponent } from '../ripple/ripple-demo';
 import { DialogDemoComponent } from '../dialog/dialog-demo';
 import { TooltipDemoComponent } from '../tooltip/tooltip-demo';
 import { TableDemoComponent } from '../table/table-demo';
+import { TreeDemoComponent } from '../tree/tree-demo';
 
 export const demoRoutes: Routes = [
   {
@@ -69,6 +70,7 @@ export const demoRoutes: Routes = [
       { path: 'dialog', component: DialogDemoComponent },
       { path: 'tooltip', component: TooltipDemoComponent },
       { path: 'table', component: TableDemoComponent },
+      { path: 'tree', component: TreeDemoComponent },
     ]
   }
 ];
