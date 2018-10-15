@@ -1,5 +1,5 @@
 # Introduction
-Angular (6) + Material(6) + Seed
+Angular (7) + Material(7) + Seed
 [![Build Status](https://travis-ci.org/liuy97/angular2-material-seed.svg?branch=master)](https://travis-ci.org/liuy97/angular2-material-seed)
 
 # How to start

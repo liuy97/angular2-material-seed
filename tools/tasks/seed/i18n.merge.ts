@@ -1,6 +1,7 @@
 import * as gulp from 'gulp';
 import * as gulpLoadPlugins from 'gulp-load-plugins';
 import * as runSequence from 'run-sequence';
+import * as through2 from 'through2';
 import { argv } from 'yargs';
 import { join } from 'path';
 import Config from '../../config';
@@ -66,7 +67,7 @@ gulp.task('copy_source_i18n', function () {
   const locDef = args.lang ? args.lang : 'en';
   return gulp.src(join(Config.TMP_DIR, 'messages.xlf'))
     .pipe(plugins.rename(`messages.${locDef}.xlf`))
-    .pipe(langEmpty ? gulp.dest(Config.LOCALE_DEST) : plugins.util.noop());
+    .pipe(langEmpty ? gulp.dest(Config.LOCALE_DEST) : through2.obj());
 });
 
 export = () =>
